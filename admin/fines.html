@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Administrator page for reviewing library fines, outstanding balances, manual payments, and online payment records.">
+    <meta name="author" content="Online Library Management System">
+    <title>Manage Fines and Payments | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="fines.html" aria-current="page">
+                            Manage Fines
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="admin-account-navigation">
+                <span class="account-role">Administrator</span>
+
+                <a href="../php/auth/logout.php" class="logout-link">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+
+                        <li aria-current="page">Manage Fines</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Fine and Payment Management</h1>
+
+                    <p>
+                        Review member fines, monitor outstanding balances,
+                        and oversee manual and online payment records.
+                    </p>
+                </div>
+
+                <p class="admin-access-notice">
+                    This page is intended for authorized administrators.
+                    Fine and payment operations will be protected by
+                    server-side permissions during PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ADMINISTRATION NAVIGATION ==================== -->
+        <section id="admin-navigation" class="admin-navigation-section">
+            <div class="container">
+
+                <h2>Administration Navigation</h2>
+
+                <nav aria-label="Administrator navigation">
+                    <ul class="admin-navigation-list">
+
+                        <li>
+                            <a href="dashboard.html">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="users.html">
+                                Manage Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="librarians.html">
+                                Manage Librarians
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/books.html">
+                                Manage Books
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/categories.html">
+                                Manage Categories
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html" aria-current="page">
+                                Manage Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports.html">
+                                View Reports
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== FINE AND PAYMENT OVERVIEW ==================== -->
+        <section id="fine-payment-overview"
+            class="fine-payment-overview-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Fine and Payment Overview</h2>
+
+                    <p>
+                        Review the overall fine amounts and payment
+                        information recorded in the library system.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE FINE AND PAYMENT STATISTICS
+
+                    These figures are demonstration values only.
+                    Actual statistics will be calculated from the
+                    fines and payments tables during PHP integration.
+
+                    Sample calculation:
+                    Total fines assessed: 400
+                    Total payments received: 120
+                    Outstanding balance: 280
+                -->
+
+                <div class="fine-statistics-list">
+
+                    <article class="fine-statistics-card"
+                        id="total-fine-records">
+
+                        <h3>Total Fine Records</h3>
+
+                        <p class="statistics-value">4</p>
+
+                        <p>Sample fine records</p>
+
+                    </article>
+
+
+                    <article class="fine-statistics-card"
+                        id="total-fines-assessed">
+
+                        <h3>Total Fines Assessed</h3>
+
+                        <p class="statistics-value">400.00</p>
+
+                        <p>Sample amount in currency units</p>
+
+                    </article>
+
+
+                    <article class="fine-statistics-card"
+                        id="total-payments-received">
+
+                        <h3>Total Payments Received</h3>
+
+                        <p class="statistics-value">120.00</p>
+
+                        <p>Manual and simulated online payments</p>
+
+                    </article>
+
+
+                    <article class="fine-statistics-card"
+                        id="outstanding-fine-balance">
+
+                        <h3>Outstanding Balance</h3>
+
+                        <p class="statistics-value">280.00</p>
+
+                        <p>Sample unpaid fine balance</p>
+
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    All amounts and statistics shown on this page are
+                    sample data. The actual currency and payment totals
+                    will be configured during system development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== FINE SEARCH AND FILTERS ==================== -->
+        <section id="fine-search-section" class="fine-search-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Search and Filter Fine Records</h2>
+
+                    <p>
+                        Find fine records using member information,
+                        fine identifiers, or payment status.
+                    </p>
+                </div>
+
+                <form id="fine-filter-form"
+                    class="fine-filter-form"
+                    action="fines.html"
+                    method="get">
+
+                    <!-- Fine Search -->
+                    <div class="form-group">
+                        <label for="fine-search">
+                            Search by Fine ID, Member, or Book
+                        </label>
+
+                        <input
+                            type="search"
+                            id="fine-search"
+                            name="q"
+                            placeholder="Enter a fine ID, member, or book title"
+                        >
+                    </div>
+
+
+                    <!-- Payment Status -->
+                    <div class="form-group">
+                        <label for="fine-status-filter">
+                            Payment Status
+                        </label>
+
+                        <select
+                            id="fine-status-filter"
+                            name="status">
+
+                            <option value="">All Payment Statuses</option>
+                            <option value="unpaid">Unpaid</option>
+                            <option value="partially-paid">Partially Paid</option>
+                            <option value="paid">Paid</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Payment Method -->
+                    <div class="form-group">
+                        <label for="payment-method-filter">
+                            Payment Method
+                        </label>
+
+                        <select
+                            id="payment-method-filter"
+                            name="method">
+
+                            <option value="">All Payment Methods</option>
+                            <option value="manual">Manual Payment</option>
+                            <option value="online">Online Payment</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Filter Actions -->
+                    <div class="fine-filter-actions">
+
+                        <button type="submit"
+                            class="fine-search-button">
+                            Search Fine Records
+                        </button>
+
+                        <a href="fines.html" class="clear-filters-link">
+                            Clear Filters
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== FINE RECORDS TABLE ==================== -->
+        <section id="fine-records" class="fine-records-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Member Fine Records</h2>
+
+                    <p>
+                        Review fines generated from borrowing
+                        activities and monitor their payment status.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE FINE RECORDS
+
+                    All records below are fictional examples.
+
+                    Fine amounts and payment balances are sample
+                    values, not actual member debts.
+
+                    Fine records will be associated with borrowing
+                    records during database integration.
+                -->
+
+                <div class="fine-table-container">
+
+                    <table class="fine-table">
+
+                        <caption>
+                            Sample library fine records
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Fine ID</th>
+                                <th scope="col">Member</th>
+                                <th scope="col">Book</th>
+                                <th scope="col">Fine Amount</th>
+                                <th scope="col">Amount Paid</th>
+                                <th scope="col">Outstanding Balance</th>
+                                <th scope="col">Payment Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Fine 1 -->
+                            <tr>
+                                <td>FINE-001</td>
+
+                                <td>
+                                    <strong>Abel Example</strong>
+                                    <p>Member ID: MEM-001</p>
+                                </td>
+
+                                <td>
+                                    Introduction to Algorithms
+                                </td>
+
+                                <td>150.00</td>
+
+                                <td>0.00</td>
+
+                                <td>150.00</td>
+
+                                <td>
+                                    <span class="fine-status unpaid">
+                                        Unpaid
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="#manual-payment-section">
+                                        Record Payment
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <!-- Fine 2 -->
+                            <tr>
+                                <td>FINE-002</td>
+
+                                <td>
+                                    <strong>Hana Example</strong>
+                                    <p>Member ID: MEM-002</p>
+                                </td>
+
+                                <td>
+                                    Things Fall Apart
+                                </td>
+
+                                <td>80.00</td>
+
+                                <td>80.00</td>
+
+                                <td>0.00</td>
+
+                                <td>
+                                    <span class="fine-status paid">
+                                        Paid
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="#payment-history">
+                                        View Payment
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <!-- Fine 3 -->
+                            <tr>
+                                <td>FINE-003</td>
+
+                                <td>
+                                    <strong>Daniel Example</strong>
+                                    <p>Member ID: MEM-003</p>
+                                </td>
+
+                                <td>
+                                    A Brief History of Time
+                                </td>
+
+                                <td>120.00</td>
+
+                                <td>40.00</td>
+
+                                <td>80.00</td>
+
+                                <td>
+                                    <span class="fine-status partially-paid">
+                                        Partially Paid
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="#manual-payment-section">
+                                        Record Payment
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <!-- Fine 4 -->
+                            <tr>
+                                <td>FINE-004</td>
+
+                                <td>
+                                    <strong>Mimi Example</strong>
+                                    <p>Member ID: MEM-004</p>
+                                </td>
+
+                                <td>
+                                    The Lean Startup
+                                </td>
+
+                                <td>50.00</td>
+
+                                <td>0.00</td>
+
+                                <td>50.00</td>
+
+                                <td>
+                                    <span class="fine-status unpaid">
+                                        Unpaid
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="#manual-payment-section">
+                                        Record Payment
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    The names, fine records, book titles, and amounts
+                    shown above are sample data only.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== MANUAL PAYMENT RECORDING ==================== -->
+        <section id="manual-payment-section"
+            class="manual-payment-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Record a Manual Payment</h2>
+
+                    <p>
+                        Record a payment received directly by the library
+                        from a member.
+                    </p>
+                </div>
+
+                <!--
+                    MANUAL PAYMENT FORM
+
+                    This form is for recording payments already received
+                    through an approved offline/manual process.
+
+                    It does not collect or store card information.
+
+                    The PHP payment handler must:
+                    1. Verify administrator permissions.
+                    2. Validate the fine ID and payment amount.
+                    3. Ensure that the payment does not exceed the
+                       outstanding balance.
+                    4. Record the payment in the payments table.
+                    5. Recalculate the outstanding fine balance.
+                    6. Update the fine payment status.
+                    7. Protect the operation against CSRF and duplicate
+                       submissions.
+                -->
+
+                <form id="manual-payment-form"
+                    class="manual-payment-form"
+                    action="../php/fines/payment-actions.php"
+                    method="post">
+
+                    <input
+                        type="hidden"
+                        name="action"
+                        value="record_manual_payment"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="payment_method"
+                        value="manual"
+                    >
+
+
+                    <!-- Fine Identifier -->
+                    <div class="form-group">
+                        <label for="payment-fine-id">
+                            Fine ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="payment-fine-id"
+                            name="fine_id"
+                            placeholder="Enter the fine ID"
+                            maxlength="50"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Payment Amount -->
+                    <div class="form-group">
+                        <label for="manual-payment-amount">
+                            Payment Amount
+                        </label>
+
+                        <input
+                            type="number"
+                            id="manual-payment-amount"
+                            name="amount"
+                            placeholder="Enter the amount received"
+                            min="0.01"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Payment Reference -->
+                    <div class="form-group">
+                        <label for="manual-payment-reference">
+                            Receipt or Reference Number (Optional)
+                        </label>
+
+                        <input
+                            type="text"
+                            id="manual-payment-reference"
+                            name="reference_number"
+                            placeholder="Enter a receipt or payment reference"
+                            maxlength="100"
+                        >
+                    </div>
+
+
+                    <!-- Payment Notes -->
+                    <div class="form-group">
+                        <label for="manual-payment-notes">
+                            Payment Notes (Optional)
+                        </label>
+
+                        <textarea
+                            id="manual-payment-notes"
+                            name="notes"
+                            rows="4"
+                            maxlength="500"
+                            placeholder="Enter any relevant payment notes..."
+                        ></textarea>
+                    </div>
+
+
+                    <!-- Form Actions -->
+                    <div class="manual-payment-actions">
+
+                        <button type="submit"
+                            class="record-payment-button">
+                            Record Manual Payment
+                        </button>
+
+                        <button type="reset"
+                            class="reset-payment-button">
+                            Clear Form
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== PAYMENT HISTORY ==================== -->
+        <section id="payment-history" class="payment-history-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Payment History</h2>
+
+                    <p>
+                        Review examples of manual and simulated
+                        online fine payment transactions.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE PAYMENT HISTORY
+
+                    The transactions below are fictional examples.
+                    In the completed system, payment records will be
+                    retrieved from the payments table.
+
+                    Online payments will initially use a simulated
+                    process or a payment provider sandbox.
+                -->
+
+                <div class="payment-history-table-container">
+
+                    <table class="payment-history-table">
+
+                        <caption>
+                            Sample fine payment transactions
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Payment ID</th>
+                                <th scope="col">Fine ID</th>
+                                <th scope="col">Payment Amount</th>
+                                <th scope="col">Payment Method</th>
+                                <th scope="col">Reference Number</th>
+                                <th scope="col">Payment Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Payment 1 -->
+                            <tr>
+                                <td>PAY-001</td>
+
+                                <td>FINE-002</td>
+
+                                <td>80.00</td>
+
+                                <td>Manual</td>
+
+                                <td>REC-2026-001</td>
+
+                                <td>
+                                    <span class="payment-status completed">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <!-- Payment 2 -->
+                            <tr>
+                                <td>PAY-002</td>
+
+                                <td>FINE-003</td>
+
+                                <td>40.00</td>
+
+                                <td>Simulated Online</td>
+
+                                <td>SIM-2026-002</td>
+
+                                <td>
+                                    <span class="payment-status completed">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    Payment history above contains sample transactions.
+                    Simulated online payments are not real financial
+                    transactions.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== PAYMENT MANAGEMENT GUIDELINES ==================== -->
+        <section id="payment-guidelines"
+            class="payment-guidelines-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Fine and Payment Management Guidelines</h2>
+                </div>
+
+                <ul class="payment-guidelines-list">
+
+                    <li>
+                        Fine records should be associated with the
+                        relevant borrowing records.
+                    </li>
+
+                    <li>
+                        Record manual payments only after the library
+                        has actually received the payment.
+                    </li>
+
+                    <li>
+                        Do not record a payment that exceeds the
+                        outstanding fine balance.
+                    </li>
+
+                    <li>
+                        Update the fine status according to the
+                        total amount paid.
+                    </li>
+
+                    <li>
+                        Preserve payment transaction records for
+                        financial tracking and reporting.
+                    </li>
+
+                    <li>
+                        Online payment records must be verified
+                        through the simulated process or sandbox
+                        integration before being marked as completed.
+                    </li>
+
+                    <li>
+                        Never store payment card numbers or security
+                        codes in the library database.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK ADMINISTRATIVE NAVIGATION ==================== -->
+        <section id="admin-quick-navigation"
+            class="admin-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Administrative Options</h2>
+
+                <div class="admin-navigation-groups">
+
+                    <div class="admin-navigation-group">
+                        <h3>Account Management</h3>
+
+                        <ul>
+                            <li>
+                                <a href="users.html">
+                                    Manage Members
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="librarians.html">
+                                    Manage Librarians
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="admin-navigation-group">
+                        <h3>Library Operations</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../staff/books.html">
+                                    Manage Books
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../staff/categories.html">
+                                    Manage Categories
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../librarian/fines.html">
+                                    Librarian Fine Management
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../member/fines.html">
+                                    Member Fine Information
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="admin-navigation-group">
+                        <h3>Administration</h3>
+
+                        <ul>
+                            <li>
+                                <a href="dashboard.html">
+                                    Administrator Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="reports.html">
+                                    Library Reports
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-administration">
+                    <h3>Administration</h3>
+
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="users.html">
+                                Manage Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="librarians.html">
+                                Manage Librarians
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html">
+                                Manage Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports.html">
+                                View Reports
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
