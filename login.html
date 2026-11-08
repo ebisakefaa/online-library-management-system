@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log in to your Online Library Management System account to access library services and manage your activities.">
+    <meta name="author" content="Online Library Management System">
+    <title>Login | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="books.html">Browse Books</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-authentication">
+                <a href="login.html" aria-current="page"
+                    class="login-link">
+                    Login
+                </a>
+
+                <a href="register.html" class="register-link">
+                    Register
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li aria-current="page">Login</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Welcome Back</h1>
+
+                    <p>
+                        Log in to your library account to access
+                        your personal library services and activities.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LOGIN SECTION ==================== -->
+        <section id="login-section" class="login-section">
+            <div class="container">
+
+                <div class="login-content">
+
+                    <div class="login-heading">
+                        <h2>Login to Your Account</h2>
+
+                        <p>
+                            Enter your registered email address and
+                            password to continue.
+                        </p>
+                    </div>
+
+
+                    <!--
+                        LOGIN FORM
+
+                        The form is designed for all three system roles:
+                        Administrator, Librarian, and Member.
+
+                        During the PHP development phase, the server will:
+                        1. Retrieve the submitted email and password.
+                        2. Find the corresponding account.
+                        3. Verify the password securely.
+                        4. Check the account status and role.
+                        5. Start the authenticated user session.
+                        6. Redirect the user to the appropriate dashboard.
+
+                        The PHP endpoint is part of the approved architecture.
+                    -->
+
+                    <form id="login-form" class="login-form"
+                        action="php/auth/login.php" method="post">
+
+                        <!-- Email Address -->
+                        <div class="form-group">
+                            <label for="login-email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="login-email"
+                                name="email"
+                                placeholder="Enter your registered email"
+                                autocomplete="email"
+                                maxlength="150"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="login-password">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="login-password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- Login Actions -->
+                        <div class="login-actions">
+
+                            <button type="submit" class="login-submit-button">
+                                Login
+                            </button>
+
+                        </div>
+
+                    </form>
+
+
+                    <!-- Registration Link -->
+                    <div class="login-registration">
+                        <p>
+                            Don't have a library account?
+                            <a href="register.html">
+                                Register as a Member
+                            </a>.
+                        </p>
+                    </div>
+
+
+                    <!-- Help Link -->
+                    <div class="login-help">
+                        <p>
+                            Having trouble accessing your account?
+                            <a href="contact.html">
+                                Contact the Library
+                            </a>
+                            for assistance.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== PUBLIC CATALOGUE ACCESS ==================== -->
+        <section id="public-catalogue-access"
+            class="public-catalogue-access">
+
+            <div class="container">
+
+                <h2>Just Looking for Books?</h2>
+
+                <p>
+                    You do not need an account to explore the public
+                    library catalogue. Browse books and discover
+                    available resources without logging in.
+                </p>
+
+                <a href="books.html" class="browse-books-link">
+                    Explore the Book Catalogue
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== MEMBERSHIP CALL TO ACTION ==================== -->
+        <section id="membership-call-to-action"
+            class="membership-call-to-action">
+
+            <div class="container">
+
+                <h2>Not a Member Yet?</h2>
+
+                <p>
+                    Create your library account to request books,
+                    manage reservations, review borrowing activities,
+                    and access member services.
+                </p>
+
+                <a href="register.html" class="membership-register-link">
+                    Create Your Account
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="books.html">Browse Books</a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">About Us</a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-account-links">
+                    <h3>Account</h3>
+
+                    <ul>
+                        <li>
+                            <a href="login.html">Login</a>
+                        </li>
+
+                        <li>
+                            <a href="register.html">Register</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
