@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View outstanding library fines, review payment records, and manage fine payments in the Online Library Management System.">
+    <title>My Fines | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="../index.html" class="site-logo">
+                Online Library
+            </a>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Browse Books</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-account">
+                <span class="account-role">Member Account</span>
+
+                <form action="../php/auth/logout.php" method="post">
+                    <button type="submit" class="logout-button">
+                        Sign Out
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="member-fines">
+
+        <div class="dashboard-container">
+
+            <!-- Page heading -->
+            <section class="page-heading" aria-labelledby="fines-title">
+
+                <p class="breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="dashboard.html">Member Dashboard</a>
+                    <span aria-hidden="true">/</span>
+                    <span>My Fines</span>
+                </p>
+
+                <h1 id="fines-title">My Fines</h1>
+
+                <p>
+                    Review fines associated with your borrowing records
+                    and check your payment history.
+                </p>
+
+            </section>
+
+
+            <!-- Member navigation -->
+            <nav class="member-navigation" aria-label="Member account navigation">
+
+                <h2>My Account</h2>
+
+                <ul>
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">My Profile</a>
+                    </li>
+
+                    <li>
+                        <a href="my-loans.html">My Loans</a>
+                    </li>
+
+                    <li>
+                        <a href="history.html">Borrowing History</a>
+                    </li>
+
+                    <li>
+                        <a href="reservations.html">My Reservations</a>
+                    </li>
+
+                    <li>
+                        <a href="fines.html" aria-current="page">
+                            My Fines
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="notifications.html">Notifications</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+
+            <!-- ==================== FINE SUMMARY ==================== -->
+            <section class="fine-summary" aria-labelledby="summary-title">
+
+                <h2 id="summary-title">Fine Account Overview</h2>
+
+                <div class="summary-grid">
+
+                    <article class="summary-card">
+                        <h3>Total Fines</h3>
+                        <p class="summary-number">2</p>
+                        <p>Fine records associated with your account.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Total Assessed</h3>
+                        <p class="summary-number">55.00</p>
+                        <p>Total fine amount assessed.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Amount Paid</h3>
+                        <p class="summary-number">20.00</p>
+                        <p>Payments already recorded.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Outstanding Balance</h3>
+                        <p class="summary-number">35.00</p>
+                        <p>Remaining amount to be paid.</p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== FINE RECORDS ==================== -->
+            <section class="fine-records" aria-labelledby="records-title">
+
+                <div class="section-heading">
+
+                    <h2 id="records-title">My Fine Records</h2>
+
+                    <p>
+                        Details of fines associated with your borrowed books.
+                    </p>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <caption>
+                            Fine records belonging to the current member.
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Fine ID</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Reason</th>
+                                <th scope="col">Fine Date</th>
+                                <th scope="col">Fine Amount</th>
+                                <th scope="col">Amount Paid</th>
+                                <th scope="col">Balance</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>FINE-001</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=4">
+                                        Rich Dad Poor Dad
+                                    </a>
+                                </td>
+
+                                <td>Late Book Return</td>
+
+                                <td>
+                                    <time datetime="2026-09-27">
+                                        September 27, 2026
+                                    </time>
+                                </td>
+
+                                <td>50.00</td>
+
+                                <td>20.00</td>
+
+                                <td>30.00</td>
+
+                                <td>
+                                    <span class="fine-status partial">
+                                        Partially Paid
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>FINE-002</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=5">
+                                        The Psychology of Money
+                                    </a>
+                                </td>
+
+                                <td>Late Book Return</td>
+
+                                <td>
+                                    <time datetime="2026-08-20">
+                                        August 20, 2026
+                                    </time>
+                                </td>
+
+                                <td>5.00</td>
+
+                                <td>0.00</td>
+
+                                <td>5.00</td>
+
+                                <td>
+                                    <span class="fine-status unpaid">
+                                        Unpaid
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <th colspan="4" scope="row">
+                                    Total
+                                </th>
+                                <td>55.00</td>
+                                <td>20.00</td>
+                                <td>35.00</td>
+                                <td>Outstanding</td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== PAYMENT FORM ==================== -->
+            <section class="fine-payment" aria-labelledby="payment-title">
+
+                <h2 id="payment-title">Make a Fine Payment</h2>
+
+                <p>
+                    Select an outstanding fine and submit a payment request.
+                    The system will record the payment after verification.
+                </p>
+
+                <form
+                    id="fine-payment-form"
+                    class="fine-payment-form"
+                    action="../php/fines/payment-actions.php"
+                    method="post"
+                >
+
+                    <input
+                        type="hidden"
+                        name="action"
+                        value="member_payment"
+                    >
+
+                    <fieldset>
+
+                        <legend>Payment Information</legend>
+
+                        <div class="form-group">
+
+                            <label for="fine-id">Select Fine</label>
+
+                            <select id="fine-id" name="fine_id" required>
+
+                                <option value="">
+                                    Choose an outstanding fine
+                                </option>
+
+                                <option value="1">
+                                    FINE-001 — Rich Dad Poor Dad — Balance: 30.00
+                                </option>
+
+                                <option value="2">
+                                    FINE-002 — The Psychology of Money — Balance: 5.00
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="payment-amount">Payment Amount</label>
+
+                            <input
+                                type="number"
+                                id="payment-amount"
+                                name="amount"
+                                min="0.01"
+                                step="0.01"
+                                max="35.00"
+                                placeholder="Enter payment amount"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="payment-method">Payment Method</label>
+
+                            <select
+                                id="payment-method"
+                                name="payment_method"
+                                required
+                            >
+
+                                <option value="">
+                                    Select payment method
+                                </option>
+
+                                <option value="manual">
+                                    Manual Payment
+                                </option>
+
+                                <option value="online">
+                                    Online Payment (Simulated)
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="payment-notice">
+
+                            <h3>Important Payment Information</h3>
+
+                            <p>
+                                Manual payments must be verified and recorded
+                                by authorized library staff.
+                            </p>
+
+                            <p>
+                                Online payments are simulated for this project.
+                                No real bank card information should be entered.
+                            </p>
+
+                        </div>
+
+                    </fieldset>
+
+                    <button type="submit" class="primary-button">
+                        Submit Payment Request
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- ==================== PAYMENT HISTORY ==================== -->
+            <section class="payment-history" aria-labelledby="payment-history-title">
+
+                <div class="section-heading">
+
+                    <h2 id="payment-history-title">My Payment History</h2>
+
+                    <p>
+                        A record of payments associated with your fines.
+                    </p>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <caption>
+                            Previous fine payments made by the current member.
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Payment ID</th>
+                                <th scope="col">Fine ID</th>
+                                <th scope="col">Payment Date</th>
+                                <th scope="col">Payment Method</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Payment Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>PAY-001</td>
+
+                                <td>FINE-001</td>
+
+                                <td>
+                                    <time datetime="2026-10-01">
+                                        October 1, 2026
+                                    </time>
+                                </td>
+
+                                <td>Manual</td>
+
+                                <td>20.00</td>
+
+                                <td>
+                                    <span class="payment-status completed">
+                                        Completed
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="table-note">
+                    Showing 1 example payment record.
+                </p>
+
+            </section>
+
+
+            <!-- ==================== FINE GUIDELINES ==================== -->
+            <section class="fine-guidelines" aria-labelledby="guidelines-title">
+
+                <h2 id="guidelines-title">Fine and Payment Guidelines</h2>
+
+                <ul>
+
+                    <li>
+                        Return borrowed books by their assigned due dates
+                        to avoid late-return fines.
+                    </li>
+
+                    <li>
+                        Review your fine balance before submitting a payment.
+                    </li>
+
+                    <li>
+                        A payment request is not considered completed
+                        until the system confirms the transaction.
+                    </li>
+
+                    <li>
+                        Manual payments must be verified by authorized staff.
+                    </li>
+
+                    <li>
+                        Never enter actual bank card details into this
+                        simulated payment system.
+                    </li>
+
+                    <li>
+                        Contact the library if you believe a fine was
+                        recorded incorrectly.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- ==================== QUICK LINKS ==================== -->
+            <section class="fine-quick-links" aria-labelledby="quick-links-title">
+
+                <h2 id="quick-links-title">Quick Links</h2>
+
+                <ul>
+
+                    <li>
+                        <a href="dashboard.html">Member Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="my-loans.html">My Current Loans</a>
+                    </li>
+
+                    <li>
+                        <a href="history.html">Borrowing History</a>
+                    </li>
+
+                    <li>
+                        <a href="notifications.html">View Notifications</a>
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <p>
+                &copy; 2026 Online Library Management System.
+                All rights reserved.
+            </p>
+
+            <nav aria-label="Footer navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Books</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
