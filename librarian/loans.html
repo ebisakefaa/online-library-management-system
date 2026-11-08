@@ -1,0 +1,1081 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage issued books, active loans, due dates, and overdue borrowing records in the Online Library Management System.">
+    <meta name="author" content="Online Library Management System">
+    <title>Active Book Loans | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="loans.html" aria-current="page">
+                            Active Loans
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="librarian-account-navigation">
+                <span class="account-role">Librarian</span>
+
+                <a href="../php/auth/logout.php" class="logout-link">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+
+                        <li aria-current="page">Active Loans</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Book Loan Management</h1>
+
+                    <p>
+                        Issue approved books to members, monitor active
+                        borrowing records, and keep track of due dates.
+                    </p>
+                </div>
+
+                <p class="librarian-access-notice">
+                    This page is intended for authorized librarians.
+                    Book issuance and loan management operations will
+                    be protected by server-side permissions during
+                    PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LIBRARIAN NAVIGATION ==================== -->
+        <section id="librarian-navigation"
+            class="librarian-navigation-section">
+
+            <div class="container">
+
+                <h2>Librarian Navigation</h2>
+
+                <nav aria-label="Librarian navigation">
+                    <ul class="librarian-navigation-list">
+
+                        <li>
+                            <a href="dashboard.html">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="members.html">
+                                Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="borrow-requests.html">
+                                Borrow Requests
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="loans.html" aria-current="page">
+                                Active Loans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="returns.html">
+                                Returns
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reservations.html">
+                                Reservations
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html">
+                                Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/books.html">
+                                Book Catalogue
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LOAN OVERVIEW ==================== -->
+        <section id="loan-overview" class="loan-overview-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Loan Overview</h2>
+
+                    <p>
+                        Review the current status of issued books
+                        and borrowing activities.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE LOAN STATISTICS
+
+                    These values are demonstration figures only.
+
+                    They are consistent with the sample librarian
+                    dashboard and administrator dashboard.
+
+                    Active Loans: 11
+                    Overdue Loans: 6
+
+                    Overdue loans are included within the active-loan
+                    total; they are not additional loans.
+                -->
+
+                <div class="loan-statistics-list">
+
+                    <article class="loan-statistics-card"
+                        id="active-loans">
+
+                        <h3>Active Loans</h3>
+
+                        <p class="statistics-value">11</p>
+
+                        <p>Books currently issued to members</p>
+
+                    </article>
+
+
+                    <article class="loan-statistics-card"
+                        id="overdue-loans">
+
+                        <h3>Overdue Loans</h3>
+
+                        <p class="statistics-value">6</p>
+
+                        <p>Active loans past their due dates</p>
+
+                    </article>
+
+
+                    <article class="loan-statistics-card"
+                        id="approved-awaiting-issue">
+
+                        <h3>Approved Awaiting Issue</h3>
+
+                        <p class="statistics-value">2</p>
+
+                        <p>Requests awaiting the issuing process</p>
+
+                    </article>
+
+
+                    <article class="loan-statistics-card"
+                        id="returned-books">
+
+                        <h3>Books Returned</h3>
+
+                        <p class="statistics-value">42</p>
+
+                        <p>Sample completed return records</p>
+
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    These statistics are illustrative sample values.
+                    They are not connected to the library database.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== APPROVED REQUESTS AWAITING ISSUE ==================== -->
+        <section id="approved-requests-section"
+            class="approved-requests-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Approved Requests Awaiting Issue</h2>
+
+                    <p>
+                        Review borrowing requests that have already
+                        been approved and are ready for the book
+                        issuing process.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE APPROVED REQUESTS
+
+                    These are fictional demonstration records.
+
+                    Only approved requests should be eligible for
+                    book issuance.
+
+                    The librarian must confirm the member and book
+                    information before issuing the book.
+
+                    The PHP handler must recheck the request status
+                    and current book availability before creating
+                    a loan record.
+                -->
+
+                <div class="approved-requests-table-container">
+
+                    <table class="approved-requests-table">
+
+                        <caption>
+                            Sample approved requests awaiting issue
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Request ID</th>
+                                <th scope="col">Member ID</th>
+                                <th scope="col">Member Name</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Approval Date</th>
+                                <th scope="col">Request Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Approved Request 1 -->
+                            <tr>
+                                <td>BR-005</td>
+
+                                <td>MEM-005</td>
+
+                                <td>Samuel Example</td>
+
+                                <td>Calculus</td>
+
+                                <td>2026-11-06</td>
+
+                                <td>
+                                    <span class="request-status approved">
+                                        Approved
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <!-- Approved Request 2 -->
+                            <tr>
+                                <td>BR-006</td>
+
+                                <td>MEM-006</td>
+
+                                <td>Ruth Example</td>
+
+                                <td>Things Fall Apart</td>
+
+                                <td>2026-11-07</td>
+
+                                <td>
+                                    <span class="request-status approved">
+                                        Approved
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    The two approved requests displayed above are
+                    fictional examples. Their identifiers are
+                    illustrative and not actual database records.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ISSUE APPROVED BOOK ==================== -->
+        <section id="issue-book-section" class="issue-book-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Issue an Approved Book</h2>
+
+                    <p>
+                        Complete the form using the identifier of an
+                        approved borrowing request to record the
+                        official issue of a book.
+                    </p>
+                </div>
+
+                <!--
+                    BOOK ISSUING FORM
+
+                    This form uses the approved borrowing handler:
+                    ../php/borrowing/borrowing-actions.php
+
+                    The future PHP handler must:
+                    1. Verify librarian authorization.
+                    2. Confirm that the borrowing request exists.
+                    3. Confirm that the request has been approved.
+                    4. Verify the member's eligibility.
+                    5. Check current book availability.
+                    6. Create an active loan record.
+                    7. Record the actual issue date.
+                    8. Calculate the due date using the library's
+                       configured borrowing policy.
+                    9. Update available book quantities.
+                    10. Prevent duplicate issuance of the same request.
+
+                    The form does not allow the browser to decide
+                    the issue date, loan status, or available quantity.
+                -->
+
+                <form id="issue-book-form"
+                    class="issue-book-form"
+                    action="../php/borrowing/borrowing-actions.php"
+                    method="post">
+
+                    <input
+                        type="hidden"
+                        name="action"
+                        value="issue_book"
+                    >
+
+
+                    <!-- Approved Request ID -->
+                    <div class="form-group">
+                        <label for="issue-request-id">
+                            Approved Request ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="issue-request-id"
+                            name="request_id"
+                            placeholder="Enter the approved request ID"
+                            maxlength="50"
+                            required
+                            aria-describedby="request-id-help"
+                        >
+
+                        <small id="request-id-help">
+                            Enter the identifier of a borrowing request
+                            that has already been approved.
+                        </small>
+                    </div>
+
+
+                    <!-- Issue Information -->
+                    <div class="issue-information-note">
+
+                        <h3>Issue and Due Date Information</h3>
+
+                        <p>
+                            The system will record the issue date
+                            when the book is officially issued.
+                        </p>
+
+                        <p>
+                            The due date will be calculated according
+                            to the library's configured borrowing period.
+                        </p>
+
+                        <p>
+                            Book availability will be updated only
+                            after the issuing operation succeeds.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Form Actions -->
+                    <div class="issue-book-actions">
+
+                        <button type="submit"
+                            class="issue-book-button">
+                            Confirm Book Issue
+                        </button>
+
+                        <button type="reset"
+                            class="reset-issue-form-button">
+                            Clear Form
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LOAN SEARCH AND FILTERS ==================== -->
+        <section id="loan-search-section" class="loan-search-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Search and Filter Loans</h2>
+
+                    <p>
+                        Find loan records using loan identifiers,
+                        member information, book titles, or status.
+                    </p>
+                </div>
+
+                <form id="loan-filter-form"
+                    class="loan-filter-form"
+                    action="loans.html"
+                    method="get">
+
+                    <!-- Search -->
+                    <div class="form-group">
+                        <label for="loan-search">
+                            Search by Loan ID, Member, or Book
+                        </label>
+
+                        <input
+                            type="search"
+                            id="loan-search"
+                            name="q"
+                            placeholder="Enter loan ID, member name, or book title"
+                        >
+                    </div>
+
+
+                    <!-- Loan Status -->
+                    <div class="form-group">
+                        <label for="loan-status-filter">
+                            Loan Status
+                        </label>
+
+                        <select
+                            id="loan-status-filter"
+                            name="status">
+
+                            <option value="">All Loan Statuses</option>
+                            <option value="active">Active</option>
+                            <option value="overdue">Overdue</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Sorting -->
+                    <div class="form-group">
+                        <label for="loan-sort-filter">
+                            Sort By
+                        </label>
+
+                        <select
+                            id="loan-sort-filter"
+                            name="sort">
+
+                            <option value="due-date-asc">
+                                Earliest Due Date
+                            </option>
+
+                            <option value="due-date-desc">
+                                Latest Due Date
+                            </option>
+
+                            <option value="newest">
+                                Recently Issued
+                            </option>
+
+                            <option value="member">
+                                Member Name
+                            </option>
+
+                            <option value="book">
+                                Book Title
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Filter Actions -->
+                    <div class="loan-filter-actions">
+
+                        <button type="submit"
+                            class="loan-search-button">
+                            Search Loans
+                        </button>
+
+                        <a href="loans.html" class="clear-filters-link">
+                            Clear Filters
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ACTIVE LOAN RECORDS ==================== -->
+        <section id="active-loan-records"
+            class="active-loan-records-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Active Loan Records</h2>
+
+                    <p>
+                        Review issued books, borrowing members,
+                        issue dates, and expected return dates.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE ACTIVE LOAN RECORDS
+
+                    These are fictional demonstration records.
+
+                    The actual loan records will be retrieved from
+                    the borrowings table during PHP integration.
+
+                    Overdue records remain active until the book
+                    has actually been returned.
+
+                    Returning a book will be processed separately
+                    on librarian/returns.html.
+                -->
+
+                <div class="active-loans-table-container">
+
+                    <table class="active-loans-table">
+
+                        <caption>
+                            Sample active book loan records
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Loan ID</th>
+                                <th scope="col">Member</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Issue Date</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">Loan Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Loan 1: Overdue -->
+                            <tr>
+                                <td>LOAN-004</td>
+
+                                <td>
+                                    <strong>Abel Example</strong>
+                                    <p>Member ID: MEM-001</p>
+                                </td>
+
+                                <td>Introduction to Algorithms</td>
+
+                                <td>2026-10-06</td>
+
+                                <td>2026-10-20</td>
+
+                                <td>
+                                    <span class="loan-status overdue">
+                                        Overdue
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="returns.html?loan=LOAN-004">
+                                        Process Return
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <!-- Loan 2: Overdue -->
+                            <tr>
+                                <td>LOAN-007</td>
+
+                                <td>
+                                    <strong>Hana Example</strong>
+                                    <p>Member ID: MEM-002</p>
+                                </td>
+
+                                <td>Things Fall Apart</td>
+
+                                <td>2026-10-11</td>
+
+                                <td>2026-10-25</td>
+
+                                <td>
+                                    <span class="loan-status overdue">
+                                        Overdue
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="returns.html?loan=LOAN-007">
+                                        Process Return
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <!-- Loan 3: Overdue -->
+                            <tr>
+                                <td>LOAN-009</td>
+
+                                <td>
+                                    <strong>Daniel Example</strong>
+                                    <p>Member ID: MEM-003</p>
+                                </td>
+
+                                <td>A Brief History of Time</td>
+
+                                <td>2026-10-16</td>
+
+                                <td>2026-10-30</td>
+
+                                <td>
+                                    <span class="loan-status overdue">
+                                        Overdue
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="returns.html?loan=LOAN-009">
+                                        Process Return
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <!-- Loan 4: Active -->
+                            <tr>
+                                <td>LOAN-012</td>
+
+                                <td>
+                                    <strong>Mimi Example</strong>
+                                    <p>Member ID: MEM-004</p>
+                                </td>
+
+                                <td>The Lean Startup</td>
+
+                                <td>2026-11-02</td>
+
+                                <td>2026-11-16</td>
+
+                                <td>
+                                    <span class="loan-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="returns.html?loan=LOAN-012">
+                                        Process Return
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <!-- Loan 5: Active -->
+                            <tr>
+                                <td>LOAN-013</td>
+
+                                <td>
+                                    <strong>Samuel Example</strong>
+                                    <p>Member ID: MEM-005</p>
+                                </td>
+
+                                <td>Calculus</td>
+
+                                <td>2026-11-05</td>
+
+                                <td>2026-11-19</td>
+
+                                <td>
+                                    <span class="loan-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="returns.html?loan=LOAN-013">
+                                        Process Return
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    The table displays five sample loan records.
+                    The dashboard statistics indicate eleven active
+                    loans in total, including overdue loans.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LOAN MANAGEMENT GUIDELINES ==================== -->
+        <section id="loan-management-guidelines"
+            class="loan-management-guidelines-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Loan Management Guidelines</h2>
+
+                    <p>
+                        Follow these guidelines when issuing and
+                        monitoring borrowed books.
+                    </p>
+                </div>
+
+                <ul class="loan-guidelines-list">
+
+                    <li>
+                        Issue a book only after its borrowing request
+                        has been approved.
+                    </li>
+
+                    <li>
+                        Verify the member's identity before issuing
+                        the approved book.
+                    </li>
+
+                    <li>
+                        Recheck the book's availability before
+                        creating a loan record.
+                    </li>
+
+                    <li>
+                        Record the actual issue date when the
+                        book is handed to the member.
+                    </li>
+
+                    <li>
+                        Calculate the due date according to the
+                        library's borrowing policy.
+                    </li>
+
+                    <li>
+                        Keep loan records accurate and up to date.
+                    </li>
+
+                    <li>
+                        Monitor overdue books and follow up
+                        according to library procedures.
+                    </li>
+
+                    <li>
+                        Process returned books through the
+                        dedicated returns page.
+                    </li>
+
+                    <li>
+                        Ensure that returned books update the
+                        correct inventory quantities.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK NAVIGATION ==================== -->
+        <section id="librarian-quick-navigation"
+            class="librarian-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Library Operations</h2>
+
+                <div class="librarian-navigation-groups">
+
+                    <div class="librarian-navigation-group">
+                        <h3>Member Services</h3>
+
+                        <ul>
+                            <li>
+                                <a href="members.html">
+                                    Manage Members
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="reservations.html">
+                                    Reservations
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="fines.html">
+                                    Manage Fines
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Borrowing Operations</h3>
+
+                        <ul>
+                            <li>
+                                <a href="borrow-requests.html">
+                                    Borrowing Requests
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="loans.html">
+                                    Active Loans
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="returns.html">
+                                    Book Returns
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Book Catalogue</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../staff/books.html">
+                                    Manage Books
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../staff/categories.html">
+                                    Manage Categories
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../books.html">
+                                    Public Book Catalogue
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Dashboards</h3>
+
+                        <ul>
+                            <li>
+                                <a href="dashboard.html">
+                                    Librarian Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../admin/dashboard.html">
+                                    Administrator Dashboard
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-operations">
+                    <h3>Library Operations</h3>
+
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="borrow-requests.html">
+                                Borrowing Requests
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="loans.html">
+                                Active Loans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="returns.html">
+                                Book Returns
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reservations.html">
+                                Reservations
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
