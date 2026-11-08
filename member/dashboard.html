@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Member dashboard for the Online Library Management System. View your loans, borrowing requests, reservations, fines, and notifications.">
+    <title>Member Dashboard | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="../index.html" class="site-logo">
+                Online Library
+            </a>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Browse Books</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-account">
+                <span class="account-role">Member Account</span>
+
+                <form action="../php/auth/logout.php" method="post">
+                    <button type="submit" class="logout-button">
+                        Sign Out
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== MEMBER DASHBOARD ==================== -->
+    <main class="member-dashboard">
+
+        <div class="dashboard-container">
+
+            <!-- Dashboard heading -->
+            <section class="dashboard-heading" aria-labelledby="dashboard-title">
+
+                <div>
+                    <p class="breadcrumb">
+                        <a href="../index.html">Home</a>
+                        <span aria-hidden="true">/</span>
+                        <span>Member Dashboard</span>
+                    </p>
+
+                    <h1 id="dashboard-title">Member Dashboard</h1>
+
+                    <p>
+                        Welcome back! Here is an overview of your library account
+                        and recent activities.
+                    </p>
+                </div>
+
+                <a href="../books.html" class="primary-action">
+                    Browse Books
+                </a>
+
+            </section>
+
+
+            <!-- Member navigation -->
+            <nav class="member-navigation" aria-label="Member account navigation">
+
+                <h2>My Account</h2>
+
+                <ul>
+                    <li>
+                        <a href="dashboard.html" aria-current="page">
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">
+                            My Profile
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="my-loans.html">
+                            My Loans
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="history.html">
+                            Borrowing History
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="reservations.html">
+                            My Reservations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fines.html">
+                            My Fines
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="notifications.html">
+                            Notifications
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+
+
+            <!-- ==================== ACCOUNT SUMMARY ==================== -->
+            <section class="account-summary" aria-labelledby="summary-title">
+
+                <h2 id="summary-title">Account Overview</h2>
+
+                <div class="summary-grid">
+
+                    <article class="summary-card">
+                        <h3>Active Loans</h3>
+
+                        <p class="summary-number">2</p>
+
+                        <p>
+                            Books currently borrowed by you.
+                        </p>
+
+                        <a href="my-loans.html">
+                            View My Loans
+                        </a>
+                    </article>
+
+
+                    <article class="summary-card">
+                        <h3>Pending Requests</h3>
+
+                        <p class="summary-number">1</p>
+
+                        <p>
+                            Borrowing request awaiting librarian review.
+                        </p>
+
+                        <a href="my-loans.html">
+                            Check Request
+                        </a>
+                    </article>
+
+
+                    <article class="summary-card">
+                        <h3>Reservations</h3>
+
+                        <p class="summary-number">1</p>
+
+                        <p>
+                            Reservation currently awaiting availability.
+                        </p>
+
+                        <a href="reservations.html">
+                            View Reservations
+                        </a>
+                    </article>
+
+
+                    <article class="summary-card">
+                        <h3>Outstanding Fines</h3>
+
+                        <p class="summary-number">35.00</p>
+
+                        <p>
+                            Unpaid fine balance in your account.
+                        </p>
+
+                        <a href="fines.html">
+                            View Fines
+                        </a>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== CURRENT LOANS ==================== -->
+            <section class="current-loans" aria-labelledby="current-loans-title">
+
+                <div class="section-heading">
+                    <h2 id="current-loans-title">My Current Loans</h2>
+
+                    <a href="my-loans.html">
+                        View All Loans
+                    </a>
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <caption>
+                            Books currently borrowed from the library.
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Borrowed Date</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <a href="../book-details.html?book=1">
+                                        Atomic Habits
+                                    </a>
+                                    <span class="book-author">
+                                        by James Clear
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-11-01">
+                                        November 1, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-11-12">
+                                        November 12, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="loan-status due-soon">
+                                        Due Soon
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="my-loans.html">
+                                        View Details
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <a href="../book-details.html?book=2">
+                                        Clean Code
+                                    </a>
+                                    <span class="book-author">
+                                        by Robert C. Martin
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-11-04">
+                                        November 4, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-11-18">
+                                        November 18, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="loan-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="my-loans.html">
+                                        View Details
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== RECENT ACTIVITY ==================== -->
+            <section class="recent-activity" aria-labelledby="activity-title">
+
+                <div class="section-heading">
+                    <h2 id="activity-title">Recent Borrowing Activity</h2>
+
+                    <a href="history.html">
+                        View Full History
+                    </a>
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <caption>
+                            Recent borrowing requests and account activity.
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Activity</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>The Hobbit</td>
+                                <td>Borrowing Request</td>
+                                <td>
+                                    <time datetime="2026-11-07">
+                                        November 7, 2026
+                                    </time>
+                                </td>
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending Review
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Introduction to Algorithms</td>
+                                <td>Book Returned</td>
+                                <td>
+                                    <time datetime="2026-10-28">
+                                        October 28, 2026
+                                    </time>
+                                </td>
+                                <td>
+                                    <span class="request-status completed">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== RESERVATION OVERVIEW ==================== -->
+            <section class="reservation-overview" aria-labelledby="reservation-title">
+
+                <div class="section-heading">
+                    <h2 id="reservation-title">My Reservations</h2>
+
+                    <a href="reservations.html">
+                        View All Reservations
+                    </a>
+                </div>
+
+                <article class="reservation-card">
+
+                    <h3>The Design of Everyday Things</h3>
+
+                    <p>
+                        Your reservation is currently waiting for the book
+                        to become available.
+                    </p>
+
+                    <dl>
+                        <div>
+                            <dt>Reservation Date</dt>
+                            <dd>
+                                <time datetime="2026-11-05">
+                                    November 5, 2026
+                                </time>
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Status</dt>
+                            <dd>
+                                <span class="reservation-status waiting">
+                                    Waiting
+                                </span>
+                            </dd>
+                        </div>
+                    </dl>
+
+                    <a href="reservations.html">
+                        View Reservation Details
+                    </a>
+
+                </article>
+
+            </section>
+
+
+            <!-- ==================== NOTIFICATIONS ==================== -->
+            <section class="dashboard-notifications" aria-labelledby="notifications-title">
+
+                <div class="section-heading">
+                    <h2 id="notifications-title">Recent Notifications</h2>
+
+                    <a href="notifications.html">
+                        View All Notifications
+                    </a>
+                </div>
+
+                <ul class="notification-list">
+
+                    <li class="notification-item">
+                        <article>
+                            <h3>Borrowing Request Submitted</h3>
+
+                            <p>
+                                Your request for The Hobbit has been submitted
+                                and is waiting for librarian review.
+                            </p>
+
+                            <time datetime="2026-11-07">
+                                November 7, 2026
+                            </time>
+                        </article>
+                    </li>
+
+
+                    <li class="notification-item">
+                        <article>
+                            <h3>Upcoming Book Due Date</h3>
+
+                            <p>
+                                Remember to return Atomic Habits by
+                                November 12, 2026.
+                            </p>
+
+                            <time datetime="2026-11-08">
+                                November 8, 2026
+                            </time>
+                        </article>
+                    </li>
+
+
+                    <li class="notification-item">
+                        <article>
+                            <h3>Outstanding Fine Reminder</h3>
+
+                            <p>
+                                Your account has an outstanding fine balance
+                                of 35.00. Please review your fines.
+                            </p>
+
+                            <time datetime="2026-11-08">
+                                November 8, 2026
+                            </time>
+
+                            <a href="fines.html">
+                                Review Fines
+                            </a>
+                        </article>
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- ==================== QUICK ACTIONS ==================== -->
+            <section class="quick-actions" aria-labelledby="quick-actions-title">
+
+                <h2 id="quick-actions-title">Quick Actions</h2>
+
+                <ul>
+                    <li>
+                        <a href="../books.html">
+                            Browse Library Books
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="my-loans.html">
+                            Check My Loans
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="reservations.html">
+                            Manage My Reservations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">
+                            Update My Profile
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fines.html">
+                            Review and Pay Fines
+                        </a>
+                    </li>
+                </ul>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <p>
+                &copy; 2026 Online Library Management System.
+                All rights reserved.
+            </p>
+
+            <nav aria-label="Footer navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Books</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
