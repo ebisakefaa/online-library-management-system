@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View your borrowing requests, active loans, due dates, and borrowing statuses in the Online Library Management System.">
+    <title>My Loans | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="../index.html" class="site-logo">
+                Online Library
+            </a>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Browse Books</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-account">
+                <span class="account-role">Member Account</span>
+
+                <form action="../php/auth/logout.php" method="post">
+                    <button type="submit" class="logout-button">
+                        Sign Out
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="member-loans">
+
+        <div class="dashboard-container">
+
+            <!-- Page heading -->
+            <section class="page-heading" aria-labelledby="loans-title">
+
+                <p class="breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="dashboard.html">Member Dashboard</a>
+                    <span aria-hidden="true">/</span>
+                    <span>My Loans</span>
+                </p>
+
+                <h1 id="loans-title">My Loans</h1>
+
+                <p>
+                    Manage your borrowing requests and keep track of the
+                    books you currently have on loan.
+                </p>
+
+                <a href="../books.html" class="primary-action">
+                    Browse Books
+                </a>
+
+            </section>
+
+
+            <!-- Member navigation -->
+            <nav class="member-navigation" aria-label="Member account navigation">
+
+                <h2>My Account</h2>
+
+                <ul>
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">My Profile</a>
+                    </li>
+
+                    <li>
+                        <a href="my-loans.html" aria-current="page">
+                            My Loans
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="history.html">Borrowing History</a>
+                    </li>
+
+                    <li>
+                        <a href="reservations.html">My Reservations</a>
+                    </li>
+
+                    <li>
+                        <a href="fines.html">My Fines</a>
+                    </li>
+
+                    <li>
+                        <a href="notifications.html">Notifications</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+
+            <!-- ==================== LOAN SUMMARY ==================== -->
+            <section class="loan-summary" aria-labelledby="loan-summary-title">
+
+                <h2 id="loan-summary-title">Borrowing Overview</h2>
+
+                <div class="summary-grid">
+
+                    <article class="summary-card">
+                        <h3>Active Loans</h3>
+                        <p class="summary-number">2</p>
+                        <p>Books currently borrowed.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Pending Requests</h3>
+                        <p class="summary-number">1</p>
+                        <p>Requests waiting for librarian review.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Due Soon</h3>
+                        <p class="summary-number">1</p>
+                        <p>Books approaching their due dates.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Overdue Loans</h3>
+                        <p class="summary-number">0</p>
+                        <p>Books past their return dates.</p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== CURRENT LOANS ==================== -->
+            <section class="current-loans" aria-labelledby="current-loans-title">
+
+                <div class="section-heading">
+
+                    <h2 id="current-loans-title">Currently Borrowed Books</h2>
+
+                    <p>
+                        These books have been issued to you and must be
+                        returned by their due dates.
+                    </p>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <caption>
+                            Your currently active library loans.
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Loan ID</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Borrowed Date</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">Loan Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>LOAN-001</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=1">
+                                        Atomic Habits
+                                    </a>
+                                    <span class="book-author">
+                                        by James Clear
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-11-01">
+                                        November 1, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-11-12">
+                                        November 12, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="loan-status due-soon">
+                                        Due Soon
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="../book-details.html?book=1">
+                                        View Book
+                                    </a>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>LOAN-002</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=2">
+                                        Clean Code
+                                    </a>
+                                    <span class="book-author">
+                                        by Robert C. Martin
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-11-04">
+                                        November 4, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-11-18">
+                                        November 18, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="loan-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="../book-details.html?book=2">
+                                        View Book
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== BORROWING REQUESTS ==================== -->
+            <section class="borrowing-requests" aria-labelledby="requests-title">
+
+                <div class="section-heading">
+
+                    <h2 id="requests-title">My Borrowing Requests</h2>
+
+                    <p>
+                        Track the requests you have submitted to the library.
+                    </p>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <caption>
+                            Borrowing requests and their current review statuses.
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Request ID</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Request Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Information</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>BR-001</td>
+
+                                <td>
+                                    The Hobbit
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-11-07">
+                                        November 7, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending Review
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Waiting for librarian approval.
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>BR-002</td>
+
+                                <td>
+                                    Introduction to Algorithms
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-10-20">
+                                        October 20, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="request-status rejected">
+                                        Rejected
+                                    </span>
+                                </td>
+
+                                <td>
+                                    The requested book was unavailable.
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== BORROWING PROCESS ==================== -->
+            <section class="borrowing-information" aria-labelledby="borrowing-information-title">
+
+                <h2 id="borrowing-information-title">
+                    Understanding the Borrowing Process
+                </h2>
+
+                <ol class="borrowing-steps">
+
+                    <li>
+                        <h3>Submit a Request</h3>
+                        <p>
+                            Browse the catalogue and submit a borrowing
+                            request for an available book.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Wait for Approval</h3>
+                        <p>
+                            A librarian reviews your request and approves
+                            or rejects it.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Book Issuance</h3>
+                        <p>
+                            After approval, the librarian issues the book.
+                            It then appears in your active loans.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Return the Book</h3>
+                        <p>
+                            Return the book on or before its due date
+                            to avoid overdue fines.
+                        </p>
+                    </li>
+
+                </ol>
+
+            </section>
+
+
+            <!-- ==================== LOAN REMINDERS ==================== -->
+            <section class="loan-reminders" aria-labelledby="reminders-title">
+
+                <h2 id="reminders-title">Important Reminders</h2>
+
+                <ul>
+                    <li>
+                        Check your due dates regularly.
+                    </li>
+
+                    <li>
+                        Return borrowed books on time.
+                    </li>
+
+                    <li>
+                        An approved borrowing request is not the same
+                        as an issued loan.
+                    </li>
+
+                    <li>
+                        Overdue books may result in fines according
+                        to library policy.
+                    </li>
+
+                    <li>
+                        Check your notifications for updates about
+                        your borrowing requests.
+                    </li>
+                </ul>
+
+            </section>
+
+
+            <!-- ==================== QUICK LINKS ==================== -->
+            <section class="loan-quick-links" aria-labelledby="quick-links-title">
+
+                <h2 id="quick-links-title">Quick Links</h2>
+
+                <ul>
+                    <li>
+                        <a href="../books.html">Browse Available Books</a>
+                    </li>
+
+                    <li>
+                        <a href="history.html">View Borrowing History</a>
+                    </li>
+
+                    <li>
+                        <a href="reservations.html">View Reservations</a>
+                    </li>
+
+                    <li>
+                        <a href="fines.html">Check My Fines</a>
+                    </li>
+
+                    <li>
+                        <a href="notifications.html">View Notifications</a>
+                    </li>
+                </ul>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <p>
+                &copy; 2026 Online Library Management System.
+                All rights reserved.
+            </p>
+
+            <nav aria-label="Footer navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Books</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
