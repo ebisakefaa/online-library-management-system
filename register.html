@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create an account with the Online Library Management System to access member services, request books, and manage your library activities.">
+    <meta name="author" content="Online Library Management System">
+    <title>Member Registration | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="books.html">Browse Books</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-authentication">
+                <a href="login.html" class="login-link">Login</a>
+
+                <a href="register.html"
+                    class="register-link"
+                    aria-current="page">
+                    Register
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li aria-current="page">Register</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Join Our Library</h1>
+
+                    <p>
+                        Create your member account to explore library
+                        services, request books, and manage your
+                        borrowing activities.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== REGISTRATION SECTION ==================== -->
+        <section id="registration-section" class="registration-section">
+            <div class="container">
+
+                <div class="registration-content">
+
+                    <div class="registration-heading">
+                        <h2>Create Your Member Account</h2>
+
+                        <p>
+                            Complete the form below to register
+                            as a library member.
+                        </p>
+                    </div>
+
+
+                    <!--
+                        MEMBER REGISTRATION FORM
+
+                        This form is intended for public member registration.
+
+                        The PHP registration handler will:
+                        1. Receive and validate the submitted information.
+                        2. Check whether the email address is already registered.
+                        3. Verify that the password and confirmation match.
+                        4. Securely hash the password.
+                        5. Create a new member account.
+                        6. Save the account information in the database.
+
+                        The server must assign the Member role.
+                        Visitors must not be allowed to choose an administrative
+                        or librarian role through this public registration form.
+                    -->
+
+                    <form id="registration-form" class="registration-form"
+                        action="php/auth/register.php" method="post">
+
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label for="registration-full-name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="registration-full-name"
+                                name="full_name"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                maxlength="100"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- Email Address -->
+                        <div class="form-group">
+                            <label for="registration-email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="registration-email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                autocomplete="email"
+                                maxlength="150"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- Phone Number -->
+                        <div class="form-group">
+                            <label for="registration-phone">
+                                Phone Number (Optional)
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="registration-phone"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                                autocomplete="tel"
+                                maxlength="20"
+                            >
+                        </div>
+
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="registration-password">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="registration-password"
+                                name="password"
+                                placeholder="Create a password"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                                aria-describedby="password-requirement"
+                            >
+
+                            <small id="password-requirement">
+                                Your password must contain at least
+                                8 characters.
+                            </small>
+                        </div>
+
+
+                        <!-- Confirm Password -->
+                        <div class="form-group">
+                            <label for="registration-confirm-password">
+                                Confirm Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="registration-confirm-password"
+                                name="confirm_password"
+                                placeholder="Enter your password again"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- Account Information -->
+                        <div class="registration-account-information">
+                            <h3>Account Type</h3>
+
+                            <p>
+                                This public registration form creates
+                                a library Member account.
+                            </p>
+
+                            <p>
+                                Administrator and Librarian accounts
+                                are managed separately by the library
+                                administration.
+                            </p>
+                        </div>
+
+
+                        <!-- Form Submission -->
+                        <div class="registration-actions">
+
+                            <button type="submit"
+                                class="registration-submit-button">
+                                Create Account
+                            </button>
+
+                            <button type="reset"
+                                class="registration-reset-button">
+                                Clear Form
+                            </button>
+
+                        </div>
+
+                    </form>
+
+
+                    <!-- Existing Account Link -->
+                    <div class="registration-login">
+                        <p>
+                            Already have an account?
+                            <a href="login.html">
+                                Login here
+                            </a>.
+                        </p>
+                    </div>
+
+
+                    <!-- Registration Help -->
+                    <div class="registration-help">
+                        <p>
+                            Need assistance with registration?
+                            <a href="contact.html">
+                                Contact the Library
+                            </a>.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== MEMBERSHIP BENEFITS ==================== -->
+        <section id="membership-benefits"
+            class="membership-benefits-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>What Can Members Do?</h2>
+
+                    <p>
+                        A library member account provides access
+                        to several library services.
+                    </p>
+                </div>
+
+
+                <div class="membership-benefits-list">
+
+                    <!-- Book Requests -->
+                    <article class="membership-benefit-card">
+
+                        <h3>Request Books</h3>
+
+                        <p>
+                            Submit borrowing requests for books
+                            available in the library catalogue.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Reservations -->
+                    <article class="membership-benefit-card">
+
+                        <h3>Manage Reservations</h3>
+
+                        <p>
+                            Create and review book reservations
+                            through your member account.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Loan Information -->
+                    <article class="membership-benefit-card">
+
+                        <h3>Track Borrowed Books</h3>
+
+                        <p>
+                            View your active loans, return dates,
+                            and previous borrowing activities.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Fine Information -->
+                    <article class="membership-benefit-card">
+
+                        <h3>View Fines and Payments</h3>
+
+                        <p>
+                            Check outstanding fines and review
+                            information about payment activities.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Notifications -->
+                    <article class="membership-benefit-card">
+
+                        <h3>Receive Notifications</h3>
+
+                        <p>
+                            View notifications related to your
+                            borrowing requests and library activities.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Profile Management -->
+                    <article class="membership-benefit-card">
+
+                        <h3>Manage Your Profile</h3>
+
+                        <p>
+                            View and update your personal information
+                            through your member account.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== PUBLIC CATALOGUE ACCESS ==================== -->
+        <section id="public-catalogue-access"
+            class="public-catalogue-access">
+
+            <div class="container">
+
+                <h2>Explore Books Before Registering</h2>
+
+                <p>
+                    You can browse the public library catalogue
+                    without creating an account.
+                </p>
+
+                <a href="books.html" class="browse-books-link">
+                    Browse the Book Catalogue
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="books.html">Browse Books</a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">About Us</a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-account-links">
+                    <h3>Account</h3>
+
+                    <ul>
+                        <li>
+                            <a href="login.html">Login</a>
+                        </li>
+
+                        <li>
+                            <a href="register.html">Register</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
