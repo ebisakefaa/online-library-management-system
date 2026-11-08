@@ -1,0 +1,1021 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate and review library inventory, borrowing, member, fine, and payment reports.">
+    <meta name="author" content="Online Library Management System">
+    <title>Library Reports | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="reports.html" aria-current="page">
+                            Reports
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="admin-account-navigation">
+                <span class="account-role">Administrator</span>
+
+                <a href="../php/auth/logout.php" class="logout-link">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+
+                        <li aria-current="page">Library Reports</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Library Reports</h1>
+
+                    <p>
+                        Generate and review reports about library
+                        inventory, borrowing activities, members,
+                        fines, and payments.
+                    </p>
+                </div>
+
+                <p class="admin-access-notice">
+                    This reporting area is intended for authorized
+                    administrators. Access permissions and report
+                    generation will be enforced during PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ADMINISTRATION NAVIGATION ==================== -->
+        <section id="admin-navigation" class="admin-navigation-section">
+            <div class="container">
+
+                <h2>Administration Navigation</h2>
+
+                <nav aria-label="Administrator navigation">
+                    <ul class="admin-navigation-list">
+
+                        <li>
+                            <a href="dashboard.html">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="users.html">
+                                Manage Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="librarians.html">
+                                Manage Librarians
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/books.html">
+                                Manage Books
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/categories.html">
+                                Manage Categories
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html">
+                                Manage Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports.html" aria-current="page">
+                                View Reports
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== REPORTING OVERVIEW ==================== -->
+        <section id="reporting-overview" class="reporting-overview-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Reporting Overview</h2>
+
+                    <p>
+                        Explore the main reporting areas available
+                        to the library administrator.
+                    </p>
+                </div>
+
+                <div class="report-types-list">
+
+                    <!-- Inventory Reports -->
+                    <article class="report-type-card"
+                        id="inventory-report-type">
+
+                        <h3>Book Inventory Reports</h3>
+
+                        <p>
+                            Review registered book titles, categories,
+                            total copies, and available copies.
+                        </p>
+
+                        <ul>
+                            <li>Book catalogue summary</li>
+                            <li>Books grouped by category</li>
+                            <li>Book availability information</li>
+                        </ul>
+
+                        <a href="#generate-report">
+                            Generate Inventory Report
+                        </a>
+
+                    </article>
+
+
+                    <!-- Borrowing Reports -->
+                    <article class="report-type-card"
+                        id="borrowing-report-type">
+
+                        <h3>Borrowing Reports</h3>
+
+                        <p>
+                            Review borrowing requests, issued books,
+                            returned books, and overdue loans.
+                        </p>
+
+                        <ul>
+                            <li>Borrowing activity summary</li>
+                            <li>Active loan records</li>
+                            <li>Overdue loan records</li>
+                        </ul>
+
+                        <a href="#generate-report">
+                            Generate Borrowing Report
+                        </a>
+
+                    </article>
+
+
+                    <!-- Member Reports -->
+                    <article class="report-type-card"
+                        id="member-report-type">
+
+                        <h3>Member Reports</h3>
+
+                        <p>
+                            Review registered library members
+                            and their account information.
+                        </p>
+
+                        <ul>
+                            <li>Total registered members</li>
+                            <li>Active member accounts</li>
+                            <li>Suspended member accounts</li>
+                        </ul>
+
+                        <a href="#generate-report">
+                            Generate Member Report
+                        </a>
+
+                    </article>
+
+
+                    <!-- Financial Reports -->
+                    <article class="report-type-card"
+                        id="financial-report-type">
+
+                        <h3>Fine and Payment Reports</h3>
+
+                        <p>
+                            Review fines assessed, payment transactions,
+                            and outstanding member balances.
+                        </p>
+
+                        <ul>
+                            <li>Total fines assessed</li>
+                            <li>Manual and online payments</li>
+                            <li>Outstanding fine balances</li>
+                        </ul>
+
+                        <a href="#generate-report">
+                            Generate Financial Report
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== GENERATE REPORT FORM ==================== -->
+        <section id="generate-report" class="generate-report-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Generate a Report</h2>
+
+                    <p>
+                        Select the report type and reporting period
+                        to generate a library report.
+                    </p>
+                </div>
+
+                <!--
+                    REPORT GENERATION FORM
+
+                    This form submits to the approved PHP endpoint:
+                    ../php/reports/report-actions.php
+
+                    The future PHP handler will:
+                    1. Verify administrator authorization.
+                    2. Validate the selected report type.
+                    3. Validate the date range when supplied.
+                    4. Retrieve the corresponding information from MySQL.
+                    5. Calculate the relevant totals and summaries.
+                    6. Return a report in the selected format.
+
+                    Report generation is not functional during the
+                    HTML-only development phase.
+                -->
+
+                <form id="report-generation-form"
+                    class="report-generation-form"
+                    action="../php/reports/report-actions.php"
+                    method="post">
+
+                    <input
+                        type="hidden"
+                        name="action"
+                        value="generate_report"
+                    >
+
+                    <!-- Report Type -->
+                    <div class="form-group">
+                        <label for="report-type">
+                            Report Type
+                        </label>
+
+                        <select
+                            id="report-type"
+                            name="report_type"
+                            required
+                        >
+                            <option value="">
+                                Select a report type
+                            </option>
+
+                            <option value="inventory">
+                                Book Inventory Report
+                            </option>
+
+                            <option value="borrowing">
+                                Borrowing Activity Report
+                            </option>
+
+                            <option value="members">
+                                Member Accounts Report
+                            </option>
+
+                            <option value="fines">
+                                Fine and Payment Report
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <!-- Start Date -->
+                    <div class="form-group">
+                        <label for="report-start-date">
+                            Start Date (Optional)
+                        </label>
+
+                        <input
+                            type="date"
+                            id="report-start-date"
+                            name="start_date"
+                        >
+
+                        <small>
+                            Leave blank to include information
+                            from the beginning of the available records.
+                        </small>
+                    </div>
+
+
+                    <!-- End Date -->
+                    <div class="form-group">
+                        <label for="report-end-date">
+                            End Date (Optional)
+                        </label>
+
+                        <input
+                            type="date"
+                            id="report-end-date"
+                            name="end_date"
+                        >
+
+                        <small>
+                            Leave blank to include records up to
+                            the current reporting date.
+                        </small>
+                    </div>
+
+
+                    <!-- Report Format -->
+                    <div class="form-group">
+                        <label for="report-format">
+                            Output Format
+                        </label>
+
+                        <select
+                            id="report-format"
+                            name="format"
+                            required
+                        >
+                            <option value="html">
+                                View Report in Browser
+                            </option>
+
+                            <option value="csv">
+                                Download CSV File
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <!-- Form Actions -->
+                    <div class="report-generation-actions">
+
+                        <button type="submit"
+                            class="generate-report-button">
+                            Generate Report
+                        </button>
+
+                        <button type="reset"
+                            class="reset-report-button">
+                            Clear Form
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <p class="report-form-note">
+                    If both dates are provided, the start date
+                    must not be later than the end date.
+                    This rule will be enforced by the server.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== SAMPLE INVENTORY REPORT ==================== -->
+        <section id="inventory-report-preview"
+            class="inventory-report-preview-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Inventory Report Preview</h2>
+
+                    <p>
+                        Example of how book inventory information
+                        will be presented in a generated report.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE INVENTORY REPORT
+
+                    The following figures are illustrative only.
+                    They are not generated from the database.
+
+                    They use the same sample inventory figures
+                    shown on staff/books.html:
+                    34 total copies and 23 available copies.
+                -->
+
+                <div class="inventory-report-summary">
+
+                    <article class="report-summary-card">
+                        <h3>Total Book Titles</h3>
+                        <p class="report-summary-value">6</p>
+                    </article>
+
+                    <article class="report-summary-card">
+                        <h3>Total Copies</h3>
+                        <p class="report-summary-value">34</p>
+                    </article>
+
+                    <article class="report-summary-card">
+                        <h3>Available Copies</h3>
+                        <p class="report-summary-value">23</p>
+                    </article>
+
+                    <article class="report-summary-card">
+                        <h3>Unavailable Copies</h3>
+                        <p class="report-summary-value">11</p>
+                    </article>
+
+                </div>
+
+
+                <div class="inventory-report-table-container">
+
+                    <table class="inventory-report-table">
+
+                        <caption>
+                            Sample book inventory report
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Total Copies</th>
+                                <th scope="col">Available Copies</th>
+                                <th scope="col">Unavailable Copies</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Introduction to Algorithms</td>
+                                <td>Computer Science</td>
+                                <td>10</td>
+                                <td>8</td>
+                                <td>2</td>
+                            </tr>
+
+                            <tr>
+                                <td>Things Fall Apart</td>
+                                <td>Literature</td>
+                                <td>8</td>
+                                <td>5</td>
+                                <td>3</td>
+                            </tr>
+
+                            <tr>
+                                <td>A Brief History of Time</td>
+                                <td>Science</td>
+                                <td>5</td>
+                                <td>0</td>
+                                <td>5</td>
+                            </tr>
+
+                            <tr>
+                                <td>The Lean Startup</td>
+                                <td>Business</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>1</td>
+                            </tr>
+
+                            <tr>
+                                <td>Calculus</td>
+                                <td>Mathematics</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>0</td>
+                            </tr>
+
+                            <tr>
+                                <td>The History of the Ancient World</td>
+                                <td>History</td>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>0</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Total</th>
+                                <td>6 Categories</td>
+                                <td>34</td>
+                                <td>23</td>
+                                <td>11</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== SAMPLE BORROWING REPORT ==================== -->
+        <section id="borrowing-report-preview"
+            class="borrowing-report-preview-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Borrowing Report Preview</h2>
+
+                    <p>
+                        Example of the borrowing statistics
+                        that administrators can review.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE BORROWING STATISTICS
+
+                    These figures are demonstration values only.
+                    Real figures will be calculated using borrowing
+                    and reservation records from MySQL.
+                -->
+
+                <div class="borrowing-report-summary">
+
+                    <article class="report-summary-card">
+                        <h3>Pending Requests</h3>
+                        <p class="report-summary-value">8</p>
+                    </article>
+
+                    <article class="report-summary-card">
+                        <h3>Active Loans</h3>
+                        <p class="report-summary-value">11</p>
+                    </article>
+
+                    <article class="report-summary-card">
+                        <h3>Overdue Loans</h3>
+                        <p class="report-summary-value">6</p>
+                    </article>
+
+                    <article class="report-summary-card">
+                        <h3>Books Returned</h3>
+                        <p class="report-summary-value">42</p>
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    These borrowing statistics are sample data
+                    for the HTML prototype.
+                </p>
+
+                <a href="../librarian/borrow-requests.html">
+                    View Borrowing Requests
+                </a>
+
+                <a href="../librarian/loans.html">
+                    View Active Loans
+                </a>
+
+                <a href="../librarian/returns.html">
+                    View Returns
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== SAMPLE MEMBER REPORT ==================== -->
+        <section id="member-report-preview"
+            class="member-report-preview-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Member Report Preview</h2>
+
+                    <p>
+                        Example of how registered member account
+                        information will be summarized.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE MEMBER STATISTICS
+
+                    These values correspond to the sample figures
+                    used on the administrator member management page.
+                -->
+
+                <div class="member-report-summary">
+
+                    <article class="report-summary-card">
+                        <h3>Total Registered Members</h3>
+                        <p class="report-summary-value">128</p>
+                    </article>
+
+                    <article class="report-summary-card">
+                        <h3>Active Members</h3>
+                        <p class="report-summary-value">122</p>
+                    </article>
+
+                    <article class="report-summary-card">
+                        <h3>Suspended Members</h3>
+                        <p class="report-summary-value">6</p>
+                    </article>
+
+                </div>
+
+                <a href="users.html">
+                    View Member Accounts
+                </a>
+
+                <p class="sample-data-notice">
+                    The statistics shown here are sample figures
+                    and are not actual database results.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== SAMPLE FINANCIAL REPORT ==================== -->
+        <section id="financial-report-preview"
+            class="financial-report-preview-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Fine and Payment Report Preview</h2>
+
+                    <p>
+                        Example of how fine assessments, payments,
+                        and outstanding balances will be summarized.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE FINANCIAL STATISTICS
+
+                    These figures match the sample totals used on
+                    admin/fines.html.
+
+                    Total fines assessed: 400.00
+                    Payments received: 120.00
+                    Outstanding balance: 280.00
+
+                    Amounts are expressed in unspecified currency units.
+                -->
+
+                <div class="financial-report-summary">
+
+                    <article class="report-summary-card">
+                        <h3>Total Fines Assessed</h3>
+                        <p class="report-summary-value">400.00</p>
+                    </article>
+
+                    <article class="report-summary-card">
+                        <h3>Payments Received</h3>
+                        <p class="report-summary-value">120.00</p>
+                    </article>
+
+                    <article class="report-summary-card">
+                        <h3>Outstanding Balance</h3>
+                        <p class="report-summary-value">280.00</p>
+                    </article>
+
+                </div>
+
+                <a href="fines.html">
+                    View Fine and Payment Records
+                </a>
+
+                <p class="sample-data-notice">
+                    These financial figures are illustrative examples,
+                    not real payments or outstanding member debts.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== REPORTING GUIDELINES ==================== -->
+        <section id="reporting-guidelines"
+            class="reporting-guidelines-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Reporting Guidelines</h2>
+                </div>
+
+                <ul class="reporting-guidelines-list">
+
+                    <li>
+                        Select the appropriate report type before
+                        generating a report.
+                    </li>
+
+                    <li>
+                        Specify a date range when a period-specific
+                        report is required.
+                    </li>
+
+                    <li>
+                        Ensure the start date is not later than
+                        the end date.
+                    </li>
+
+                    <li>
+                        Review generated totals against the
+                        corresponding library records.
+                    </li>
+
+                    <li>
+                        Treat member and payment information as
+                        confidential administrative data.
+                    </li>
+
+                    <li>
+                        Share or download reports only when authorized.
+                    </li>
+
+                    <li>
+                        Remember that sample data in this prototype
+                        does not represent actual library performance.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK ADMINISTRATIVE NAVIGATION ==================== -->
+        <section id="admin-quick-navigation"
+            class="admin-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Administrative Options</h2>
+
+                <div class="admin-navigation-groups">
+
+                    <div class="admin-navigation-group">
+                        <h3>Account Management</h3>
+
+                        <ul>
+                            <li>
+                                <a href="users.html">
+                                    Manage Members
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="librarians.html">
+                                    Manage Librarians
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="admin-navigation-group">
+                        <h3>Library Management</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../staff/books.html">
+                                    Manage Books
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../staff/categories.html">
+                                    Manage Categories
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="fines.html">
+                                    Manage Fines
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="admin-navigation-group">
+                        <h3>Library Operations</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../librarian/loans.html">
+                                    Active Loans
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../librarian/returns.html">
+                                    Book Returns
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../librarian/borrow-requests.html">
+                                    Borrowing Requests
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="admin-navigation-group">
+                        <h3>Dashboards</h3>
+
+                        <ul>
+                            <li>
+                                <a href="dashboard.html">
+                                    Administrator Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../librarian/dashboard.html">
+                                    Librarian Dashboard
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-administration">
+                    <h3>Administration</h3>
+
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="users.html">
+                                Manage Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="librarians.html">
+                                Manage Librarians
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html">
+                                Manage Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports.html">
+                                View Reports
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
