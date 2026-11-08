@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View your previous borrowing and book return records in the Online Library Management System.">
+    <title>Borrowing History | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="../index.html" class="site-logo">
+                Online Library
+            </a>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Browse Books</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-account">
+                <span class="account-role">Member Account</span>
+
+                <form action="../php/auth/logout.php" method="post">
+                    <button type="submit" class="logout-button">
+                        Sign Out
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="member-history">
+
+        <div class="dashboard-container">
+
+            <!-- Page heading -->
+            <section class="page-heading" aria-labelledby="history-title">
+
+                <p class="breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="dashboard.html">Member Dashboard</a>
+                    <span aria-hidden="true">/</span>
+                    <span>Borrowing History</span>
+                </p>
+
+                <h1 id="history-title">Borrowing History</h1>
+
+                <p>
+                    Review the books you have borrowed and returned
+                    throughout your library membership.
+                </p>
+
+            </section>
+
+
+            <!-- Member navigation -->
+            <nav class="member-navigation" aria-label="Member account navigation">
+
+                <h2>My Account</h2>
+
+                <ul>
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">My Profile</a>
+                    </li>
+
+                    <li>
+                        <a href="my-loans.html">My Loans</a>
+                    </li>
+
+                    <li>
+                        <a href="history.html" aria-current="page">
+                            Borrowing History
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="reservations.html">My Reservations</a>
+                    </li>
+
+                    <li>
+                        <a href="fines.html">My Fines</a>
+                    </li>
+
+                    <li>
+                        <a href="notifications.html">Notifications</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+
+            <!-- ==================== HISTORY SUMMARY ==================== -->
+            <section class="history-summary" aria-labelledby="history-summary-title">
+
+                <h2 id="history-summary-title">History Overview</h2>
+
+                <div class="summary-grid">
+
+                    <article class="summary-card">
+                        <h3>Total Books Borrowed</h3>
+                        <p class="summary-number">8</p>
+                        <p>Books issued to your account.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Books Returned</h3>
+                        <p class="summary-number">6</p>
+                        <p>Successfully returned books.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Currently Borrowed</h3>
+                        <p class="summary-number">2</p>
+                        <p>Books still on loan.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Overdue Returns</h3>
+                        <p class="summary-number">1</p>
+                        <p>Previous loans returned after their due dates.</p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== BORROWING HISTORY FILTERS ==================== -->
+            <section class="history-filters" aria-labelledby="filter-title">
+
+                <h2 id="filter-title">Find a Borrowing Record</h2>
+
+                <form
+                    id="history-filter-form"
+                    class="filter-form"
+                    action="history.html"
+                    method="get"
+                >
+
+                    <div class="form-group">
+
+                        <label for="search-book">Search by Book Title</label>
+
+                        <input
+                            type="search"
+                            id="search-book"
+                            name="q"
+                            placeholder="Enter a book title"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="history-status">Borrowing Status</label>
+
+                        <select id="history-status" name="status">
+
+                            <option value="">All Records</option>
+                            <option value="returned">Returned</option>
+                            <option value="overdue-return">Returned Late</option>
+                            <option value="active">Currently Borrowed</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="start-date">From Date</label>
+
+                        <input
+                            type="date"
+                            id="start-date"
+                            name="start_date"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="end-date">To Date</label>
+
+                        <input
+                            type="date"
+                            id="end-date"
+                            name="end_date"
+                        >
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button type="submit" class="primary-button">
+                            Apply Filters
+                        </button>
+
+                        <a href="history.html" class="secondary-button">
+                            Clear Filters
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- ==================== BORROWING HISTORY TABLE ==================== -->
+            <section class="history-records" aria-labelledby="records-title">
+
+                <div class="section-heading">
+
+                    <h2 id="records-title">My Borrowing Records</h2>
+
+                    <p>
+                        A record of books issued to and returned by your account.
+                    </p>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <caption>
+                            Borrowing and return history for the current member.
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Loan ID</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Borrowed Date</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">Return Date</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>LOAN-003</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=3">
+                                        The Alchemist
+                                    </a>
+                                    <span class="book-author">
+                                        by Paulo Coelho
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-10-01">
+                                        October 1, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-10-15">
+                                        October 15, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-10-14">
+                                        October 14, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="history-status returned">
+                                        Returned
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>LOAN-004</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=4">
+                                        Rich Dad Poor Dad
+                                    </a>
+                                    <span class="book-author">
+                                        by Robert T. Kiyosaki
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-09-10">
+                                        September 10, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-09-24">
+                                        September 24, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-09-27">
+                                        September 27, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="history-status returned-late">
+                                        Returned Late
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>LOAN-005</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=5">
+                                        The Psychology of Money
+                                    </a>
+                                    <span class="book-author">
+                                        by Morgan Housel
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-08-05">
+                                        August 5, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-08-19">
+                                        August 19, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-08-18">
+                                        August 18, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="history-status returned">
+                                        Returned
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>LOAN-006</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=6">
+                                        Think and Grow Rich
+                                    </a>
+                                    <span class="book-author">
+                                        by Napoleon Hill
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-07-01">
+                                        July 1, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-07-15">
+                                        July 15, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-07-14">
+                                        July 14, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="history-status returned">
+                                        Returned
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>LOAN-007</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=7">
+                                        Deep Work
+                                    </a>
+                                    <span class="book-author">
+                                        by Cal Newport
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-06-02">
+                                        June 2, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-06-16">
+                                        June 16, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-06-15">
+                                        June 15, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="history-status returned">
+                                        Returned
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>LOAN-008</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=8">
+                                        The Lean Startup
+                                    </a>
+                                    <span class="book-author">
+                                        by Eric Ries
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-05-01">
+                                        May 1, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-05-15">
+                                        May 15, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-05-14">
+                                        May 14, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="history-status returned">
+                                        Returned
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="table-note">
+                    Showing 6 example returned records.
+                    Your complete borrowing history will be loaded from the database.
+                </p>
+
+            </section>
+
+
+            <!-- ==================== HISTORY INFORMATION ==================== -->
+            <section class="history-information" aria-labelledby="history-information-title">
+
+                <h2 id="history-information-title">About Borrowing History</h2>
+
+                <ul>
+                    <li>
+                        Your borrowing history contains records of books
+                        issued to your account.
+                    </li>
+
+                    <li>
+                        Returned books remain in your history for future reference.
+                    </li>
+
+                    <li>
+                        Returned late records may be associated with fines.
+                    </li>
+
+                    <li>
+                        Books that are still borrowed appear on your
+                        <a href="my-loans.html">My Loans</a> page.
+                    </li>
+
+                    <li>
+                        You can review outstanding fines on your
+                        <a href="fines.html">My Fines</a> page.
+                    </li>
+                </ul>
+
+            </section>
+
+
+            <!-- ==================== QUICK LINKS ==================== -->
+            <section class="history-quick-links" aria-labelledby="quick-links-title">
+
+                <h2 id="quick-links-title">Quick Links</h2>
+
+                <ul>
+                    <li>
+                        <a href="dashboard.html">Member Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="my-loans.html">My Current Loans</a>
+                    </li>
+
+                    <li>
+                        <a href="reservations.html">My Reservations</a>
+                    </li>
+
+                    <li>
+                        <a href="fines.html">My Fines</a>
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <p>
+                &copy; 2026 Online Library Management System.
+                All rights reserved.
+            </p>
+
+            <nav aria-label="Footer navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Books</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
