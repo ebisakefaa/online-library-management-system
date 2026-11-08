@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse the online library catalogue, search for books, and discover books across different categories.">
+    <meta name="author" content="Online Library Management System">
+    <title>Browse Books | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="books.html" aria-current="page">Browse Books</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-authentication">
+                <a href="login.html" class="login-link">Login</a>
+                <a href="register.html" class="register-link">Register</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- Page Introduction -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li aria-current="page">Browse Books</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Explore Our Book Collection</h1>
+                    <p>
+                        Discover books from different categories, explore new
+                        subjects, and find your next great read.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BOOK SEARCH AND FILTERS ==================== -->
+        <section id="book-search-section" class="book-search-section">
+            <div class="container">
+
+                <h2>Find a Book</h2>
+                <p>Search our catalogue using a title, author, or keyword.</p>
+
+                <form id="book-filter-form" class="book-filter-form"
+                    action="books.html" method="get">
+
+                    <!-- Search Field -->
+                    <div class="form-group search-group">
+                        <label for="book-search">Search Books</label>
+                        <input
+                            type="search"
+                            id="book-search"
+                            name="q"
+                            placeholder="Enter a book title, author, or keyword"
+                        >
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="form-group category-filter">
+                        <label for="category-filter">Book Category</label>
+                        <select id="category-filter" name="category">
+                            <option value="">All Categories</option>
+                            <option value="computer-science">Computer Science</option>
+                            <option value="literature">Literature</option>
+                            <option value="science">Science</option>
+                            <option value="history">History</option>
+                            <option value="business">Business</option>
+                            <option value="mathematics">Mathematics</option>
+                            <option value="education">Education</option>
+                        </select>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="form-group availability-filter">
+                        <label for="availability-filter">Availability</label>
+                        <select id="availability-filter" name="availability">
+                            <option value="">All Books</option>
+                            <option value="available">Available</option>
+                            <option value="unavailable">Currently Unavailable</option>
+                        </select>
+                    </div>
+
+                    <!-- Sorting -->
+                    <div class="form-group sort-filter">
+                        <label for="sort-filter">Sort By</label>
+                        <select id="sort-filter" name="sort">
+                            <option value="newest">Recently Added</option>
+                            <option value="title-asc">Title: A to Z</option>
+                            <option value="title-desc">Title: Z to A</option>
+                            <option value="author-asc">Author: A to Z</option>
+                        </select>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="filter-actions">
+                        <button type="submit" class="search-submit-button">
+                            Search Books
+                        </button>
+
+                        <a href="books.html" class="clear-filters-link">
+                            Clear Filters
+                        </a>
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BOOK CATEGORIES ==================== -->
+        <section id="book-categories" class="book-categories-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Browse by Category</h2>
+                    <p>Explore books based on your interests.</p>
+                </div>
+
+                <ul class="category-list">
+                    <li>
+                        <a href="books.html?category=computer-science">
+                            Computer Science
+                        </a>
+                    </li>
+                    <li>
+                        <a href="books.html?category=literature">
+                            Literature
+                        </a>
+                    </li>
+                    <li>
+                        <a href="books.html?category=science">
+                            Science
+                        </a>
+                    </li>
+                    <li>
+                        <a href="books.html?category=history">
+                            History
+                        </a>
+                    </li>
+                    <li>
+                        <a href="books.html?category=business">
+                            Business
+                        </a>
+                    </li>
+                    <li>
+                        <a href="books.html?category=mathematics">
+                            Mathematics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="books.html?category=education">
+                            Education
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BOOK CATALOGUE ==================== -->
+        <section id="book-catalogue" class="book-catalogue-section">
+            <div class="container">
+
+                <div class="catalogue-heading">
+                    <div class="section-heading">
+                        <h2>Our Book Collection</h2>
+                        <p>Browse some of the books in our library catalogue.</p>
+                    </div>
+
+                    <!--
+                        Sample catalogue data.
+                        Real book records will be retrieved from the database
+                        during the PHP and MySQL development phase.
+                    -->
+                    <p class="catalogue-result-count">
+                        Showing sample books
+                    </p>
+                </div>
+
+
+                <div class="book-list">
+
+                    <!-- Book 1 -->
+                    <article class="book-card" id="book-1">
+                        <div class="book-information">
+
+                            <p class="book-category">Computer Science</p>
+
+                            <h3 class="book-title">
+                                <a href="book-details.html?book=1">
+                                    Introduction to Algorithms
+                                </a>
+                            </h3>
+
+                            <p class="book-author">
+                                Author: Thomas H. Cormen
+                            </p>
+
+                            <p class="book-description">
+                                An introduction to the design and analysis
+                                of computer algorithms and problem-solving
+                                techniques.
+                            </p>
+
+                            <p class="book-publisher">
+                                Publisher: MIT Press
+                            </p>
+
+                            <p class="book-isbn">
+                                ISBN: 9780262046305
+                            </p>
+
+                            <p class="book-availability">
+                                <span class="availability-label">Availability:</span>
+                                <span class="availability-status available">
+                                    Available
+                                </span>
+                            </p>
+
+                            <a href="book-details.html?book=1"
+                                class="book-details-link">
+                                View Book Details
+                            </a>
+
+                        </div>
+                    </article>
+
+
+                    <!-- Book 2 -->
+                    <article class="book-card" id="book-2">
+                        <div class="book-information">
+
+                            <p class="book-category">Literature</p>
+
+                            <h3 class="book-title">
+                                <a href="book-details.html?book=2">
+                                    Things Fall Apart
+                                </a>
+                            </h3>
+
+                            <p class="book-author">
+                                Author: Chinua Achebe
+                            </p>
+
+                            <p class="book-description">
+                                A classic novel exploring culture, tradition,
+                                and the effects of colonialism on an African
+                                community.
+                            </p>
+
+                            <p class="book-publisher">
+                                Publisher: Heinemann
+                            </p>
+
+                            <p class="book-isbn">
+                                ISBN: 9780435905255
+                            </p>
+
+                            <p class="book-availability">
+                                <span class="availability-label">Availability:</span>
+                                <span class="availability-status available">
+                                    Available
+                                </span>
+                            </p>
+
+                            <a href="book-details.html?book=2"
+                                class="book-details-link">
+                                View Book Details
+                            </a>
+
+                        </div>
+                    </article>
+
+
+                    <!-- Book 3 -->
+                    <article class="book-card" id="book-3">
+                        <div class="book-information">
+
+                            <p class="book-category">Science</p>
+
+                            <h3 class="book-title">
+                                <a href="book-details.html?book=3">
+                                    A Brief History of Time
+                                </a>
+                            </h3>
+
+                            <p class="book-author">
+                                Author: Stephen Hawking
+                            </p>
+
+                            <p class="book-description">
+                                An accessible introduction to major questions
+                                about the universe, time, space, and black holes.
+                            </p>
+
+                            <p class="book-publisher">
+                                Publisher: Bantam Books
+                            </p>
+
+                            <p class="book-isbn">
+                                ISBN: 9780553380163
+                            </p>
+
+                            <p class="book-availability">
+                                <span class="availability-label">Availability:</span>
+                                <span class="availability-status unavailable">
+                                    Currently Unavailable
+                                </span>
+                            </p>
+
+                            <a href="book-details.html?book=3"
+                                class="book-details-link">
+                                View Book Details
+                            </a>
+
+                        </div>
+                    </article>
+
+
+                    <!-- Book 4 -->
+                    <article class="book-card" id="book-4">
+                        <div class="book-information">
+
+                            <p class="book-category">Business</p>
+
+                            <h3 class="book-title">
+                                <a href="book-details.html?book=4">
+                                    The Lean Startup
+                                </a>
+                            </h3>
+
+                            <p class="book-author">
+                                Author: Eric Ries
+                            </p>
+
+                            <p class="book-description">
+                                A guide to building businesses and developing
+                                products through experimentation and continuous
+                                learning.
+                            </p>
+
+                            <p class="book-publisher">
+                                Publisher: Crown Business
+                            </p>
+
+                            <p class="book-isbn">
+                                ISBN: 9780307887894
+                            </p>
+
+                            <p class="book-availability">
+                                <span class="availability-label">Availability:</span>
+                                <span class="availability-status available">
+                                    Available
+                                </span>
+                            </p>
+
+                            <a href="book-details.html?book=4"
+                                class="book-details-link">
+                                View Book Details
+                            </a>
+
+                        </div>
+                    </article>
+
+
+                    <!-- Book 5 -->
+                    <article class="book-card" id="book-5">
+                        <div class="book-information">
+
+                            <p class="book-category">Mathematics</p>
+
+                            <h3 class="book-title">
+                                <a href="book-details.html?book=5">
+                                    Calculus
+                                </a>
+                            </h3>
+
+                            <p class="book-author">
+                                Author: James Stewart
+                            </p>
+
+                            <p class="book-description">
+                                A textbook covering fundamental calculus
+                                concepts, mathematical techniques, and
+                                practical applications.
+                            </p>
+
+                            <p class="book-publisher">
+                                Publisher: Cengage Learning
+                            </p>
+
+                            <p class="book-isbn">
+                                ISBN: 9781285741550
+                            </p>
+
+                            <p class="book-availability">
+                                <span class="availability-label">Availability:</span>
+                                <span class="availability-status available">
+                                    Available
+                                </span>
+                            </p>
+
+                            <a href="book-details.html?book=5"
+                                class="book-details-link">
+                                View Book Details
+                            </a>
+
+                        </div>
+                    </article>
+
+
+                    <!-- Book 6 -->
+                    <article class="book-card" id="book-6">
+                        <div class="book-information">
+
+                            <p class="book-category">History</p>
+
+                            <h3 class="book-title">
+                                <a href="book-details.html?book=6">
+                                    The History of the Ancient World
+                                </a>
+                            </h3>
+
+                            <p class="book-author">
+                                Author: Susan Wise Bauer
+                            </p>
+
+                            <p class="book-description">
+                                An overview of ancient civilizations and
+                                important historical developments across
+                                the early world.
+                            </p>
+
+                            <p class="book-publisher">
+                                Publisher: W. W. Norton & Company
+                            </p>
+
+                            <p class="book-isbn">
+                                ISBN: 9780393059748
+                            </p>
+
+                            <p class="book-availability">
+                                <span class="availability-label">Availability:</span>
+                                <span class="availability-status unavailable">
+                                    Currently Unavailable
+                                </span>
+                            </p>
+
+                            <a href="book-details.html?book=6"
+                                class="book-details-link">
+                                View Book Details
+                            </a>
+
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CATALOGUE PAGINATION ==================== -->
+        <nav id="catalogue-pagination" class="catalogue-pagination"
+            aria-label="Book catalogue pages">
+
+            <ul class="pagination-list">
+                <li>
+                    <span aria-current="page" aria-label="Page 1">
+                        1
+                    </span>
+                </li>
+                <li>
+                    <a href="books.html?page=2" aria-label="Go to page 2">
+                        2
+                    </a>
+                </li>
+                <li>
+                    <a href="books.html?page=3" aria-label="Go to page 3">
+                        3
+                    </a>
+                </li>
+                <li>
+                    <a href="books.html?page=2" aria-label="Go to next page">
+                        Next
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+
+
+        <!-- ==================== MEMBER CALL TO ACTION ==================== -->
+        <section id="membership-call-to-action"
+            class="membership-call-to-action">
+
+            <div class="container">
+
+                <h2>Become a Library Member</h2>
+
+                <p>
+                    Create your account to request books, manage your
+                    borrowing activities, and access member services.
+                </p>
+
+                <a href="register.html" class="membership-register-link">
+                    Register Now
+                </a>
+
+                <p>
+                    Already have an account?
+                    <a href="login.html">Login here</a>.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="books.html">Browse Books</a>
+                        </li>
+                        <li>
+                            <a href="about.html">About Us</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-account-links">
+                    <h3>Account</h3>
+                    <ul>
+                        <li>
+                            <a href="login.html">Login</a>
+                        </li>
+                        <li>
+                            <a href="register.html">Register</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
