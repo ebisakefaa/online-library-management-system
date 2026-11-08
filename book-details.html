@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View detailed information about books in the Online Library Management System catalogue.">
+    <meta name="author" content="Online Library Management System">
+    <title>Book Details | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="books.html">Browse Books</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-authentication">
+                <a href="login.html" class="login-link">Login</a>
+                <a href="register.html" class="register-link">Register</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== BREADCRUMB ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="books.html">Browse Books</a>
+                        </li>
+                        <li aria-current="page">Book Details</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Book Details</h1>
+                    <p>
+                        Explore the information, availability, and borrowing
+                        details of this book.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BOOK INFORMATION ==================== -->
+        <section id="book-details-section" class="book-details-section">
+            <div class="container">
+
+                <!--
+                    SAMPLE BOOK RECORD
+
+                    This page currently displays sample information for
+                    Introduction to Algorithms.
+
+                    During the PHP development phase, the book identifier
+                    from the URL will be used to retrieve the selected
+                    book's actual information from the MySQL database.
+                -->
+
+                <article id="book-details" class="book-details">
+
+                    <div class="book-main-information">
+
+                        <!-- Book Cover Placeholder -->
+                        <div class="book-cover-section">
+                            <figure class="book-cover">
+                                <div
+                                    class="book-cover-placeholder"
+                                    role="img"
+                                    aria-label="Placeholder for the Introduction to Algorithms book cover"
+                                >
+                                    <p>Book Cover</p>
+                                </div>
+
+                                <figcaption>
+                                    Book cover image
+                                </figcaption>
+                            </figure>
+                        </div>
+
+
+                        <!-- Book Summary -->
+                        <div class="book-summary">
+
+                            <p class="book-category">
+                                Computer Science
+                            </p>
+
+                            <h2 class="book-title">
+                                Introduction to Algorithms
+                            </h2>
+
+                            <p class="book-author">
+                                <strong>Author:</strong>
+                                Thomas H. Cormen
+                            </p>
+
+                            <p class="book-description">
+                                Introduction to Algorithms provides a
+                                comprehensive introduction to the design
+                                and analysis of computer algorithms.
+                                It covers important algorithmic techniques,
+                                problem-solving approaches, and the
+                                mathematical foundations of computing.
+                            </p>
+
+                            <div class="book-availability">
+                                <h3>Availability Status</h3>
+
+                                <p class="availability-status available">
+                                    Available
+                                </p>
+
+                                <p class="availability-message">
+                                    This book is currently available in
+                                    the library catalogue.
+                                </p>
+                            </div>
+
+                            <!-- Member Actions -->
+                            <div class="book-actions">
+
+                                <a href="login.html"
+                                    class="request-book-link">
+                                    Login to Request This Book
+                                </a>
+
+                                <p class="membership-message">
+                                    Don't have an account?
+                                    <a href="register.html">
+                                        Register as a member
+                                    </a>.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================== BOOK METADATA ==================== -->
+                    <section id="book-metadata" class="book-metadata">
+
+                        <h2>Book Information</h2>
+
+                        <dl class="book-information-list">
+
+                            <div class="information-item">
+                                <dt>Book Title</dt>
+                                <dd>Introduction to Algorithms</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>Author</dt>
+                                <dd>Thomas H. Cormen</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>Category</dt>
+                                <dd>Computer Science</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>Publisher</dt>
+                                <dd>MIT Press</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>ISBN</dt>
+                                <dd>9780262046305</dd>
+                            </div>
+
+                            <div class="information-item">
+                                <dt>Availability</dt>
+                                <dd>Available</dd>
+                            </div>
+
+                        </dl>
+
+                    </section>
+
+
+                    <!-- ==================== BOOK DESCRIPTION ==================== -->
+                    <section id="book-description-section"
+                        class="book-description-section">
+
+                        <h2>About This Book</h2>
+
+                        <p>
+                            Algorithms are fundamental to computer science
+                            and software development. This book introduces
+                            readers to the principles used to design,
+                            understand, and evaluate algorithms.
+                        </p>
+
+                        <p>
+                            It explores topics such as sorting, searching,
+                            data structures, graph algorithms, and algorithm
+                            analysis. These topics provide a foundation for
+                            understanding how efficient computer solutions
+                            are developed.
+                        </p>
+
+                        <p>
+                            The book can be useful for students, educators,
+                            and readers interested in computer science
+                            and algorithmic problem solving.
+                        </p>
+
+                    </section>
+
+
+                    <!-- ==================== BORROWING INFORMATION ==================== -->
+                    <section id="borrowing-information"
+                        class="borrowing-information">
+
+                        <h2>Borrowing Information</h2>
+
+                        <p>
+                            Library members can submit borrowing requests
+                            for available books through their member accounts.
+                        </p>
+
+                        <ul class="borrowing-guidelines">
+
+                            <li>
+                                You must have an active library member account
+                                to request a book.
+                            </li>
+
+                            <li>
+                                Borrowing requests are reviewed by a librarian.
+                            </li>
+
+                            <li>
+                                A borrowing request is not confirmed until
+                                it has been approved by a librarian.
+                            </li>
+
+                            <li>
+                                Members must return borrowed books according
+                                to the library's borrowing rules.
+                            </li>
+
+                        </ul>
+
+                        <p>
+                            For more information about borrowing policies,
+                            please
+                            <a href="contact.html">
+                                contact the library.
+                            </a>
+                        </p>
+
+                    </section>
+
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== RELATED BOOKS ==================== -->
+        <section id="related-books" class="related-books-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>You May Also Like</h2>
+                    <p>
+                        Explore other books available in our library catalogue.
+                    </p>
+                </div>
+
+                <div class="related-book-list">
+
+                    <!-- Related Book 1 -->
+                    <article class="related-book-card">
+
+                        <p class="book-category">Literature</p>
+
+                        <h3>
+                            <a href="book-details.html?book=2">
+                                Things Fall Apart
+                            </a>
+                        </h3>
+
+                        <p class="book-author">
+                            Author: Chinua Achebe
+                        </p>
+
+                        <a href="book-details.html?book=2"
+                            class="book-details-link">
+                            View Book Details
+                        </a>
+
+                    </article>
+
+
+                    <!-- Related Book 2 -->
+                    <article class="related-book-card">
+
+                        <p class="book-category">Science</p>
+
+                        <h3>
+                            <a href="book-details.html?book=3">
+                                A Brief History of Time
+                            </a>
+                        </h3>
+
+                        <p class="book-author">
+                            Author: Stephen Hawking
+                        </p>
+
+                        <a href="book-details.html?book=3"
+                            class="book-details-link">
+                            View Book Details
+                        </a>
+
+                    </article>
+
+
+                    <!-- Related Book 3 -->
+                    <article class="related-book-card">
+
+                        <p class="book-category">Business</p>
+
+                        <h3>
+                            <a href="book-details.html?book=4">
+                                The Lean Startup
+                            </a>
+                        </h3>
+
+                        <p class="book-author">
+                            Author: Eric Ries
+                        </p>
+
+                        <a href="book-details.html?book=4"
+                            class="book-details-link">
+                            View Book Details
+                        </a>
+
+                    </article>
+
+                </div>
+
+                <div class="catalogue-return-link">
+                    <a href="books.html">
+                        Return to Book Catalogue
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== MEMBERSHIP CALL TO ACTION ==================== -->
+        <section id="membership-call-to-action"
+            class="membership-call-to-action">
+
+            <div class="container">
+
+                <h2>Start Your Library Journey</h2>
+
+                <p>
+                    Become a member to request books, manage your loans,
+                    reserve books, and access other library services.
+                </p>
+
+                <a href="register.html" class="membership-register-link">
+                    Create an Account
+                </a>
+
+                <p>
+                    Already a member?
+                    <a href="login.html">Login to your account</a>.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="books.html">Browse Books</a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">About Us</a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-account-links">
+                    <h3>Account</h3>
+
+                    <ul>
+                        <li>
+                            <a href="login.html">Login</a>
+                        </li>
+
+                        <li>
+                            <a href="register.html">Register</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
