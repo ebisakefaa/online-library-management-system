@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage library book categories, add new categories, and organize books in the Online Library Management System.">
+    <meta name="author" content="Online Library Management System">
+    <title>Manage Categories | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+                    <li>
+                        <a href="books.html">Manage Books</a>
+                    </li>
+                    <li>
+                        <a href="categories.html" aria-current="page">
+                            Categories
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="staff-account-navigation">
+                <a href="../admin/dashboard.html">
+                    Administrator Dashboard
+                </a>
+
+                <a href="../librarian/dashboard.html">
+                    Librarian Dashboard
+                </a>
+
+                <a href="../login.html" class="logout-link">
+                    Login
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="books.html">Staff Management</a>
+                        </li>
+                        <li aria-current="page">Manage Categories</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Category Management</h1>
+
+                    <p>
+                        Organize the library catalogue by creating,
+                        updating, and managing book categories.
+                    </p>
+                </div>
+
+                <p class="staff-access-notice">
+                    This page is intended for authorized administrators
+                    and librarians. Actual access permissions will be
+                    enforced during PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== STAFF NAVIGATION ==================== -->
+        <section id="staff-navigation" class="staff-navigation-section">
+            <div class="container">
+
+                <h2>Staff Management Navigation</h2>
+
+                <nav aria-label="Staff management navigation">
+                    <ul class="staff-navigation-list">
+
+                        <li>
+                            <a href="books.html">
+                                Manage Books
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="book-form.html">
+                                Add or Edit a Book
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="categories.html" aria-current="page">
+                                Manage Categories
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CATEGORY OVERVIEW ==================== -->
+        <section id="category-overview" class="category-overview-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Category Overview</h2>
+
+                    <p>
+                        Review the categories currently used
+                        to organize the library catalogue.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE CATEGORY STATISTICS
+
+                    These values are demonstration figures only.
+                    Actual category statistics will be retrieved
+                    from MySQL during the PHP development phase.
+                -->
+
+                <div class="category-summary-list">
+
+                    <article class="category-summary-card">
+                        <h3>Total Categories</h3>
+                        <p class="category-summary-value">7</p>
+                        <p>Sample category records</p>
+                    </article>
+
+                    <article class="category-summary-card">
+                        <h3>Categories with Books</h3>
+                        <p class="category-summary-value">6</p>
+                        <p>Sample categories containing books</p>
+                    </article>
+
+                    <article class="category-summary-card">
+                        <h3>Unassigned Categories</h3>
+                        <p class="category-summary-value">1</p>
+                        <p>Sample categories without books</p>
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    These statistics are sample values and are not
+                    connected to the database.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ADD CATEGORY FORM ==================== -->
+        <section id="add-category-section" class="add-category-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Add a New Category</h2>
+
+                    <p>
+                        Enter a category name and description
+                        to organize a group of related books.
+                    </p>
+                </div>
+
+                <!--
+                    CATEGORY CREATION FORM
+
+                    The approved PHP architecture currently includes
+                    php/books/book-actions.php but does not yet define
+                    a dedicated category-management handler.
+
+                    The action is intentionally left as a placeholder.
+                    The appropriate PHP endpoint must be agreed upon
+                    before server-side integration.
+
+                    The future handler must validate category information,
+                    check authorization, protect against CSRF, and
+                    prevent duplicate category names.
+                -->
+
+                <form id="add-category-form" class="add-category-form"
+                    action="#" method="post">
+
+                    <input
+                        type="hidden"
+                        name="action"
+                        value="create_category"
+                    >
+
+                    <!-- Category Name -->
+                    <div class="form-group">
+                        <label for="category-name">
+                            Category Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="category-name"
+                            name="category_name"
+                            placeholder="Enter the category name"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Category Description -->
+                    <div class="form-group">
+                        <label for="category-description">
+                            Category Description
+                        </label>
+
+                        <textarea
+                            id="category-description"
+                            name="description"
+                            rows="5"
+                            maxlength="500"
+                            placeholder="Describe the type of books that belong to this category..."
+                        ></textarea>
+                    </div>
+
+
+                    <!-- Form Actions -->
+                    <div class="category-form-actions">
+
+                        <button type="submit"
+                            class="add-category-button">
+                            Add Category
+                        </button>
+
+                        <button type="reset"
+                            class="reset-category-button">
+                            Clear Form
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CATEGORY SEARCH ==================== -->
+        <section id="category-search-section"
+            class="category-search-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Search Categories</h2>
+
+                    <p>
+                        Find a category by its name or description.
+                    </p>
+                </div>
+
+                <form id="category-search-form"
+                    class="category-search-form"
+                    action="#category-list"
+                    method="get">
+
+                    <div class="form-group">
+                        <label for="category-search">
+                            Search Categories
+                        </label>
+
+                        <input
+                            type="search"
+                            id="category-search"
+                            name="q"
+                            placeholder="Enter a category name"
+                        >
+                    </div>
+
+                    <div class="category-search-actions">
+
+                        <button type="submit"
+                            class="category-search-button">
+                            Search
+                        </button>
+
+                        <a href="categories.html"
+                            class="clear-category-search">
+                            Clear Search
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CATEGORY LIST ==================== -->
+        <section id="category-list" class="category-list-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Existing Categories</h2>
+
+                    <p>
+                        View the categories registered in the library system.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE CATEGORY RECORDS
+
+                    These category records match the sample category
+                    identifiers used in staff/book-form.html.
+
+                    The real records and book counts will be loaded
+                    from the database during PHP integration.
+                -->
+
+                <div class="category-table-container">
+
+                    <table class="category-table">
+
+                        <caption>
+                            Sample library book categories
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Category Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Number of Books</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Category 1 -->
+                            <tr>
+                                <td>1</td>
+
+                                <td>
+                                    <strong>Computer Science</strong>
+                                </td>
+
+                                <td>
+                                    Books about computing, algorithms,
+                                    programming, and information technology.
+                                </td>
+
+                                <td>1</td>
+
+                                <td>
+                                    <div class="category-record-actions">
+
+                                        <a href="categories.html?edit=1"
+                                            class="edit-category-link">
+                                            Edit
+                                        </a>
+
+                                        <form action="#" method="post"
+                                            class="delete-category-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete_category"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="category_id"
+                                                value="1"
+                                            >
+
+                                            <button type="submit"
+                                                class="delete-category-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Category 2 -->
+                            <tr>
+                                <td>2</td>
+
+                                <td>
+                                    <strong>Literature</strong>
+                                </td>
+
+                                <td>
+                                    Novels, poetry, plays, and other
+                                    literary works.
+                                </td>
+
+                                <td>1</td>
+
+                                <td>
+                                    <div class="category-record-actions">
+
+                                        <a href="categories.html?edit=2"
+                                            class="edit-category-link">
+                                            Edit
+                                        </a>
+
+                                        <form action="#" method="post"
+                                            class="delete-category-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete_category"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="category_id"
+                                                value="2"
+                                            >
+
+                                            <button type="submit"
+                                                class="delete-category-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Category 3 -->
+                            <tr>
+                                <td>3</td>
+
+                                <td>
+                                    <strong>Science</strong>
+                                </td>
+
+                                <td>
+                                    Books about scientific principles,
+                                    discoveries, and research.
+                                </td>
+
+                                <td>1</td>
+
+                                <td>
+                                    <div class="category-record-actions">
+
+                                        <a href="categories.html?edit=3"
+                                            class="edit-category-link">
+                                            Edit
+                                        </a>
+
+                                        <form action="#" method="post"
+                                            class="delete-category-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete_category"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="category_id"
+                                                value="3"
+                                            >
+
+                                            <button type="submit"
+                                                class="delete-category-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Category 4 -->
+                            <tr>
+                                <td>4</td>
+
+                                <td>
+                                    <strong>History</strong>
+                                </td>
+
+                                <td>
+                                    Books about historical events,
+                                    civilizations, and people.
+                                </td>
+
+                                <td>1</td>
+
+                                <td>
+                                    <div class="category-record-actions">
+
+                                        <a href="categories.html?edit=4"
+                                            class="edit-category-link">
+                                            Edit
+                                        </a>
+
+                                        <form action="#" method="post"
+                                            class="delete-category-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete_category"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="category_id"
+                                                value="4"
+                                            >
+
+                                            <button type="submit"
+                                                class="delete-category-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Category 5 -->
+                            <tr>
+                                <td>5</td>
+
+                                <td>
+                                    <strong>Business</strong>
+                                </td>
+
+                                <td>
+                                    Books covering management,
+                                    entrepreneurship, economics,
+                                    and business practices.
+                                </td>
+
+                                <td>1</td>
+
+                                <td>
+                                    <div class="category-record-actions">
+
+                                        <a href="categories.html?edit=5"
+                                            class="edit-category-link">
+                                            Edit
+                                        </a>
+
+                                        <form action="#" method="post"
+                                            class="delete-category-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete_category"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="category_id"
+                                                value="5"
+                                            >
+
+                                            <button type="submit"
+                                                class="delete-category-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Category 6 -->
+                            <tr>
+                                <td>6</td>
+
+                                <td>
+                                    <strong>Mathematics</strong>
+                                </td>
+
+                                <td>
+                                    Books about mathematical concepts,
+                                    calculations, and applications.
+                                </td>
+
+                                <td>1</td>
+
+                                <td>
+                                    <div class="category-record-actions">
+
+                                        <a href="categories.html?edit=6"
+                                            class="edit-category-link">
+                                            Edit
+                                        </a>
+
+                                        <form action="#" method="post"
+                                            class="delete-category-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete_category"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="category_id"
+                                                value="6"
+                                            >
+
+                                            <button type="submit"
+                                                class="delete-category-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Category 7 -->
+                            <tr>
+                                <td>7</td>
+
+                                <td>
+                                    <strong>Education</strong>
+                                </td>
+
+                                <td>
+                                    Books related to teaching,
+                                    learning, and educational practices.
+                                </td>
+
+                                <td>0</td>
+
+                                <td>
+                                    <div class="category-record-actions">
+
+                                        <a href="categories.html?edit=7"
+                                            class="edit-category-link">
+                                            Edit
+                                        </a>
+
+                                        <form action="#" method="post"
+                                            class="delete-category-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete_category"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="category_id"
+                                                value="7"
+                                            >
+
+                                            <button type="submit"
+                                                class="delete-category-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    All category records and book counts displayed
+                    above are sample data. Actual information will
+                    be retrieved from MySQL during PHP integration.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CATEGORY MANAGEMENT GUIDELINES ==================== -->
+        <section id="category-guidelines"
+            class="category-guidelines-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Category Management Guidelines</h2>
+                </div>
+
+                <ul class="category-guidelines-list">
+
+                    <li>
+                        Use clear and meaningful category names.
+                    </li>
+
+                    <li>
+                        Avoid creating duplicate categories.
+                    </li>
+
+                    <li>
+                        Assign each book to an appropriate category.
+                    </li>
+
+                    <li>
+                        Keep category descriptions relevant and accurate.
+                    </li>
+
+                    <li>
+                        Check whether a category contains books
+                        before attempting to delete it.
+                    </li>
+
+                    <li>
+                        A category that is already assigned to books
+                        should not be deleted without first handling
+                        its related book records.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK NAVIGATION ==================== -->
+        <section id="staff-quick-navigation"
+            class="staff-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Staff Management Options</h2>
+
+                <ul class="quick-navigation-list">
+
+                    <li>
+                        <a href="books.html">
+                            Manage Book Inventory
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="book-form.html">
+                            Add or Edit a Book
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../admin/dashboard.html">
+                            Administrator Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../librarian/dashboard.html">
+                            Librarian Dashboard
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="books.html">
+                                Manage Books
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="categories.html">
+                                Manage Categories
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-staff-links">
+                    <h3>Staff Dashboards</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../admin/dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../librarian/dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
