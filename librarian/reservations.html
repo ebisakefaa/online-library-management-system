@@ -1,0 +1,1099 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage member book reservations, review reservation requests, and update reservation statuses in the Online Library Management System.">
+    <meta name="author" content="Online Library Management System">
+    <title>Book Reservations | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="reservations.html" aria-current="page">
+                            Reservations
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="librarian-account-navigation">
+                <span class="account-role">Librarian</span>
+
+                <a href="../php/auth/logout.php" class="logout-link">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+
+                        <li aria-current="page">Reservations</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Book Reservation Management</h1>
+
+                    <p>
+                        Review member reservations, manage their status,
+                        and help members access books when they become
+                        available.
+                    </p>
+                </div>
+
+                <p class="librarian-access-notice">
+                    This page is intended for authorized librarians.
+                    Reservation operations and permissions will be
+                    enforced during PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LIBRARIAN NAVIGATION ==================== -->
+        <section id="librarian-navigation"
+            class="librarian-navigation-section">
+
+            <div class="container">
+
+                <h2>Librarian Navigation</h2>
+
+                <nav aria-label="Librarian navigation">
+                    <ul class="librarian-navigation-list">
+
+                        <li>
+                            <a href="dashboard.html">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="members.html">
+                                Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="borrow-requests.html">
+                                Borrow Requests
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="loans.html">
+                                Active Loans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="returns.html">
+                                Returns
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reservations.html" aria-current="page">
+                                Reservations
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html">
+                                Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/books.html">
+                                Book Catalogue
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== RESERVATION OVERVIEW ==================== -->
+        <section id="reservation-overview"
+            class="reservation-overview-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Reservation Overview</h2>
+
+                    <p>
+                        Review the current status of member
+                        book reservations.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE RESERVATION STATISTICS
+
+                    These values are demonstration figures only.
+
+                    They are consistent with the sample reservation
+                    count shown on librarian/dashboard.html.
+
+                    Total reservations: 12
+                    Pending reservations: 5
+                    Approved reservations: 4
+                    Fulfilled reservations: 2
+                    Cancelled reservations: 1
+
+                    Actual statistics will be retrieved from
+                    the reservations table during PHP integration.
+                -->
+
+                <div class="reservation-statistics-list">
+
+                    <article class="reservation-statistics-card"
+                        id="total-reservations">
+
+                        <h3>Total Reservations</h3>
+
+                        <p class="statistics-value">12</p>
+
+                        <p>Sample reservation records</p>
+
+                    </article>
+
+
+                    <article class="reservation-statistics-card"
+                        id="pending-reservations">
+
+                        <h3>Pending Reservations</h3>
+
+                        <p class="statistics-value">5</p>
+
+                        <p>Awaiting librarian review</p>
+
+                    </article>
+
+
+                    <article class="reservation-statistics-card"
+                        id="approved-reservations">
+
+                        <h3>Approved Reservations</h3>
+
+                        <p class="statistics-value">4</p>
+
+                        <p>Accepted reservations</p>
+
+                    </article>
+
+
+                    <article class="reservation-statistics-card"
+                        id="fulfilled-reservations">
+
+                        <h3>Fulfilled Reservations</h3>
+
+                        <p class="statistics-value">2</p>
+
+                        <p>Completed reservation records</p>
+
+                    </article>
+
+
+                    <article class="reservation-statistics-card"
+                        id="cancelled-reservations">
+
+                        <h3>Cancelled Reservations</h3>
+
+                        <p class="statistics-value">1</p>
+
+                        <p>Cancelled reservation records</p>
+
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    These statistics are illustrative sample values.
+                    They are not connected to the library database.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== RESERVATION SEARCH AND FILTERS ==================== -->
+        <section id="reservation-search-section"
+            class="reservation-search-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Search and Filter Reservations</h2>
+
+                    <p>
+                        Find reservations using their identifiers,
+                        member information, book titles, or status.
+                    </p>
+                </div>
+
+                <form id="reservation-filter-form"
+                    class="reservation-filter-form"
+                    action="reservations.html"
+                    method="get">
+
+                    <!-- Reservation Search -->
+                    <div class="form-group">
+                        <label for="reservation-search">
+                            Search by Reservation ID, Member, or Book
+                        </label>
+
+                        <input
+                            type="search"
+                            id="reservation-search"
+                            name="q"
+                            placeholder="Enter reservation ID, member, or book title"
+                        >
+                    </div>
+
+
+                    <!-- Reservation Status -->
+                    <div class="form-group">
+                        <label for="reservation-status-filter">
+                            Reservation Status
+                        </label>
+
+                        <select
+                            id="reservation-status-filter"
+                            name="status">
+
+                            <option value="">All Reservation Statuses</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="fulfilled">Fulfilled</option>
+                            <option value="cancelled">Cancelled</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Sorting -->
+                    <div class="form-group">
+                        <label for="reservation-sort-filter">
+                            Sort By
+                        </label>
+
+                        <select
+                            id="reservation-sort-filter"
+                            name="sort">
+
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="member">Member Name</option>
+                            <option value="book">Book Title</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Filter Actions -->
+                    <div class="reservation-filter-actions">
+
+                        <button type="submit"
+                            class="reservation-search-button">
+                            Search Reservations
+                        </button>
+
+                        <a href="reservations.html"
+                            class="clear-filters-link">
+                            Clear Filters
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== RESERVATION RECORDS ==================== -->
+        <section id="reservation-records"
+            class="reservation-records-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Member Reservation Records</h2>
+
+                    <p>
+                        Review submitted reservations and update
+                        their status according to library procedures.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE RESERVATION RECORDS
+
+                    These are fictional demonstration records.
+
+                    Actual reservation information will be retrieved
+                    from the reservations table during PHP integration.
+
+                    Statuses used in this prototype:
+                    - Pending
+                    - Approved
+                    - Fulfilled
+                    - Cancelled
+
+                    A reservation does not create an active loan.
+                    Book issuance remains a separate operation.
+                -->
+
+                <div class="reservation-table-container">
+
+                    <table class="reservation-table">
+
+                        <caption>
+                            Sample member book reservations
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Reservation ID</th>
+                                <th scope="col">Member</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Reservation Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Reservation 1 -->
+                            <tr>
+                                <td>RES-001</td>
+
+                                <td>
+                                    <strong>Abel Example</strong>
+                                    <p>Member ID: MEM-001</p>
+                                </td>
+
+                                <td>
+                                    A Brief History of Time
+                                </td>
+
+                                <td>2026-11-04</td>
+
+                                <td>
+                                    <span class="reservation-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="reservation-record-actions">
+
+                                        <form
+                                            action="../php/reservations/reservation-actions.php"
+                                            method="post"
+                                            class="approve-reservation-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="approve_reservation"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="reservation_id"
+                                                value="RES-001"
+                                            >
+
+                                            <button type="submit"
+                                                class="approve-reservation-button">
+                                                Approve
+                                            </button>
+
+                                        </form>
+
+
+                                        <form
+                                            action="../php/reservations/reservation-actions.php"
+                                            method="post"
+                                            class="reject-reservation-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="reject_reservation"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="reservation_id"
+                                                value="RES-001"
+                                            >
+
+                                            <button type="submit"
+                                                class="reject-reservation-button">
+                                                Reject
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Reservation 2 -->
+                            <tr>
+                                <td>RES-002</td>
+
+                                <td>
+                                    <strong>Hana Example</strong>
+                                    <p>Member ID: MEM-002</p>
+                                </td>
+
+                                <td>
+                                    Introduction to Algorithms
+                                </td>
+
+                                <td>2026-11-05</td>
+
+                                <td>
+                                    <span class="reservation-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="reservation-record-actions">
+
+                                        <form
+                                            action="../php/reservations/reservation-actions.php"
+                                            method="post"
+                                            class="approve-reservation-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="approve_reservation"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="reservation_id"
+                                                value="RES-002"
+                                            >
+
+                                            <button type="submit"
+                                                class="approve-reservation-button">
+                                                Approve
+                                            </button>
+
+                                        </form>
+
+
+                                        <form
+                                            action="../php/reservations/reservation-actions.php"
+                                            method="post"
+                                            class="reject-reservation-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="reject_reservation"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="reservation_id"
+                                                value="RES-002"
+                                            >
+
+                                            <button type="submit"
+                                                class="reject-reservation-button">
+                                                Reject
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Reservation 3 -->
+                            <tr>
+                                <td>RES-003</td>
+
+                                <td>
+                                    <strong>Daniel Example</strong>
+                                    <p>Member ID: MEM-003</p>
+                                </td>
+
+                                <td>
+                                    Things Fall Apart
+                                </td>
+
+                                <td>2026-11-05</td>
+
+                                <td>
+                                    <span class="reservation-status approved">
+                                        Approved
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="reservation-record-actions">
+
+                                        <form
+                                            action="../php/reservations/reservation-actions.php"
+                                            method="post"
+                                            class="complete-reservation-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="complete_reservation"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="reservation_id"
+                                                value="RES-003"
+                                            >
+
+                                            <button type="submit"
+                                                class="complete-reservation-button">
+                                                Mark Fulfilled
+                                            </button>
+
+                                        </form>
+
+
+                                        <form
+                                            action="../php/reservations/reservation-actions.php"
+                                            method="post"
+                                            class="cancel-reservation-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="cancel_reservation"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="reservation_id"
+                                                value="RES-003"
+                                            >
+
+                                            <button type="submit"
+                                                class="cancel-reservation-button">
+                                                Cancel
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Reservation 4 -->
+                            <tr>
+                                <td>RES-004</td>
+
+                                <td>
+                                    <strong>Mimi Example</strong>
+                                    <p>Member ID: MEM-004</p>
+                                </td>
+
+                                <td>
+                                    The Lean Startup
+                                </td>
+
+                                <td>2026-10-28</td>
+
+                                <td>
+                                    <span class="reservation-status fulfilled">
+                                        Fulfilled
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="completed-action">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <!-- Reservation 5 -->
+                            <tr>
+                                <td>RES-005</td>
+
+                                <td>
+                                    <strong>Samuel Example</strong>
+                                    <p>Member ID: MEM-005</p>
+                                </td>
+
+                                <td>
+                                    Calculus
+                                </td>
+
+                                <td>2026-10-25</td>
+
+                                <td>
+                                    <span class="reservation-status cancelled">
+                                        Cancelled
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="completed-action">
+                                        No Action Available
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    Five fictional reservation records are displayed
+                    as examples. The overview statistics represent
+                    twelve sample records in total.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== RESERVATION MANAGEMENT GUIDELINES ==================== -->
+        <section id="reservation-guidelines"
+            class="reservation-guidelines-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Reservation Management Guidelines</h2>
+
+                    <p>
+                        Follow these guidelines when reviewing
+                        and managing member reservations.
+                    </p>
+                </div>
+
+                <ul class="reservation-guidelines-list">
+
+                    <li>
+                        Confirm that the member has an active
+                        library account.
+                    </li>
+
+                    <li>
+                        Verify that the requested book exists
+                        in the library catalogue.
+                    </li>
+
+                    <li>
+                        Check the current availability of the
+                        requested book before making a decision.
+                    </li>
+
+                    <li>
+                        Approve or reject only reservations
+                        that are still pending.
+                    </li>
+
+                    <li>
+                        Update approved reservations when they
+                        have been completed according to library
+                        procedures.
+                    </li>
+
+                    <li>
+                        Do not complete a reservation that has
+                        already been cancelled or fulfilled.
+                    </li>
+
+                    <li>
+                        Keep reservation records linked to
+                        the relevant member and book.
+                    </li>
+
+                    <li>
+                        Do not treat an approved reservation
+                        as an issued book or active loan.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== RESERVATION WORKFLOW ==================== -->
+        <section id="reservation-workflow"
+            class="reservation-workflow-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Reservation Workflow</h2>
+
+                    <p>
+                        Understand how the reservation process
+                        works within the library system.
+                    </p>
+                </div>
+
+                <ol class="reservation-process-list">
+
+                    <li class="reservation-process-step">
+
+                        <h3>Member Submits a Reservation</h3>
+
+                        <p>
+                            A registered member selects a book
+                            and submits a reservation request
+                            through their account.
+                        </p>
+
+                    </li>
+
+
+                    <li class="reservation-process-step">
+
+                        <h3>Librarian Reviews the Reservation</h3>
+
+                        <p>
+                            The librarian checks the member's
+                            account and the requested book information.
+                        </p>
+
+                    </li>
+
+
+                    <li class="reservation-process-step">
+
+                        <h3>Reservation Is Approved or Rejected</h3>
+
+                        <p>
+                            The librarian records the decision
+                            and updates the reservation status.
+                        </p>
+
+                    </li>
+
+
+                    <li class="reservation-process-step">
+
+                        <h3>Reservation Is Completed</h3>
+
+                        <p>
+                            When the reservation has been served
+                            according to library procedures, the
+                            librarian marks it as fulfilled.
+                        </p>
+
+                    </li>
+
+
+                    <li class="reservation-process-step">
+
+                        <h3>Borrowing Is Recorded Separately</h3>
+
+                        <p>
+                            When a book is actually issued, the
+                            librarian records it through the
+                            normal borrowing and loan process.
+                        </p>
+
+                        <a href="loans.html">
+                            Go to Active Loans
+                        </a>
+
+                    </li>
+
+                </ol>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK NAVIGATION ==================== -->
+        <section id="librarian-quick-navigation"
+            class="librarian-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Library Operations</h2>
+
+                <div class="librarian-navigation-groups">
+
+                    <div class="librarian-navigation-group">
+                        <h3>Member Services</h3>
+
+                        <ul>
+                            <li>
+                                <a href="members.html">
+                                    Manage Members
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="reservations.html">
+                                    Reservations
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="fines.html">
+                                    Manage Fines
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Borrowing Operations</h3>
+
+                        <ul>
+                            <li>
+                                <a href="borrow-requests.html">
+                                    Borrowing Requests
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="loans.html">
+                                    Active Loans
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="returns.html">
+                                    Book Returns
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Book Catalogue</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../staff/books.html">
+                                    Manage Books
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../staff/categories.html">
+                                    Manage Categories
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../books.html">
+                                    Public Book Catalogue
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Dashboards</h3>
+
+                        <ul>
+                            <li>
+                                <a href="dashboard.html">
+                                    Librarian Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../admin/dashboard.html">
+                                    Administrator Dashboard
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-operations">
+                    <h3>Library Operations</h3>
+
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="borrow-requests.html">
+                                Borrowing Requests
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="loans.html">
+                                Active Loans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="returns.html">
+                                Book Returns
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reservations.html">
+                                Reservations
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
