@@ -1,0 +1,945 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Administrator page for viewing and managing registered library member accounts.">
+    <meta name="author" content="Online Library Management System">
+    <title>Manage Members | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="users.html" aria-current="page">
+                            Manage Members
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="admin-account-navigation">
+                <span class="account-role">Administrator</span>
+
+                <a href="../php/auth/logout.php" class="logout-link">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+                        <li aria-current="page">Manage Members</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Member Management</h1>
+
+                    <p>
+                        View registered library members, review their
+                        account information, and manage their account status.
+                    </p>
+                </div>
+
+                <p class="admin-access-notice">
+                    This page is intended for authorized administrators.
+                    Access permissions and all account-management actions
+                    will be enforced during PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ADMINISTRATION NAVIGATION ==================== -->
+        <section id="admin-navigation" class="admin-navigation-section">
+            <div class="container">
+
+                <h2>Administration Navigation</h2>
+
+                <nav aria-label="Administrator navigation">
+                    <ul class="admin-navigation-list">
+
+                        <li>
+                            <a href="dashboard.html">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="users.html" aria-current="page">
+                                Manage Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="librarians.html">
+                                Manage Librarians
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/books.html">
+                                Manage Books
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/categories.html">
+                                Manage Categories
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html">
+                                Manage Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports.html">
+                                View Reports
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== MEMBER ACCOUNT OVERVIEW ==================== -->
+        <section id="member-account-overview"
+            class="member-account-overview-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Member Account Overview</h2>
+
+                    <p>
+                        Review the overall status of registered
+                        library member accounts.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE MEMBER STATISTICS
+
+                    These values are demonstration figures only.
+                    Actual statistics will be retrieved from MySQL
+                    during the PHP development phase.
+                -->
+
+                <div class="member-statistics-list">
+
+                    <article class="member-statistics-card"
+                        id="total-members">
+
+                        <h3>Total Registered Members</h3>
+
+                        <p class="statistics-value">128</p>
+
+                        <p>Sample registered member accounts</p>
+
+                    </article>
+
+
+                    <article class="member-statistics-card"
+                        id="active-members">
+
+                        <h3>Active Members</h3>
+
+                        <p class="statistics-value">122</p>
+
+                        <p>Sample active accounts</p>
+
+                    </article>
+
+
+                    <article class="member-statistics-card"
+                        id="suspended-members">
+
+                        <h3>Suspended Members</h3>
+
+                        <p class="statistics-value">6</p>
+
+                        <p>Sample suspended accounts</p>
+
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    These statistics are sample figures and are
+                    not connected to the database.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== MEMBER SEARCH AND FILTERS ==================== -->
+        <section id="member-search-section"
+            class="member-search-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Search and Filter Members</h2>
+
+                    <p>
+                        Find registered members using their account
+                        information or account status.
+                    </p>
+                </div>
+
+                <form id="member-filter-form"
+                    class="member-filter-form"
+                    action="users.html"
+                    method="get">
+
+                    <!-- Member Search -->
+                    <div class="form-group">
+                        <label for="member-search">
+                            Search by Name, Email, or Member ID
+                        </label>
+
+                        <input
+                            type="search"
+                            id="member-search"
+                            name="q"
+                            placeholder="Enter member name, email, or ID"
+                        >
+                    </div>
+
+
+                    <!-- Account Status -->
+                    <div class="form-group">
+                        <label for="member-status-filter">
+                            Account Status
+                        </label>
+
+                        <select
+                            id="member-status-filter"
+                            name="status">
+
+                            <option value="">All Account Statuses</option>
+                            <option value="active">Active</option>
+                            <option value="suspended">Suspended</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Search Actions -->
+                    <div class="member-filter-actions">
+
+                        <button type="submit"
+                            class="member-search-button">
+                            Search Members
+                        </button>
+
+                        <a href="users.html" class="clear-filters-link">
+                            Clear Filters
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== REGISTERED MEMBERS TABLE ==================== -->
+        <section id="registered-members"
+            class="registered-members-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Registered Library Members</h2>
+
+                    <p>
+                        Review member account details and manage
+                        account access.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE MEMBER RECORDS
+
+                    All members and contact information below are
+                    fictional demonstration records.
+
+                    The actual member records will be retrieved
+                    from the users table in the MySQL database.
+
+                    Librarian accounts are managed separately
+                    through admin/librarians.html.
+                -->
+
+                <div class="members-table-container">
+
+                    <table class="members-table">
+
+                        <caption>
+                            Sample registered library members
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Member ID</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Email Address</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Registration Date</th>
+                                <th scope="col">Account Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Member 1 -->
+                            <tr>
+                                <td>MEM-001</td>
+
+                                <td>
+                                    <strong>Abel Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:abel001@example.com">
+                                        abel001@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 001</td>
+
+                                <td>2026-01-15</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <form
+                                        action="../php/users/user-actions.php"
+                                        method="post"
+                                        class="member-status-form">
+
+                                        <input
+                                            type="hidden"
+                                            name="action"
+                                            value="update_status"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="user_id"
+                                            value="1"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="status"
+                                            value="suspended"
+                                        >
+
+                                        <button type="submit"
+                                            class="suspend-member-button">
+                                            Suspend
+                                        </button>
+
+                                    </form>
+                                </td>
+                            </tr>
+
+
+                            <!-- Member 2 -->
+                            <tr>
+                                <td>MEM-002</td>
+
+                                <td>
+                                    <strong>Hana Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:hana002@example.com">
+                                        hana002@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 002</td>
+
+                                <td>2026-02-08</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <form
+                                        action="../php/users/user-actions.php"
+                                        method="post"
+                                        class="member-status-form">
+
+                                        <input
+                                            type="hidden"
+                                            name="action"
+                                            value="update_status"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="user_id"
+                                            value="2"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="status"
+                                            value="suspended"
+                                        >
+
+                                        <button type="submit"
+                                            class="suspend-member-button">
+                                            Suspend
+                                        </button>
+
+                                    </form>
+                                </td>
+                            </tr>
+
+
+                            <!-- Member 3 -->
+                            <tr>
+                                <td>MEM-003</td>
+
+                                <td>
+                                    <strong>Daniel Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:daniel003@example.com">
+                                        daniel003@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 003</td>
+
+                                <td>2026-03-21</td>
+
+                                <td>
+                                    <span class="account-status suspended">
+                                        Suspended
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <form
+                                        action="../php/users/user-actions.php"
+                                        method="post"
+                                        class="member-status-form">
+
+                                        <input
+                                            type="hidden"
+                                            name="action"
+                                            value="update_status"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="user_id"
+                                            value="3"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="status"
+                                            value="active"
+                                        >
+
+                                        <button type="submit"
+                                            class="activate-member-button">
+                                            Reactivate
+                                        </button>
+
+                                    </form>
+                                </td>
+                            </tr>
+
+
+                            <!-- Member 4 -->
+                            <tr>
+                                <td>MEM-004</td>
+
+                                <td>
+                                    <strong>Mimi Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:mimi004@example.com">
+                                        mimi004@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 004</td>
+
+                                <td>2026-05-11</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <form
+                                        action="../php/users/user-actions.php"
+                                        method="post"
+                                        class="member-status-form">
+
+                                        <input
+                                            type="hidden"
+                                            name="action"
+                                            value="update_status"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="user_id"
+                                            value="4"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="status"
+                                            value="suspended"
+                                        >
+
+                                        <button type="submit"
+                                            class="suspend-member-button">
+                                            Suspend
+                                        </button>
+
+                                    </form>
+                                </td>
+                            </tr>
+
+
+                            <!-- Member 5 -->
+                            <tr>
+                                <td>MEM-005</td>
+
+                                <td>
+                                    <strong>Samuel Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:samuel005@example.com">
+                                        samuel005@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 005</td>
+
+                                <td>2026-07-03</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <form
+                                        action="../php/users/user-actions.php"
+                                        method="post"
+                                        class="member-status-form">
+
+                                        <input
+                                            type="hidden"
+                                            name="action"
+                                            value="update_status"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="user_id"
+                                            value="5"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="status"
+                                            value="suspended"
+                                        >
+
+                                        <button type="submit"
+                                            class="suspend-member-button">
+                                            Suspend
+                                        </button>
+
+                                    </form>
+                                </td>
+                            </tr>
+
+
+                            <!-- Member 6 -->
+                            <tr>
+                                <td>MEM-006</td>
+
+                                <td>
+                                    <strong>Ruth Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:ruth006@example.com">
+                                        ruth006@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 006</td>
+
+                                <td>2026-09-19</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <form
+                                        action="../php/users/user-actions.php"
+                                        method="post"
+                                        class="member-status-form">
+
+                                        <input
+                                            type="hidden"
+                                            name="action"
+                                            value="update_status"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="user_id"
+                                            value="6"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="status"
+                                            value="suspended"
+                                        >
+
+                                        <button type="submit"
+                                            class="suspend-member-button">
+                                            Suspend
+                                        </button>
+
+                                    </form>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    The member records shown above are fictional
+                    examples for the HTML prototype. No real member
+                    information is displayed.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== MEMBER ACCOUNT MANAGEMENT GUIDELINES ==================== -->
+        <section id="member-management-guidelines"
+            class="member-management-guidelines-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Member Account Management Guidelines</h2>
+                </div>
+
+                <ul class="member-management-guidelines-list">
+
+                    <li>
+                        Keep member contact and account information accurate.
+                    </li>
+
+                    <li>
+                        Review member account information before changing
+                        an account's status.
+                    </li>
+
+                    <li>
+                        Suspend an account only when there is a valid
+                        administrative reason.
+                    </li>
+
+                    <li>
+                        Reactivate suspended accounts when the
+                        relevant issue has been resolved.
+                    </li>
+
+                    <li>
+                        Account status changes must be performed by
+                        authorized administrators.
+                    </li>
+
+                    <li>
+                        Do not delete member records without considering
+                        their borrowing, reservation, fine, and payment
+                        history.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK ADMINISTRATIVE NAVIGATION ==================== -->
+        <section id="admin-quick-navigation"
+            class="admin-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Administrative Options</h2>
+
+                <div class="admin-navigation-groups">
+
+                    <div class="admin-navigation-group">
+                        <h3>Account Management</h3>
+
+                        <ul>
+                            <li>
+                                <a href="users.html">
+                                    Manage Members
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="librarians.html">
+                                    Manage Librarians
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="admin-navigation-group">
+                        <h3>Library Management</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../staff/books.html">
+                                    Manage Books
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../staff/categories.html">
+                                    Manage Categories
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="fines.html">
+                                    Manage Fines
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="reports.html">
+                                    View Reports
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="admin-navigation-group">
+                        <h3>Dashboard</h3>
+
+                        <ul>
+                            <li>
+                                <a href="dashboard.html">
+                                    Administrator Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../librarian/dashboard.html">
+                                    Librarian Dashboard
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-administration">
+                    <h3>Administration</h3>
+
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="users.html">
+                                Manage Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="librarians.html">
+                                Manage Librarians
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports.html">
+                                View Reports
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
