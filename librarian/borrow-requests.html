@@ -1,0 +1,1095 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Review, approve, and reject member book borrowing requests in the Online Library Management System.">
+    <meta name="author" content="Online Library Management System">
+    <title>Borrowing Requests | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="borrow-requests.html" aria-current="page">
+                            Borrow Requests
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="librarian-account-navigation">
+                <span class="account-role">Librarian</span>
+
+                <a href="../php/auth/logout.php" class="logout-link">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+
+                        <li aria-current="page">Borrowing Requests</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Borrowing Request Management</h1>
+
+                    <p>
+                        Review member borrowing requests and decide
+                        whether each request should be approved or rejected.
+                    </p>
+                </div>
+
+                <p class="librarian-access-notice">
+                    This page is intended for authorized librarians.
+                    Borrowing decisions will be validated and processed
+                    by the server during PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LIBRARIAN NAVIGATION ==================== -->
+        <section id="librarian-navigation"
+            class="librarian-navigation-section">
+
+            <div class="container">
+
+                <h2>Librarian Navigation</h2>
+
+                <nav aria-label="Librarian navigation">
+                    <ul class="librarian-navigation-list">
+
+                        <li>
+                            <a href="dashboard.html">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="members.html">
+                                Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="borrow-requests.html" aria-current="page">
+                                Borrow Requests
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="loans.html">
+                                Active Loans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="returns.html">
+                                Returns
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reservations.html">
+                                Reservations
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html">
+                                Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/books.html">
+                                Book Catalogue
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BORROWING REQUEST OVERVIEW ==================== -->
+        <section id="borrowing-request-overview"
+            class="borrowing-request-overview-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Borrowing Request Overview</h2>
+
+                    <p>
+                        Review the current status of member borrowing requests.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE REQUEST STATISTICS
+
+                    These figures are illustrative only.
+                    Actual values will be calculated from the borrowing
+                    records stored in MySQL.
+
+                    The pending request count matches the sample
+                    librarian and administrator dashboards.
+                -->
+
+                <div class="request-statistics-list">
+
+                    <article class="request-statistics-card"
+                        id="total-borrowing-requests">
+
+                        <h3>Total Requests</h3>
+
+                        <p class="statistics-value">11</p>
+
+                        <p>Sample borrowing requests</p>
+
+                    </article>
+
+
+                    <article class="request-statistics-card"
+                        id="pending-borrowing-requests">
+
+                        <h3>Pending Review</h3>
+
+                        <p class="statistics-value">8</p>
+
+                        <p>Requests awaiting a decision</p>
+
+                    </article>
+
+
+                    <article class="request-statistics-card"
+                        id="approved-borrowing-requests">
+
+                        <h3>Approved Requests</h3>
+
+                        <p class="statistics-value">2</p>
+
+                        <p>Awaiting the issuing process</p>
+
+                    </article>
+
+
+                    <article class="request-statistics-card"
+                        id="rejected-borrowing-requests">
+
+                        <h3>Rejected Requests</h3>
+
+                        <p class="statistics-value">1</p>
+
+                        <p>Requests not approved</p>
+
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    These figures are sample statistics, not actual
+                    borrowing request records from the database.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BORROWING REQUEST SEARCH AND FILTERS ==================== -->
+        <section id="request-search-section"
+            class="request-search-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Search and Filter Requests</h2>
+
+                    <p>
+                        Find borrowing requests using their identifiers,
+                        member information, or request status.
+                    </p>
+                </div>
+
+                <form id="request-filter-form"
+                    class="request-filter-form"
+                    action="borrow-requests.html"
+                    method="get">
+
+                    <!-- Request Search -->
+                    <div class="form-group">
+                        <label for="request-search">
+                            Search by Request ID, Member, or Book
+                        </label>
+
+                        <input
+                            type="search"
+                            id="request-search"
+                            name="q"
+                            placeholder="Enter request ID, member name, or book title"
+                        >
+                    </div>
+
+
+                    <!-- Request Status -->
+                    <div class="form-group">
+                        <label for="request-status-filter">
+                            Request Status
+                        </label>
+
+                        <select
+                            id="request-status-filter"
+                            name="status">
+
+                            <option value="">All Request Statuses</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Request Sorting -->
+                    <div class="form-group">
+                        <label for="request-sort-filter">
+                            Sort By
+                        </label>
+
+                        <select
+                            id="request-sort-filter"
+                            name="sort">
+
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="member">Member Name</option>
+                            <option value="book">Book Title</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Filter Actions -->
+                    <div class="request-filter-actions">
+
+                        <button type="submit"
+                            class="request-search-button">
+                            Search Requests
+                        </button>
+
+                        <a href="borrow-requests.html"
+                            class="clear-filters-link">
+                            Clear Filters
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BORROWING REQUEST RECORDS ==================== -->
+        <section id="borrowing-request-records"
+            class="borrowing-request-records-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Member Borrowing Requests</h2>
+
+                    <p>
+                        Review submitted requests and take the appropriate
+                        action based on availability and library rules.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE BORROWING REQUEST RECORDS
+
+                    All member names, request identifiers, and dates
+                    below are fictional demonstration data.
+
+                    The first four request identifiers match the
+                    examples used on librarian/dashboard.html and
+                    admin/dashboard.html.
+
+                    The actual records will be retrieved from
+                    the borrowings table during PHP integration.
+
+                    Only requests with a pending status should be
+                    eligible for approval or rejection.
+                -->
+
+                <div class="borrowing-requests-table-container">
+
+                    <table class="borrowing-requests-table">
+
+                        <caption>
+                            Sample member borrowing requests
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Request ID</th>
+                                <th scope="col">Member</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Request Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Request 1 -->
+                            <tr>
+                                <td>BR-001</td>
+
+                                <td>
+                                    <strong>Abel Example</strong>
+                                    <p>Member ID: MEM-001</p>
+                                </td>
+
+                                <td>Introduction to Algorithms</td>
+
+                                <td>2026-11-05</td>
+
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="request-record-actions">
+
+                                        <form
+                                            action="../php/borrowing/borrowing-actions.php"
+                                            method="post"
+                                            class="approve-request-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="approve_request"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="request_id"
+                                                value="BR-001"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="approve-request-button">
+                                                Approve
+                                            </button>
+
+                                        </form>
+
+
+                                        <form
+                                            action="../php/borrowing/borrowing-actions.php"
+                                            method="post"
+                                            class="reject-request-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="reject_request"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="request_id"
+                                                value="BR-001"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="reject-request-button">
+                                                Reject
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Request 2 -->
+                            <tr>
+                                <td>BR-002</td>
+
+                                <td>
+                                    <strong>Hana Example</strong>
+                                    <p>Member ID: MEM-002</p>
+                                </td>
+
+                                <td>Things Fall Apart</td>
+
+                                <td>2026-11-05</td>
+
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="request-record-actions">
+
+                                        <form
+                                            action="../php/borrowing/borrowing-actions.php"
+                                            method="post"
+                                            class="approve-request-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="approve_request"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="request_id"
+                                                value="BR-002"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="approve-request-button">
+                                                Approve
+                                            </button>
+
+                                        </form>
+
+
+                                        <form
+                                            action="../php/borrowing/borrowing-actions.php"
+                                            method="post"
+                                            class="reject-request-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="reject_request"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="request_id"
+                                                value="BR-002"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="reject-request-button">
+                                                Reject
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Request 3 -->
+                            <tr>
+                                <td>BR-003</td>
+
+                                <td>
+                                    <strong>Daniel Example</strong>
+                                    <p>Member ID: MEM-003</p>
+                                </td>
+
+                                <td>The Lean Startup</td>
+
+                                <td>2026-11-06</td>
+
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="request-record-actions">
+
+                                        <form
+                                            action="../php/borrowing/borrowing-actions.php"
+                                            method="post"
+                                            class="approve-request-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="approve_request"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="request_id"
+                                                value="BR-003"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="approve-request-button">
+                                                Approve
+                                            </button>
+
+                                        </form>
+
+
+                                        <form
+                                            action="../php/borrowing/borrowing-actions.php"
+                                            method="post"
+                                            class="reject-request-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="reject_request"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="request_id"
+                                                value="BR-003"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="reject-request-button">
+                                                Reject
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Request 4 -->
+                            <tr>
+                                <td>BR-004</td>
+
+                                <td>
+                                    <strong>Mimi Example</strong>
+                                    <p>Member ID: MEM-004</p>
+                                </td>
+
+                                <td>Calculus</td>
+
+                                <td>2026-11-07</td>
+
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="request-record-actions">
+
+                                        <form
+                                            action="../php/borrowing/borrowing-actions.php"
+                                            method="post"
+                                            class="approve-request-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="approve_request"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="request_id"
+                                                value="BR-004"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="approve-request-button">
+                                                Approve
+                                            </button>
+
+                                        </form>
+
+
+                                        <form
+                                            action="../php/borrowing/borrowing-actions.php"
+                                            method="post"
+                                            class="reject-request-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="reject_request"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="request_id"
+                                                value="BR-004"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="reject-request-button">
+                                                Reject
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    The table contains four fictional sample requests.
+                    The dashboard's total of eight pending requests is
+                    a separate sample statistic, not the number of rows
+                    displayed in this preview.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== REQUEST REVIEW GUIDELINES ==================== -->
+        <section id="request-review-guidelines"
+            class="request-review-guidelines-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Request Review Guidelines</h2>
+
+                    <p>
+                        Consider the following points before
+                        approving or rejecting a borrowing request.
+                    </p>
+                </div>
+
+                <ul class="request-review-guidelines-list">
+
+                    <li>
+                        Check that the member has an active library account.
+                    </li>
+
+                    <li>
+                        Confirm that the requested book is available
+                        according to the current inventory.
+                    </li>
+
+                    <li>
+                        Review the member's current borrowing activities
+                        and applicable library borrowing limits.
+                    </li>
+
+                    <li>
+                        Check whether the member has any restrictions
+                        that prevent additional borrowing.
+                    </li>
+
+                    <li>
+                        Approve requests only when the relevant
+                        borrowing conditions have been satisfied.
+                    </li>
+
+                    <li>
+                        Reject requests that do not satisfy the
+                        library's borrowing requirements.
+                    </li>
+
+                    <li>
+                        Do not approve or reject a request that
+                        has already been processed.
+                    </li>
+
+                    <li>
+                        Keep the decision and its related request
+                        information accurately recorded.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BORROWING WORKFLOW ==================== -->
+        <section id="borrowing-workflow" class="borrowing-workflow-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Borrowing Request Workflow</h2>
+
+                    <p>
+                        Understand what happens before a book
+                        is officially issued to a member.
+                    </p>
+                </div>
+
+                <ol class="borrowing-process-list">
+
+                    <li class="borrowing-process-step">
+
+                        <h3>Member Submits a Request</h3>
+
+                        <p>
+                            A registered member selects an available
+                            book and submits a borrowing request.
+                        </p>
+
+                    </li>
+
+
+                    <li class="borrowing-process-step">
+
+                        <h3>Librarian Reviews the Request</h3>
+
+                        <p>
+                            The librarian checks the member's account,
+                            borrowing eligibility, and book availability.
+                        </p>
+
+                    </li>
+
+
+                    <li class="borrowing-process-step">
+
+                        <h3>Request Is Approved or Rejected</h3>
+
+                        <p>
+                            The librarian records the decision.
+                            An approved request can proceed to the
+                            book issuing process.
+                        </p>
+
+                    </li>
+
+
+                    <li class="borrowing-process-step">
+
+                        <h3>Approved Book Is Issued</h3>
+
+                        <p>
+                            The librarian records the actual issue
+                            of the book through the active loans page.
+                        </p>
+
+                        <a href="loans.html">
+                            Go to Active Loans
+                        </a>
+
+                    </li>
+
+
+                    <li class="borrowing-process-step">
+
+                        <h3>Book Is Returned</h3>
+
+                        <p>
+                            The librarian records the returned book
+                            and updates its availability and loan status.
+                        </p>
+
+                        <a href="returns.html">
+                            Go to Returns
+                        </a>
+
+                    </li>
+
+                </ol>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK NAVIGATION ==================== -->
+        <section id="librarian-quick-navigation"
+            class="librarian-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Library Operations</h2>
+
+                <div class="librarian-navigation-groups">
+
+                    <div class="librarian-navigation-group">
+                        <h3>Member Services</h3>
+
+                        <ul>
+                            <li>
+                                <a href="members.html">
+                                    Manage Members
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="reservations.html">
+                                    Reservations
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="fines.html">
+                                    Manage Fines
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Borrowing Operations</h3>
+
+                        <ul>
+                            <li>
+                                <a href="borrow-requests.html">
+                                    Borrowing Requests
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="loans.html">
+                                    Active Loans
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="returns.html">
+                                    Book Returns
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Book Catalogue</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../staff/books.html">
+                                    Manage Books
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../staff/categories.html">
+                                    Manage Categories
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../books.html">
+                                    Public Book Catalogue
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Dashboards</h3>
+
+                        <ul>
+                            <li>
+                                <a href="dashboard.html">
+                                    Librarian Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../admin/dashboard.html">
+                                    Administrator Dashboard
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-operations">
+                    <h3>Library Operations</h3>
+
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="members.html">
+                                Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="borrow-requests.html">
+                                Borrowing Requests
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="loans.html">
+                                Active Loans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="returns.html">
+                                Book Returns
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
