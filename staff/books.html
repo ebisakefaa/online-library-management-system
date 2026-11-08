@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage the library book catalogue, inventory, categories, and book availability.">
+    <meta name="author" content="Online Library Management System">
+    <title>Manage Books | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+                    <li>
+                        <a href="books.html" aria-current="page">Manage Books</a>
+                    </li>
+                    <li>
+                        <a href="categories.html">Categories</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="staff-account-navigation">
+                <a href="../admin/dashboard.html">
+                    Administrator Dashboard
+                </a>
+
+                <a href="../librarian/dashboard.html">
+                    Librarian Dashboard
+                </a>
+
+                <a href="../login.html" class="logout-link">
+                    Login
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+                        <li aria-current="page">Manage Books</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Book Management</h1>
+
+                    <p>
+                        Manage the library catalogue, organize book
+                        information, and monitor book inventory.
+                    </p>
+                </div>
+
+                <p class="staff-access-notice">
+                    This page is intended for authorized administrators
+                    and librarians. Server-side access permissions
+                    will be enforced during PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== STAFF NAVIGATION ==================== -->
+        <section id="staff-navigation" class="staff-navigation-section">
+            <div class="container">
+
+                <h2>Staff Management Navigation</h2>
+
+                <nav aria-label="Staff management navigation">
+                    <ul class="staff-navigation-list">
+
+                        <li>
+                            <a href="books.html" aria-current="page">
+                                Book Management
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="book-form.html">
+                                Add a Book
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="categories.html">
+                                Manage Categories
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== INVENTORY OVERVIEW ==================== -->
+        <section id="inventory-overview" class="inventory-overview-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Inventory Overview</h2>
+
+                    <p>
+                        Review the current status of the library
+                        book inventory.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE INVENTORY SUMMARY
+
+                    These values are demonstration figures only.
+                    During PHP development, the system will retrieve
+                    the actual inventory statistics from MySQL.
+                -->
+
+                <div class="inventory-summary-list">
+
+                    <article class="inventory-summary-card">
+                        <h3>Total Book Titles</h3>
+                        <p class="inventory-summary-value">6</p>
+                        <p>Sample catalogue records</p>
+                    </article>
+
+                    <article class="inventory-summary-card">
+                        <h3>Total Book Copies</h3>
+                        <p class="inventory-summary-value">34</p>
+                        <p>Sample inventory quantity</p>
+                    </article>
+
+                    <article class="inventory-summary-card">
+                        <h3>Available Copies</h3>
+                        <p class="inventory-summary-value">23</p>
+                        <p>Sample available quantity</p>
+                    </article>
+
+                    <article class="inventory-summary-card">
+                        <h3>Unavailable Copies</h3>
+                        <p class="inventory-summary-value">11</p>
+                        <p>Sample quantity currently unavailable</p>
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    Note: The inventory figures on this prototype page
+                    are sample values and are not connected to the database.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BOOK MANAGEMENT ACTIONS ==================== -->
+        <section id="book-management-actions"
+            class="book-management-actions-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Catalogue Management</h2>
+
+                    <p>
+                        Add new books or organize existing catalogue records.
+                    </p>
+                </div>
+
+                <div class="management-actions">
+
+                    <a href="book-form.html" class="add-book-link">
+                        Add New Book
+                    </a>
+
+                    <a href="categories.html" class="manage-categories-link">
+                        Manage Book Categories
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BOOK SEARCH AND FILTERS ==================== -->
+        <section id="book-search-section" class="book-search-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Search and Filter Books</h2>
+
+                    <p>
+                        Find catalogue records using book information
+                        and inventory status.
+                    </p>
+                </div>
+
+                <form id="staff-book-filter-form"
+                    class="staff-book-filter-form"
+                    action="books.html"
+                    method="get">
+
+                    <!-- Search -->
+                    <div class="form-group">
+                        <label for="staff-book-search">
+                            Search by Title, Author, or ISBN
+                        </label>
+
+                        <input
+                            type="search"
+                            id="staff-book-search"
+                            name="q"
+                            placeholder="Enter a title, author, or ISBN"
+                        >
+                    </div>
+
+
+                    <!-- Category Filter -->
+                    <div class="form-group">
+                        <label for="staff-category-filter">
+                            Category
+                        </label>
+
+                        <select id="staff-category-filter" name="category">
+                            <option value="">All Categories</option>
+                            <option value="computer-science">Computer Science</option>
+                            <option value="literature">Literature</option>
+                            <option value="science">Science</option>
+                            <option value="history">History</option>
+                            <option value="business">Business</option>
+                            <option value="mathematics">Mathematics</option>
+                            <option value="education">Education</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Availability Filter -->
+                    <div class="form-group">
+                        <label for="staff-availability-filter">
+                            Availability
+                        </label>
+
+                        <select id="staff-availability-filter"
+                            name="availability">
+
+                            <option value="">All Books</option>
+                            <option value="available">Available</option>
+                            <option value="unavailable">Unavailable</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Sorting -->
+                    <div class="form-group">
+                        <label for="staff-book-sort">
+                            Sort By
+                        </label>
+
+                        <select id="staff-book-sort" name="sort">
+                            <option value="newest">Recently Added</option>
+                            <option value="title-asc">Title: A to Z</option>
+                            <option value="title-desc">Title: Z to A</option>
+                            <option value="author-asc">Author: A to Z</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Filter Actions -->
+                    <div class="filter-actions">
+
+                        <button type="submit" class="filter-submit-button">
+                            Apply Filters
+                        </button>
+
+                        <a href="books.html" class="clear-filters-link">
+                            Clear Filters
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BOOK INVENTORY TABLE ==================== -->
+        <section id="book-inventory" class="book-inventory-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Library Book Inventory</h2>
+
+                    <p>
+                        View and manage the books registered in the
+                        library catalogue.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE BOOK RECORDS
+
+                    The records below are demonstration data.
+                    PHP will retrieve the real book records from MySQL.
+
+                    The inventory uses:
+                    - total_quantity
+                    - available_quantity
+
+                    These fields follow the approved simplified
+                    inventory design.
+                -->
+
+                <div class="book-inventory-table-container">
+
+                    <table class="book-inventory-table">
+
+                        <caption>
+                            Sample book inventory and management records
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Book Title and Author</th>
+                                <th scope="col">ISBN</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Total Copies</th>
+                                <th scope="col">Available Copies</th>
+                                <th scope="col">Availability</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Book 1 -->
+                            <tr>
+                                <td>1</td>
+
+                                <td>
+                                    <strong>Introduction to Algorithms</strong>
+                                    <p>Thomas H. Cormen</p>
+                                </td>
+
+                                <td>9780262046305</td>
+
+                                <td>Computer Science</td>
+
+                                <td>10</td>
+
+                                <td>8</td>
+
+                                <td>
+                                    <span class="availability-status available">
+                                        Available
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="book-record-actions">
+
+                                        <a href="book-form.html?book=1"
+                                            class="edit-book-link">
+                                            Edit
+                                        </a>
+
+                                        <a href="../book-details.html?book=1"
+                                            class="view-book-link">
+                                            View
+                                        </a>
+
+                                        <form
+                                            action="../php/books/book-actions.php"
+                                            method="post"
+                                            class="delete-book-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="book_id"
+                                                value="1"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="delete-book-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Book 2 -->
+                            <tr>
+                                <td>2</td>
+
+                                <td>
+                                    <strong>Things Fall Apart</strong>
+                                    <p>Chinua Achebe</p>
+                                </td>
+
+                                <td>9780435905255</td>
+
+                                <td>Literature</td>
+
+                                <td>8</td>
+
+                                <td>5</td>
+
+                                <td>
+                                    <span class="availability-status available">
+                                        Available
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="book-record-actions">
+
+                                        <a href="book-form.html?book=2"
+                                            class="edit-book-link">
+                                            Edit
+                                        </a>
+
+                                        <a href="../book-details.html?book=2"
+                                            class="view-book-link">
+                                            View
+                                        </a>
+
+                                        <form
+                                            action="../php/books/book-actions.php"
+                                            method="post"
+                                            class="delete-book-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="book_id"
+                                                value="2"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="delete-book-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Book 3 -->
+                            <tr>
+                                <td>3</td>
+
+                                <td>
+                                    <strong>A Brief History of Time</strong>
+                                    <p>Stephen Hawking</p>
+                                </td>
+
+                                <td>9780553380163</td>
+
+                                <td>Science</td>
+
+                                <td>5</td>
+
+                                <td>0</td>
+
+                                <td>
+                                    <span class="availability-status unavailable">
+                                        Unavailable
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="book-record-actions">
+
+                                        <a href="book-form.html?book=3"
+                                            class="edit-book-link">
+                                            Edit
+                                        </a>
+
+                                        <a href="../book-details.html?book=3"
+                                            class="view-book-link">
+                                            View
+                                        </a>
+
+                                        <form
+                                            action="../php/books/book-actions.php"
+                                            method="post"
+                                            class="delete-book-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="book_id"
+                                                value="3"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="delete-book-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Book 4 -->
+                            <tr>
+                                <td>4</td>
+
+                                <td>
+                                    <strong>The Lean Startup</strong>
+                                    <p>Eric Ries</p>
+                                </td>
+
+                                <td>9780307887894</td>
+
+                                <td>Business</td>
+
+                                <td>4</td>
+
+                                <td>3</td>
+
+                                <td>
+                                    <span class="availability-status available">
+                                        Available
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="book-record-actions">
+
+                                        <a href="book-form.html?book=4"
+                                            class="edit-book-link">
+                                            Edit
+                                        </a>
+
+                                        <a href="../book-details.html?book=4"
+                                            class="view-book-link">
+                                            View
+                                        </a>
+
+                                        <form
+                                            action="../php/books/book-actions.php"
+                                            method="post"
+                                            class="delete-book-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="book_id"
+                                                value="4"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="delete-book-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Book 5 -->
+                            <tr>
+                                <td>5</td>
+
+                                <td>
+                                    <strong>Calculus</strong>
+                                    <p>James Stewart</p>
+                                </td>
+
+                                <td>9781285741550</td>
+
+                                <td>Mathematics</td>
+
+                                <td>3</td>
+
+                                <td>3</td>
+
+                                <td>
+                                    <span class="availability-status available">
+                                        Available
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="book-record-actions">
+
+                                        <a href="book-form.html?book=5"
+                                            class="edit-book-link">
+                                            Edit
+                                        </a>
+
+                                        <a href="../book-details.html?book=5"
+                                            class="view-book-link">
+                                            View
+                                        </a>
+
+                                        <form
+                                            action="../php/books/book-actions.php"
+                                            method="post"
+                                            class="delete-book-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="book_id"
+                                                value="5"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="delete-book-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Book 6 -->
+                            <tr>
+                                <td>6</td>
+
+                                <td>
+                                    <strong>The History of the Ancient World</strong>
+                                    <p>Susan Wise Bauer</p>
+                                </td>
+
+                                <td>9780393059748</td>
+
+                                <td>History</td>
+
+                                <td>4</td>
+
+                                <td>4</td>
+
+                                <td>
+                                    <span class="availability-status available">
+                                        Available
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="book-record-actions">
+
+                                        <a href="book-form.html?book=6"
+                                            class="edit-book-link">
+                                            Edit
+                                        </a>
+
+                                        <a href="../book-details.html?book=6"
+                                            class="view-book-link">
+                                            View
+                                        </a>
+
+                                        <form
+                                            action="../php/books/book-actions.php"
+                                            method="post"
+                                            class="delete-book-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="delete"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="book_id"
+                                                value="6"
+                                            >
+
+                                            <button
+                                                type="submit"
+                                                class="delete-book-button">
+                                                Delete
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    The records in this table are sample data.
+                    Actual book information and inventory quantities
+                    will be retrieved from the database during
+                    PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== INVENTORY MANAGEMENT GUIDELINES ==================== -->
+        <section id="inventory-guidelines"
+            class="inventory-guidelines-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Inventory Management Guidelines</h2>
+                </div>
+
+                <ul class="inventory-guidelines-list">
+
+                    <li>
+                        Each book record represents a book title
+                        in the library catalogue.
+                    </li>
+
+                    <li>
+                        Total copies represent the number of copies
+                        registered for a book title.
+                    </li>
+
+                    <li>
+                        Available copies represent copies that can
+                        currently be requested by members.
+                    </li>
+
+                    <li>
+                        Availability information must be updated
+                        when books are issued and returned.
+                    </li>
+
+                    <li>
+                        Book records should not be deleted without
+                        considering their existing borrowing history
+                        and related records.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK NAVIGATION ==================== -->
+        <section id="staff-quick-navigation"
+            class="staff-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Staff Management Options</h2>
+
+                <ul class="quick-navigation-list">
+
+                    <li>
+                        <a href="book-form.html">
+                            Add or Edit a Book
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="categories.html">
+                            Manage Categories
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../admin/dashboard.html">
+                            Administrator Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../librarian/dashboard.html">
+                            Librarian Dashboard
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">Public Home</a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">Public Catalogue</a>
+                        </li>
+
+                        <li>
+                            <a href="books.html">Manage Books</a>
+                        </li>
+
+                        <li>
+                            <a href="categories.html">Manage Categories</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-staff-links">
+                    <h3>Staff Dashboards</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../admin/dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../librarian/dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
