@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View and manage your book reservations in the Online Library Management System.">
+    <title>My Reservations | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="../index.html" class="site-logo">
+                Online Library
+            </a>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Browse Books</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-account">
+                <span class="account-role">Member Account</span>
+
+                <form action="../php/auth/logout.php" method="post">
+                    <button type="submit" class="logout-button">
+                        Sign Out
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="member-reservations">
+
+        <div class="dashboard-container">
+
+            <!-- Page heading -->
+            <section class="page-heading" aria-labelledby="reservations-title">
+
+                <p class="breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="dashboard.html">Member Dashboard</a>
+                    <span aria-hidden="true">/</span>
+                    <span>My Reservations</span>
+                </p>
+
+                <h1 id="reservations-title">My Reservations</h1>
+
+                <p>
+                    View your reserved books, check their availability,
+                    and manage your reservation requests.
+                </p>
+
+                <a href="../books.html" class="primary-action">
+                    Browse Books
+                </a>
+
+            </section>
+
+
+            <!-- Member navigation -->
+            <nav class="member-navigation" aria-label="Member account navigation">
+
+                <h2>My Account</h2>
+
+                <ul>
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">My Profile</a>
+                    </li>
+
+                    <li>
+                        <a href="my-loans.html">My Loans</a>
+                    </li>
+
+                    <li>
+                        <a href="history.html">Borrowing History</a>
+                    </li>
+
+                    <li>
+                        <a href="reservations.html" aria-current="page">
+                            My Reservations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fines.html">My Fines</a>
+                    </li>
+
+                    <li>
+                        <a href="notifications.html">Notifications</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+
+            <!-- ==================== RESERVATION SUMMARY ==================== -->
+            <section class="reservation-summary" aria-labelledby="summary-title">
+
+                <h2 id="summary-title">Reservation Overview</h2>
+
+                <div class="summary-grid">
+
+                    <article class="summary-card">
+                        <h3>Total Reservations</h3>
+                        <p class="summary-number">3</p>
+                        <p>Reservations made through your account.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Pending</h3>
+                        <p class="summary-number">1</p>
+                        <p>Waiting for librarian review.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Approved</h3>
+                        <p class="summary-number">1</p>
+                        <p>Approved reservations.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Fulfilled</h3>
+                        <p class="summary-number">1</p>
+                        <p>Reservations completed.</p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== RESERVATION INFORMATION ==================== -->
+            <section class="reservation-information" aria-labelledby="information-title">
+
+                <h2 id="information-title">How Book Reservations Work</h2>
+
+                <ol class="reservation-steps">
+
+                    <li>
+                        <h3>Choose a Book</h3>
+                        <p>
+                            Browse the library catalogue and select a book
+                            you want to reserve.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Submit a Reservation</h3>
+                        <p>
+                            Submit your reservation request through the
+                            library system.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Wait for Review</h3>
+                        <p>
+                            A librarian reviews your reservation and updates
+                            its status.
+                        </p>
+                    </li>
+
+                    <li>
+                        <h3>Collect Your Book</h3>
+                        <p>
+                            Follow the library's instructions when your
+                            reservation is ready.
+                        </p>
+                    </li>
+
+                </ol>
+
+            </section>
+
+
+            <!-- ==================== MY RESERVATIONS TABLE ==================== -->
+            <section class="reservation-records" aria-labelledby="records-title">
+
+                <div class="section-heading">
+
+                    <h2 id="records-title">My Reservation Records</h2>
+
+                    <p>
+                        A list of your submitted book reservations.
+                    </p>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <caption>
+                            Reservation records belonging to the current member.
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Reservation ID</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Reservation Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Information</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>RES-001</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=9">
+                                        The Design of Everyday Things
+                                    </a>
+                                    <span class="book-author">
+                                        by Don Norman
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-11-05">
+                                        November 5, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="reservation-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Waiting for librarian review.
+                                </td>
+
+                                <td>
+
+                                    <form
+                                        action="../php/reservations/reservation-actions.php"
+                                        method="post"
+                                    >
+
+                                        <input
+                                            type="hidden"
+                                            name="action"
+                                            value="cancel"
+                                        >
+
+                                        <input
+                                            type="hidden"
+                                            name="reservation_id"
+                                            value="1"
+                                        >
+
+                                        <button type="submit" class="cancel-button">
+                                            Cancel Reservation
+                                        </button>
+
+                                    </form>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>RES-002</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=10">
+                                        The Power of Habit
+                                    </a>
+                                    <span class="book-author">
+                                        by Charles Duhigg
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-10-29">
+                                        October 29, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="reservation-status approved">
+                                        Approved
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Your reservation has been approved.
+                                    Follow the librarian's collection instructions.
+                                </td>
+
+                                <td>
+                                    <span class="action-unavailable">
+                                        Contact Librarian
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>RES-003</td>
+
+                                <td>
+                                    <a href="../book-details.html?book=11">
+                                        Start with Why
+                                    </a>
+                                    <span class="book-author">
+                                        by Simon Sinek
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <time datetime="2026-10-10">
+                                        October 10, 2026
+                                    </time>
+                                </td>
+
+                                <td>
+                                    <span class="reservation-status fulfilled">
+                                        Fulfilled
+                                    </span>
+                                </td>
+
+                                <td>
+                                    This reservation has been completed.
+                                </td>
+
+                                <td>
+                                    <a href="history.html">
+                                        View History
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="table-note">
+                    Showing 3 example reservations. Actual records will be
+                    retrieved from the database.
+                </p>
+
+            </section>
+
+
+            <!-- ==================== CANCELLATION POLICY ==================== -->
+            <section class="reservation-policy" aria-labelledby="policy-title">
+
+                <h2 id="policy-title">Reservation Guidelines</h2>
+
+                <ul>
+
+                    <li>
+                        You may cancel a reservation only when its current
+                        status and library policy allow cancellation.
+                    </li>
+
+                    <li>
+                        Approved reservations may require assistance from
+                        a librarian before cancellation.
+                    </li>
+
+                    <li>
+                        A fulfilled reservation cannot be cancelled.
+                    </li>
+
+                    <li>
+                        Reservation approval does not automatically mean
+                        a book has been issued to you.
+                    </li>
+
+                    <li>
+                        Check your notifications for reservation updates.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- ==================== QUICK LINKS ==================== -->
+            <section class="reservation-quick-links" aria-labelledby="quick-links-title">
+
+                <h2 id="quick-links-title">Quick Links</h2>
+
+                <ul>
+
+                    <li>
+                        <a href="../books.html">Browse Library Books</a>
+                    </li>
+
+                    <li>
+                        <a href="my-loans.html">View My Loans</a>
+                    </li>
+
+                    <li>
+                        <a href="history.html">Borrowing History</a>
+                    </li>
+
+                    <li>
+                        <a href="notifications.html">View Notifications</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html">Return to Dashboard</a>
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <p>
+                &copy; 2026 Online Library Management System.
+                All rights reserved.
+            </p>
+
+            <nav aria-label="Footer navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Books</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
