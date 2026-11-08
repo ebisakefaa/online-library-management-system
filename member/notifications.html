@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View library notifications, borrowing updates, due-date reminders, reservation updates, and payment confirmations.">
+    <title>Notifications | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="../index.html" class="site-logo">
+                Online Library
+            </a>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Browse Books</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-account">
+
+                <span class="account-role">Member Account</span>
+
+                <form action="../php/auth/logout.php" method="post">
+                    <button type="submit" class="logout-button">
+                        Sign Out
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="member-notifications">
+
+        <div class="dashboard-container">
+
+            <!-- Page heading -->
+            <section class="page-heading" aria-labelledby="notifications-title">
+
+                <p class="breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span aria-hidden="true">/</span>
+                    <a href="dashboard.html">Member Dashboard</a>
+                    <span aria-hidden="true">/</span>
+                    <span>Notifications</span>
+                </p>
+
+                <h1 id="notifications-title">My Notifications</h1>
+
+                <p>
+                    Stay informed about your borrowing requests,
+                    loans, reservations, fines, and library account.
+                </p>
+
+            </section>
+
+
+            <!-- Member navigation -->
+            <nav class="member-navigation" aria-label="Member account navigation">
+
+                <h2>My Account</h2>
+
+                <ul>
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="profile.html">My Profile</a>
+                    </li>
+
+                    <li>
+                        <a href="my-loans.html">My Loans</a>
+                    </li>
+
+                    <li>
+                        <a href="history.html">Borrowing History</a>
+                    </li>
+
+                    <li>
+                        <a href="reservations.html">My Reservations</a>
+                    </li>
+
+                    <li>
+                        <a href="fines.html">My Fines</a>
+                    </li>
+
+                    <li>
+                        <a href="notifications.html" aria-current="page">
+                            Notifications
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <!-- ==================== NOTIFICATION SUMMARY ==================== -->
+            <section class="notification-summary" aria-labelledby="summary-title">
+
+                <h2 id="summary-title">Notification Overview</h2>
+
+                <div class="summary-grid">
+
+                    <article class="summary-card">
+
+                        <h3>Total Notifications</h3>
+
+                        <p class="summary-number">6</p>
+
+                        <p>Notifications in your account.</p>
+
+                    </article>
+
+                    <article class="summary-card">
+
+                        <h3>Unread Notifications</h3>
+
+                        <p class="summary-number">3</p>
+
+                        <p>Notifications you have not reviewed.</p>
+
+                    </article>
+
+                    <article class="summary-card">
+
+                        <h3>Read Notifications</h3>
+
+                        <p class="summary-number">3</p>
+
+                        <p>Notifications already reviewed.</p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== NOTIFICATION FILTERS ==================== -->
+            <section class="notification-filters" aria-labelledby="filter-title">
+
+                <h2 id="filter-title">Filter Notifications</h2>
+
+                <form
+                    id="notification-filter-form"
+                    action="notifications.html"
+                    method="get"
+                >
+
+                    <div class="form-group">
+
+                        <label for="notification-status">
+                            Notification Status
+                        </label>
+
+                        <select
+                            id="notification-status"
+                            name="status"
+                        >
+
+                            <option value="all">All Notifications</option>
+                            <option value="unread">Unread</option>
+                            <option value="read">Read</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="notification-type">
+                            Notification Type
+                        </label>
+
+                        <select
+                            id="notification-type"
+                            name="type"
+                        >
+
+                            <option value="all">All Types</option>
+                            <option value="borrowing">Borrowing</option>
+                            <option value="reservation">Reservation</option>
+                            <option value="fine">Fine and Payment</option>
+                            <option value="reminder">Due-Date Reminder</option>
+                            <option value="account">Account Update</option>
+
+                        </select>
+
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        Apply Filters
+                    </button>
+
+                    <a href="notifications.html" class="reset-filter">
+                        Clear Filters
+                    </a>
+
+                </form>
+
+            </section>
+
+
+            <!-- ==================== NOTIFICATION ACTIONS ==================== -->
+            <section class="notification-actions" aria-label="Notification actions">
+
+                <form
+                    action="../php/users/user-actions.php"
+                    method="post"
+                >
+
+                    <input
+                        type="hidden"
+                        name="action"
+                        value="mark_all_notifications_read"
+                    >
+
+                    <button type="submit" class="secondary-button">
+                        Mark All as Read
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- ==================== NOTIFICATION LIST ==================== -->
+            <section class="notification-list" aria-labelledby="list-title">
+
+                <div class="section-heading">
+
+                    <h2 id="list-title">Recent Notifications</h2>
+
+                    <p>
+                        Your latest library account updates.
+                    </p>
+
+                </div>
+
+
+                <!-- Notification 1 -->
+                <article
+                    class="notification-card unread"
+                    aria-labelledby="notification-1-title"
+                >
+
+                    <div class="notification-indicator">
+                        <span class="notification-type">
+                            Borrowing Update
+                        </span>
+
+                        <span class="notification-status unread-status">
+                            Unread
+                        </span>
+                    </div>
+
+                    <h3 id="notification-1-title">
+                        Your Borrowing Request Has Been Approved
+                    </h3>
+
+                    <p>
+                        Your request to borrow The Hobbit has been approved
+                        by the librarian. Please check your borrowing
+                        information for the next steps.
+                    </p>
+
+                    <p class="notification-date">
+                        <time datetime="2026-11-07T10:30">
+                            November 7, 2026 — 10:30 AM
+                        </time>
+                    </p>
+
+                    <a href="my-loans.html" class="notification-link">
+                        View My Loans
+                    </a>
+
+                    <form
+                        action="../php/users/user-actions.php"
+                        method="post"
+                    >
+
+                        <input
+                            type="hidden"
+                            name="action"
+                            value="mark_notification_read"
+                        >
+
+                        <input
+                            type="hidden"
+                            name="notification_id"
+                            value="1"
+                        >
+
+                        <button type="submit" class="text-button">
+                            Mark as Read
+                        </button>
+
+                    </form>
+
+                </article>
+
+
+                <!-- Notification 2 -->
+                <article
+                    class="notification-card unread"
+                    aria-labelledby="notification-2-title"
+                >
+
+                    <div class="notification-indicator">
+
+                        <span class="notification-type">
+                            Due-Date Reminder
+                        </span>
+
+                        <span class="notification-status unread-status">
+                            Unread
+                        </span>
+
+                    </div>
+
+                    <h3 id="notification-2-title">
+                        Your Book Return Date Is Approaching
+                    </h3>
+
+                    <p>
+                        Your copy of Atomic Habits is approaching its
+                        return date. Please return the book on time
+                        to avoid a late-return fine.
+                    </p>
+
+                    <p class="notification-date">
+                        <time datetime="2026-11-06T09:00">
+                            November 6, 2026 — 9:00 AM
+                        </time>
+                    </p>
+
+                    <a href="my-loans.html" class="notification-link">
+                        Check Due Date
+                    </a>
+
+                    <form
+                        action="../php/users/user-actions.php"
+                        method="post"
+                    >
+
+                        <input
+                            type="hidden"
+                            name="action"
+                            value="mark_notification_read"
+                        >
+
+                        <input
+                            type="hidden"
+                            name="notification_id"
+                            value="2"
+                        >
+
+                        <button type="submit" class="text-button">
+                            Mark as Read
+                        </button>
+
+                    </form>
+
+                </article>
+
+
+                <!-- Notification 3 -->
+                <article
+                    class="notification-card unread"
+                    aria-labelledby="notification-3-title"
+                >
+
+                    <div class="notification-indicator">
+
+                        <span class="notification-type">
+                            Fine and Payment
+                        </span>
+
+                        <span class="notification-status unread-status">
+                            Unread
+                        </span>
+
+                    </div>
+
+                    <h3 id="notification-3-title">
+                        Fine Payment Recorded Successfully
+                    </h3>
+
+                    <p>
+                        A payment of 20.00 has been recorded toward
+                        your outstanding fine. Your remaining balance
+                        is 35.00.
+                    </p>
+
+                    <p class="notification-date">
+                        <time datetime="2026-11-05T14:15">
+                            November 5, 2026 — 2:15 PM
+                        </time>
+                    </p>
+
+                    <a href="fines.html" class="notification-link">
+                        View My Fines
+                    </a>
+
+                    <form
+                        action="../php/users/user-actions.php"
+                        method="post"
+                    >
+
+                        <input
+                            type="hidden"
+                            name="action"
+                            value="mark_notification_read"
+                        >
+
+                        <input
+                            type="hidden"
+                            name="notification_id"
+                            value="3"
+                        >
+
+                        <button type="submit" class="text-button">
+                            Mark as Read
+                        </button>
+
+                    </form>
+
+                </article>
+
+
+                <!-- Notification 4 -->
+                <article
+                    class="notification-card read"
+                    aria-labelledby="notification-4-title"
+                >
+
+                    <div class="notification-indicator">
+
+                        <span class="notification-type">
+                            Reservation Update
+                        </span>
+
+                        <span class="notification-status read-status">
+                            Read
+                        </span>
+
+                    </div>
+
+                    <h3 id="notification-4-title">
+                        Your Book Reservation Has Been Approved
+                    </h3>
+
+                    <p>
+                        Your reservation for The Design of Everyday Things
+                        has been approved. Check your reservation details
+                        for its current status.
+                    </p>
+
+                    <p class="notification-date">
+                        <time datetime="2026-11-04T11:00">
+                            November 4, 2026 — 11:00 AM
+                        </time>
+                    </p>
+
+                    <a href="reservations.html" class="notification-link">
+                        View Reservations
+                    </a>
+
+                </article>
+
+
+                <!-- Notification 5 -->
+                <article
+                    class="notification-card read"
+                    aria-labelledby="notification-5-title"
+                >
+
+                    <div class="notification-indicator">
+
+                        <span class="notification-type">
+                            Borrowing Update
+                        </span>
+
+                        <span class="notification-status read-status">
+                            Read
+                        </span>
+
+                    </div>
+
+                    <h3 id="notification-5-title">
+                        Your Borrowed Book Was Successfully Issued
+                    </h3>
+
+                    <p>
+                        Clean Code has been issued to your library account.
+                        Please review the return date in your current loans.
+                    </p>
+
+                    <p class="notification-date">
+                        <time datetime="2026-11-02T08:45">
+                            November 2, 2026 — 8:45 AM
+                        </time>
+                    </p>
+
+                    <a href="my-loans.html" class="notification-link">
+                        View Current Loans
+                    </a>
+
+                </article>
+
+
+                <!-- Notification 6 -->
+                <article
+                    class="notification-card read"
+                    aria-labelledby="notification-6-title"
+                >
+
+                    <div class="notification-indicator">
+
+                        <span class="notification-type">
+                            Account Update
+                        </span>
+
+                        <span class="notification-status read-status">
+                            Read
+                        </span>
+
+                    </div>
+
+                    <h3 id="notification-6-title">
+                        Welcome to the Online Library
+                    </h3>
+
+                    <p>
+                        Your member account is ready. You can now browse
+                        the library catalogue, submit borrowing requests,
+                        reserve books, and manage your account.
+                    </p>
+
+                    <p class="notification-date">
+                        <time datetime="2026-10-28T12:00">
+                            October 28, 2026 — 12:00 PM
+                        </time>
+                    </p>
+
+                    <a href="dashboard.html" class="notification-link">
+                        Visit Dashboard
+                    </a>
+
+                </article>
+
+            </section>
+
+
+            <!-- ==================== EMPTY NOTIFICATION STATE ==================== -->
+            <section
+                class="empty-notifications"
+                aria-labelledby="empty-title"
+                hidden
+            >
+
+                <h2 id="empty-title">No Notifications Found</h2>
+
+                <p>
+                    You currently have no notifications matching
+                    your selected filters.
+                </p>
+
+                <a href="notifications.html">
+                    View All Notifications
+                </a>
+
+            </section>
+
+
+            <!-- ==================== NOTIFICATION INFORMATION ==================== -->
+            <section
+                class="notification-information"
+                aria-labelledby="information-title"
+            >
+
+                <h2 id="information-title">About Notifications</h2>
+
+                <p>
+                    Notifications keep you informed about important
+                    activities related to your library account.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Borrowing notifications inform you about
+                        request approvals, rejections, and book issuance.
+                    </li>
+
+                    <li>
+                        Due-date reminders help you return books on time.
+                    </li>
+
+                    <li>
+                        Reservation notifications inform you about
+                        reservation status changes.
+                    </li>
+
+                    <li>
+                        Fine notifications provide updates about
+                        outstanding balances and recorded payments.
+                    </li>
+
+                    <li>
+                        Account notifications provide important
+                        information about your member account.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- ==================== QUICK LINKS ==================== -->
+            <section class="notification-quick-links" aria-labelledby="quick-links-title">
+
+                <h2 id="quick-links-title">Quick Links</h2>
+
+                <ul>
+
+                    <li>
+                        <a href="dashboard.html">Member Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="my-loans.html">My Loans</a>
+                    </li>
+
+                    <li>
+                        <a href="reservations.html">My Reservations</a>
+                    </li>
+
+                    <li>
+                        <a href="fines.html">My Fines</a>
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <p>
+                &copy; 2026 Online Library Management System.
+                All rights reserved.
+            </p>
+
+            <nav aria-label="Footer navigation">
+
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../books.html">Books</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
