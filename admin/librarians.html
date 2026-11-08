@@ -1,0 +1,1046 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Administrator page for creating, viewing, and managing librarian accounts in the Online Library Management System.">
+    <meta name="author" content="Online Library Management System">
+    <title>Manage Librarians | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="librarians.html" aria-current="page">
+                            Manage Librarians
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="admin-account-navigation">
+                <span class="account-role">Administrator</span>
+
+                <a href="../php/auth/logout.php" class="logout-link">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+
+                        <li aria-current="page">Manage Librarians</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Librarian Management</h1>
+
+                    <p>
+                        Create librarian accounts, review staff
+                        information, and manage librarian account status.
+                    </p>
+                </div>
+
+                <p class="admin-access-notice">
+                    This page is intended for authorized administrators.
+                    Only administrators can create and manage librarian
+                    accounts. Permissions will be enforced during
+                    PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ADMINISTRATION NAVIGATION ==================== -->
+        <section id="admin-navigation" class="admin-navigation-section">
+            <div class="container">
+
+                <h2>Administration Navigation</h2>
+
+                <nav aria-label="Administrator navigation">
+                    <ul class="admin-navigation-list">
+
+                        <li>
+                            <a href="dashboard.html">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="users.html">
+                                Manage Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="librarians.html" aria-current="page">
+                                Manage Librarians
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/books.html">
+                                Manage Books
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/categories.html">
+                                Manage Categories
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html">
+                                Manage Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports.html">
+                                View Reports
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LIBRARIAN ACCOUNT OVERVIEW ==================== -->
+        <section id="librarian-account-overview"
+            class="librarian-account-overview-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Librarian Account Overview</h2>
+
+                    <p>
+                        Review the overall status of librarian
+                        accounts registered in the system.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE LIBRARIAN STATISTICS
+
+                    These values are demonstration figures only.
+                    Actual account statistics will be retrieved
+                    from MySQL during the PHP development phase.
+                -->
+
+                <div class="librarian-statistics-list">
+
+                    <article class="librarian-statistics-card"
+                        id="total-librarians">
+
+                        <h3>Total Librarians</h3>
+
+                        <p class="statistics-value">4</p>
+
+                        <p>Sample librarian accounts</p>
+
+                    </article>
+
+
+                    <article class="librarian-statistics-card"
+                        id="active-librarians">
+
+                        <h3>Active Librarians</h3>
+
+                        <p class="statistics-value">3</p>
+
+                        <p>Sample active staff accounts</p>
+
+                    </article>
+
+
+                    <article class="librarian-statistics-card"
+                        id="suspended-librarians">
+
+                        <h3>Suspended Librarians</h3>
+
+                        <p class="statistics-value">1</p>
+
+                        <p>Sample suspended staff account</p>
+
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    These statistics are sample figures and are not
+                    connected to the database.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CREATE LIBRARIAN ACCOUNT ==================== -->
+        <section id="create-librarian-section"
+            class="create-librarian-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Create a Librarian Account</h2>
+
+                    <p>
+                        Enter the staff member's information to create
+                        a new librarian account.
+                    </p>
+                </div>
+
+                <!--
+                    CREATE LIBRARIAN FORM
+
+                    The form submits to the approved user-management
+                    endpoint: ../php/users/user-actions.php
+
+                    The server must:
+                    1. Verify that the current user is an administrator.
+                    2. Validate all submitted fields.
+                    3. Check whether the email is already registered.
+                    4. Check that both passwords match.
+                    5. Securely hash the password.
+                    6. Assign the Librarian role on the server.
+                    7. Create the account with the appropriate status.
+
+                    The role must never be assigned based on an
+                    untrusted value submitted by the browser.
+                -->
+
+                <form id="create-librarian-form"
+                    class="create-librarian-form"
+                    action="../php/users/user-actions.php"
+                    method="post">
+
+                    <input
+                        type="hidden"
+                        name="action"
+                        value="create_librarian"
+                    >
+
+
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="librarian-full-name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="librarian-full-name"
+                            name="full_name"
+                            placeholder="Enter the librarian's full name"
+                            autocomplete="name"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="librarian-email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="librarian-email"
+                            name="email"
+                            placeholder="Enter the librarian's email address"
+                            autocomplete="email"
+                            maxlength="150"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="librarian-phone">
+                            Phone Number (Optional)
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="librarian-phone"
+                            name="phone"
+                            placeholder="Enter the librarian's phone number"
+                            autocomplete="tel"
+                            maxlength="20"
+                        >
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="librarian-password">
+                            Initial Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="librarian-password"
+                            name="password"
+                            placeholder="Enter an initial password"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                            aria-describedby="librarian-password-help"
+                        >
+
+                        <small id="librarian-password-help">
+                            The password must contain at least
+                            8 characters.
+                        </small>
+                    </div>
+
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                        <label for="librarian-confirm-password">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="librarian-confirm-password"
+                            name="confirm_password"
+                            placeholder="Enter the initial password again"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Role Information -->
+                    <div class="librarian-role-information">
+
+                        <h3>Account Role</h3>
+
+                        <p>
+                            The account created through this form
+                            will be assigned the Librarian role.
+                        </p>
+
+                        <p>
+                            The account role is assigned by the server
+                            and cannot be selected or changed through
+                            this form.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Form Actions -->
+                    <div class="librarian-form-actions">
+
+                        <button type="submit"
+                            class="create-librarian-button">
+                            Create Librarian Account
+                        </button>
+
+                        <button type="reset"
+                            class="reset-librarian-form-button">
+                            Clear Form
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LIBRARIAN SEARCH AND FILTERS ==================== -->
+        <section id="librarian-search-section"
+            class="librarian-search-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Search and Filter Librarians</h2>
+
+                    <p>
+                        Find librarian accounts using staff information
+                        or account status.
+                    </p>
+                </div>
+
+                <form id="librarian-filter-form"
+                    class="librarian-filter-form"
+                    action="librarians.html"
+                    method="get">
+
+                    <!-- Search -->
+                    <div class="form-group">
+                        <label for="librarian-search">
+                            Search by Name, Email, or Staff ID
+                        </label>
+
+                        <input
+                            type="search"
+                            id="librarian-search"
+                            name="q"
+                            placeholder="Enter name, email, or staff ID"
+                        >
+                    </div>
+
+
+                    <!-- Status -->
+                    <div class="form-group">
+                        <label for="librarian-status-filter">
+                            Account Status
+                        </label>
+
+                        <select
+                            id="librarian-status-filter"
+                            name="status">
+
+                            <option value="">All Account Statuses</option>
+                            <option value="active">Active</option>
+                            <option value="suspended">Suspended</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Search Actions -->
+                    <div class="librarian-filter-actions">
+
+                        <button type="submit"
+                            class="librarian-search-button">
+                            Search Librarians
+                        </button>
+
+                        <a href="librarians.html"
+                            class="clear-filters-link">
+                            Clear Filters
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LIBRARIAN ACCOUNTS TABLE ==================== -->
+        <section id="librarian-accounts"
+            class="librarian-accounts-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Registered Librarians</h2>
+
+                    <p>
+                        Review librarian account information
+                        and manage staff account access.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE LIBRARIAN RECORDS
+
+                    All names, email addresses, telephone numbers,
+                    dates, and identifiers below are fictional examples.
+
+                    The real records will be retrieved from the users
+                    table in MySQL, filtered by the Librarian role.
+                -->
+
+                <div class="librarian-table-container">
+
+                    <table class="librarian-table">
+
+                        <caption>
+                            Sample registered librarian accounts
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Staff ID</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Email Address</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Account Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Librarian 1 -->
+                            <tr>
+                                <td>LIB-101</td>
+
+                                <td>
+                                    <strong>Abebe Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:abebe101@example.com">
+                                        abebe101@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 100 101</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="librarian-record-actions">
+
+                                        <a href="librarians.html?edit=101#librarian-form"
+                                            class="edit-librarian-link">
+                                            Edit
+                                        </a>
+
+                                        <form
+                                            action="../php/users/user-actions.php"
+                                            method="post"
+                                            class="librarian-status-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="update_status"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="user_id"
+                                                value="101"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="status"
+                                                value="suspended"
+                                            >
+
+                                            <button type="submit"
+                                                class="suspend-librarian-button">
+                                                Suspend
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Librarian 2 -->
+                            <tr>
+                                <td>LIB-102</td>
+
+                                <td>
+                                    <strong>Fatuma Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:fatuma102@example.com">
+                                        fatuma102@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 100 102</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="librarian-record-actions">
+
+                                        <a href="librarians.html?edit=102#librarian-form"
+                                            class="edit-librarian-link">
+                                            Edit
+                                        </a>
+
+                                        <form
+                                            action="../php/users/user-actions.php"
+                                            method="post"
+                                            class="librarian-status-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="update_status"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="user_id"
+                                                value="102"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="status"
+                                                value="suspended"
+                                            >
+
+                                            <button type="submit"
+                                                class="suspend-librarian-button">
+                                                Suspend
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Librarian 3 -->
+                            <tr>
+                                <td>LIB-103</td>
+
+                                <td>
+                                    <strong>Meron Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:meron103@example.com">
+                                        meron103@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 100 103</td>
+
+                                <td>
+                                    <span class="account-status suspended">
+                                        Suspended
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="librarian-record-actions">
+
+                                        <a href="librarians.html?edit=103#librarian-form"
+                                            class="edit-librarian-link">
+                                            Edit
+                                        </a>
+
+                                        <form
+                                            action="../php/users/user-actions.php"
+                                            method="post"
+                                            class="librarian-status-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="update_status"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="user_id"
+                                                value="103"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="status"
+                                                value="active"
+                                            >
+
+                                            <button type="submit"
+                                                class="activate-librarian-button">
+                                                Reactivate
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Librarian 4 -->
+                            <tr>
+                                <td>LIB-104</td>
+
+                                <td>
+                                    <strong>Bekele Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:bekele104@example.com">
+                                        bekele104@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 100 104</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="librarian-record-actions">
+
+                                        <a href="librarians.html?edit=104#librarian-form"
+                                            class="edit-librarian-link">
+                                            Edit
+                                        </a>
+
+                                        <form
+                                            action="../php/users/user-actions.php"
+                                            method="post"
+                                            class="librarian-status-form">
+
+                                            <input
+                                                type="hidden"
+                                                name="action"
+                                                value="update_status"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="user_id"
+                                                value="104"
+                                            >
+
+                                            <input
+                                                type="hidden"
+                                                name="status"
+                                                value="suspended"
+                                            >
+
+                                            <button type="submit"
+                                                class="suspend-librarian-button">
+                                                Suspend
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    The librarian records displayed above are fictional
+                    examples for the HTML prototype. They are not real
+                    staff accounts.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LIBRARIAN MANAGEMENT GUIDELINES ==================== -->
+        <section id="librarian-management-guidelines"
+            class="librarian-management-guidelines-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Librarian Account Management Guidelines</h2>
+                </div>
+
+                <ul class="librarian-guidelines-list">
+
+                    <li>
+                        Create librarian accounts only for authorized
+                        library staff members.
+                    </li>
+
+                    <li>
+                        Use a unique email address for each librarian account.
+                    </li>
+
+                    <li>
+                        Ensure that account credentials are handled securely.
+                    </li>
+
+                    <li>
+                        Suspend accounts when staff access should
+                        temporarily be disabled.
+                    </li>
+
+                    <li>
+                        Reactivate suspended accounts only when
+                        authorization has been confirmed.
+                    </li>
+
+                    <li>
+                        Do not permanently delete staff accounts
+                        without considering borrowing and other
+                        operational records associated with them.
+                    </li>
+
+                    <li>
+                        Review account changes and restrict
+                        account-management operations to authorized
+                        administrators.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK ADMINISTRATIVE NAVIGATION ==================== -->
+        <section id="admin-quick-navigation"
+            class="admin-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Administrative Options</h2>
+
+                <div class="admin-navigation-groups">
+
+                    <div class="admin-navigation-group">
+                        <h3>Account Management</h3>
+
+                        <ul>
+                            <li>
+                                <a href="users.html">
+                                    Manage Members
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="librarians.html">
+                                    Manage Librarians
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="admin-navigation-group">
+                        <h3>Library Management</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../staff/books.html">
+                                    Manage Books
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../staff/categories.html">
+                                    Manage Categories
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="fines.html">
+                                    Manage Fines
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="reports.html">
+                                    View Reports
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="admin-navigation-group">
+                        <h3>Dashboards</h3>
+
+                        <ul>
+                            <li>
+                                <a href="dashboard.html">
+                                    Administrator Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../librarian/dashboard.html">
+                                    Librarian Dashboard
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-administration">
+                    <h3>Administration</h3>
+
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="users.html">
+                                Manage Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="librarians.html">
+                                Manage Librarians
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports.html">
+                                View Reports
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
