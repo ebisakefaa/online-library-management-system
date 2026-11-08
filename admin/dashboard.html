@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Administrator dashboard for overseeing library users, staff, books, borrowing activities, fines, and reports.">
+    <meta name="author" content="Online Library Management System">
+    <title>Administrator Dashboard | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+                    <li>
+                        <a href="dashboard.html" aria-current="page">
+                            Administrator Dashboard
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="admin-account-navigation">
+                <span class="account-role">Administrator</span>
+
+                <a href="../php/auth/logout.php" class="logout-link">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+                        <li aria-current="page">
+                            Administrator Dashboard
+                        </li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Administrator Dashboard</h1>
+
+                    <p>
+                        Welcome to the library administration area.
+                        Monitor library activities and manage the
+                        system from one central location.
+                    </p>
+                </div>
+
+                <p class="admin-access-notice">
+                    This dashboard is intended for authorized
+                    administrators. Role-based access control will
+                    be enforced during PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ADMINISTRATOR NAVIGATION ==================== -->
+        <section id="admin-navigation" class="admin-navigation-section">
+            <div class="container">
+
+                <h2>Administration Navigation</h2>
+
+                <nav aria-label="Administrator navigation">
+                    <ul class="admin-navigation-list">
+
+                        <li>
+                            <a href="dashboard.html" aria-current="page">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="users.html">
+                                Manage Users
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="librarians.html">
+                                Manage Librarians
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/books.html">
+                                Manage Books
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/categories.html">
+                                Manage Categories
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html">
+                                Manage Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports.html">
+                                View Reports
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== SYSTEM OVERVIEW ==================== -->
+        <section id="system-overview" class="system-overview-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>System Overview</h2>
+
+                    <p>
+                        Review the main statistics of the library system.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE DASHBOARD STATISTICS
+
+                    The values below are demonstration figures only.
+                    During PHP development, these figures will be
+                    retrieved from the MySQL database.
+                -->
+
+                <div class="system-statistics-list">
+
+                    <article class="statistics-card" id="total-book-titles">
+                        <h3>Total Book Titles</h3>
+
+                        <p class="statistics-value">6</p>
+
+                        <p>Sample catalogue records</p>
+
+                        <a href="../staff/books.html">
+                            View Book Inventory
+                        </a>
+                    </article>
+
+
+                    <article class="statistics-card" id="registered-members">
+                        <h3>Registered Members</h3>
+
+                        <p class="statistics-value">128</p>
+
+                        <p>Sample member accounts</p>
+
+                        <a href="users.html">
+                            View Registered Users
+                        </a>
+                    </article>
+
+
+                    <article class="statistics-card" id="librarian-accounts">
+                        <h3>Librarian Accounts</h3>
+
+                        <p class="statistics-value">4</p>
+
+                        <p>Sample librarian accounts</p>
+
+                        <a href="librarians.html">
+                            Manage Librarians
+                        </a>
+                    </article>
+
+
+                    <article class="statistics-card" id="pending-requests">
+                        <h3>Pending Borrow Requests</h3>
+
+                        <p class="statistics-value">8</p>
+
+                        <p>Sample requests awaiting review</p>
+
+                        <a href="../librarian/borrow-requests.html">
+                            View Borrow Requests
+                        </a>
+                    </article>
+
+
+                    <article class="statistics-card" id="active-loans">
+                        <h3>Active Loans</h3>
+
+                        <p class="statistics-value">54</p>
+
+                        <p>Sample active borrowing records</p>
+
+                        <a href="../librarian/loans.html">
+                            View Active Loans
+                        </a>
+                    </article>
+
+
+                    <article class="statistics-card" id="overdue-loans">
+                        <h3>Overdue Loans</h3>
+
+                        <p class="statistics-value">6</p>
+
+                        <p>Sample overdue borrowing records</p>
+
+                        <a href="../librarian/returns.html">
+                            View Returns
+                        </a>
+                    </article>
+
+
+                    <article class="statistics-card" id="outstanding-fines">
+                        <h3>Outstanding Fines</h3>
+
+                        <p class="statistics-value">9</p>
+
+                        <p>Sample unpaid fine records</p>
+
+                        <a href="fines.html">
+                            Manage Fines
+                        </a>
+                    </article>
+
+
+                    <article class="statistics-card" id="book-categories">
+                        <h3>Book Categories</h3>
+
+                        <p class="statistics-value">7</p>
+
+                        <p>Sample registered categories</p>
+
+                        <a href="../staff/categories.html">
+                            View Categories
+                        </a>
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    All statistics displayed on this prototype dashboard
+                    are sample figures. They are not live database records.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK ADMINISTRATIVE ACTIONS ==================== -->
+        <section id="admin-quick-actions" class="admin-quick-actions-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Quick Administrative Actions</h2>
+
+                    <p>
+                        Access frequently used library administration
+                        functions.
+                    </p>
+                </div>
+
+                <div class="admin-actions-list">
+
+                    <article class="admin-action-card">
+                        <h3>Manage Users</h3>
+
+                        <p>
+                            View registered members, review account
+                            information, and manage user accounts.
+                        </p>
+
+                        <a href="users.html">
+                            Open User Management
+                        </a>
+                    </article>
+
+
+                    <article class="admin-action-card">
+                        <h3>Manage Librarians</h3>
+
+                        <p>
+                            Create and manage librarian accounts
+                            responsible for daily library operations.
+                        </p>
+
+                        <a href="librarians.html">
+                            Open Librarian Management
+                        </a>
+                    </article>
+
+
+                    <article class="admin-action-card">
+                        <h3>Manage Book Inventory</h3>
+
+                        <p>
+                            Review catalogue records, add books,
+                            and update book information.
+                        </p>
+
+                        <a href="../staff/books.html">
+                            Open Book Management
+                        </a>
+                    </article>
+
+
+                    <article class="admin-action-card">
+                        <h3>Manage Categories</h3>
+
+                        <p>
+                            Organize the book catalogue by managing
+                            its categories.
+                        </p>
+
+                        <a href="../staff/categories.html">
+                            Open Category Management
+                        </a>
+                    </article>
+
+
+                    <article class="admin-action-card">
+                        <h3>Manage Fines</h3>
+
+                        <p>
+                            Review outstanding fines and monitor
+                            fine payment records.
+                        </p>
+
+                        <a href="fines.html">
+                            Open Fine Management
+                        </a>
+                    </article>
+
+
+                    <article class="admin-action-card">
+                        <h3>Generate Reports</h3>
+
+                        <p>
+                            Access reports about library inventory,
+                            borrowing activity, users, and fines.
+                        </p>
+
+                        <a href="reports.html">
+                            Open Library Reports
+                        </a>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== PENDING BORROWING REQUESTS ==================== -->
+        <section id="pending-borrowing-requests"
+            class="pending-borrowing-requests-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Pending Borrowing Requests</h2>
+
+                    <p>
+                        Monitor sample borrowing requests awaiting
+                        librarian review.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE BORROWING REQUESTS
+
+                    Borrowing requests are reviewed and approved or rejected
+                    by librarians according to the approved system workflow.
+
+                    This administrator dashboard provides an overview.
+                    Actual request management takes place through the
+                    librarian borrowing-request page.
+                -->
+
+                <div class="requests-table-container">
+
+                    <table class="requests-table">
+
+                        <caption>
+                            Sample pending borrowing requests
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Request ID</th>
+                                <th scope="col">Member</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Request Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>BR-001</td>
+                                <td>Sample Member 001</td>
+                                <td>Introduction to Algorithms</td>
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="../librarian/borrow-requests.html">
+                                        View Requests
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>BR-002</td>
+                                <td>Sample Member 002</td>
+                                <td>Things Fall Apart</td>
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="../librarian/borrow-requests.html">
+                                        View Requests
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>BR-003</td>
+                                <td>Sample Member 003</td>
+                                <td>The Lean Startup</td>
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="../librarian/borrow-requests.html">
+                                        View Requests
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>BR-004</td>
+                                <td>Sample Member 004</td>
+                                <td>Calculus</td>
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="../librarian/borrow-requests.html">
+                                        View Requests
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="section-footer">
+                    <a href="../librarian/borrow-requests.html">
+                        View All Borrowing Requests
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== RECENT LIBRARY ACTIVITY ==================== -->
+        <section id="recent-library-activity"
+            class="recent-library-activity-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Recent Library Activity</h2>
+
+                    <p>
+                        Review examples of activities recorded
+                        within the library system.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE ACTIVITY RECORDS
+
+                    Actual activity information will be retrieved
+                    from the relevant database records during PHP
+                    development.
+                -->
+
+                <div class="activity-table-container">
+
+                    <table class="activity-table">
+
+                        <caption>
+                            Sample recent library activities
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Activity ID</th>
+                                <th scope="col">Activity</th>
+                                <th scope="col">Related Record</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>ACT-001</td>
+                                <td>Borrowing Request Submitted</td>
+                                <td>Request BR-001</td>
+                                <td>Pending Review</td>
+                            </tr>
+
+                            <tr>
+                                <td>ACT-002</td>
+                                <td>New Member Registered</td>
+                                <td>Member M-005</td>
+                                <td>Completed</td>
+                            </tr>
+
+                            <tr>
+                                <td>ACT-003</td>
+                                <td>Book Returned</td>
+                                <td>Loan L-012</td>
+                                <td>Completed</td>
+                            </tr>
+
+                            <tr>
+                                <td>ACT-004</td>
+                                <td>Fine Payment Recorded</td>
+                                <td>Fine F-008</td>
+                                <td>Completed</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    Activity entries are illustrative examples.
+                    They are not actual user or transaction records.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ADMINISTRATOR RESPONSIBILITIES ==================== -->
+        <section id="admin-responsibilities"
+            class="admin-responsibilities-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Administrator Responsibilities</h2>
+
+                    <p>
+                        Administrators oversee the main management
+                        functions of the library system.
+                    </p>
+                </div>
+
+                <ul class="admin-responsibilities-list">
+
+                    <li>
+                        Manage registered member accounts.
+                    </li>
+
+                    <li>
+                        Create and manage librarian accounts.
+                    </li>
+
+                    <li>
+                        Oversee book inventory and category management.
+                    </li>
+
+                    <li>
+                        Monitor borrowing requests, loans, and returns.
+                    </li>
+
+                    <li>
+                        Review outstanding fines and payment records.
+                    </li>
+
+                    <li>
+                        Access reports about library operations.
+                    </li>
+
+                    <li>
+                        Ensure that administrative actions are
+                        performed by authorized users.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== STAFF AND PUBLIC NAVIGATION ==================== -->
+        <section id="dashboard-quick-navigation"
+            class="dashboard-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Library Pages</h2>
+
+                <div class="dashboard-navigation-groups">
+
+                    <div class="dashboard-navigation-group">
+                        <h3>Administration</h3>
+
+                        <ul>
+                            <li>
+                                <a href="users.html">
+                                    User Management
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="librarians.html">
+                                    Librarian Management
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="fines.html">
+                                    Fine Management
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="reports.html">
+                                    Library Reports
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="dashboard-navigation-group">
+                        <h3>Shared Staff Pages</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../staff/books.html">
+                                    Book Management
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../staff/book-form.html">
+                                    Add or Edit a Book
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../staff/categories.html">
+                                    Category Management
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="dashboard-navigation-group">
+                        <h3>Public Pages</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../index.html">
+                                    Public Homepage
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../books.html">
+                                    Public Book Catalogue
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../about.html">
+                                    About the Library
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../contact.html">
+                                    Contact the Library
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-administration">
+                    <h3>Administration</h3>
+
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="users.html">
+                                Manage Users
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="librarians.html">
+                                Manage Librarians
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reports.html">
+                                View Reports
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
