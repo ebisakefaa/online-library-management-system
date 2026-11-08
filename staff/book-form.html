@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Add new books or update existing book information in the Online Library Management System.">
+    <meta name="author" content="Online Library Management System">
+    <title>Add or Edit Book | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+                    <li>
+                        <a href="books.html">Manage Books</a>
+                    </li>
+                    <li>
+                        <a href="categories.html">Categories</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="staff-account-navigation">
+                <a href="../admin/dashboard.html">
+                    Administrator Dashboard
+                </a>
+
+                <a href="../librarian/dashboard.html">
+                    Librarian Dashboard
+                </a>
+
+                <a href="../login.html" class="logout-link">
+                    Login
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="books.html">Manage Books</a>
+                        </li>
+                        <li aria-current="page">Add or Edit Book</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Add or Edit a Book</h1>
+
+                    <p>
+                        Enter the book information below to add
+                        a new title or update an existing catalogue record.
+                    </p>
+                </div>
+
+                <p class="staff-access-notice">
+                    This form is intended for authorized administrators
+                    and librarians. Actual access permissions will be
+                    enforced during PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== STAFF NAVIGATION ==================== -->
+        <section id="staff-navigation"
+            class="staff-navigation-section">
+
+            <div class="container">
+
+                <h2>Book Management Navigation</h2>
+
+                <nav aria-label="Book management navigation">
+                    <ul class="staff-navigation-list">
+
+                        <li>
+                            <a href="books.html">
+                                Book Inventory
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="book-form.html"
+                                aria-current="page">
+                                Add or Edit Book
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="categories.html">
+                                Manage Categories
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== BOOK FORM SECTION ==================== -->
+        <section id="book-form-section" class="book-form-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Book Information</h2>
+
+                    <p>
+                        Complete the fields marked as required.
+                    </p>
+                </div>
+
+
+                <!--
+                    ADD OR EDIT BOOK FORM
+
+                    This form supports the future create and update
+                    operations handled by:
+
+                    ../php/books/book-actions.php
+
+                    The optional book_id hidden field will be populated
+                    during the future editing integration.
+
+                    If book_id is empty, the handler can treat the
+                    submission as a new book.
+
+                    If book_id contains a valid record identifier,
+                    the handler can update that existing book.
+
+                    The PHP handler must validate all submitted values,
+                    verify staff permissions, and protect against CSRF.
+                -->
+
+                <form id="book-form" class="book-form"
+                    action="../php/books/book-actions.php"
+                    method="post">
+
+                    <!-- Form Action -->
+                    <input
+                        type="hidden"
+                        name="action"
+                        value="save"
+                    >
+
+                    <!-- Book ID: Populated for Editing -->
+                    <input
+                        type="hidden"
+                        id="book-id"
+                        name="book_id"
+                        value=""
+                    >
+
+
+                    <!-- Basic Book Information -->
+                    <fieldset class="book-basic-information">
+
+                        <legend>Basic Book Information</legend>
+
+
+                        <!-- Book Title -->
+                        <div class="form-group">
+                            <label for="book-title">
+                                Book Title
+                            </label>
+
+                            <input
+                                type="text"
+                                id="book-title"
+                                name="title"
+                                placeholder="Enter the book title"
+                                maxlength="200"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- Author -->
+                        <div class="form-group">
+                            <label for="book-author">
+                                Author
+                            </label>
+
+                            <input
+                                type="text"
+                                id="book-author"
+                                name="author"
+                                placeholder="Enter the author's name"
+                                maxlength="150"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- ISBN -->
+                        <div class="form-group">
+                            <label for="book-isbn">
+                                ISBN
+                            </label>
+
+                            <input
+                                type="text"
+                                id="book-isbn"
+                                name="isbn"
+                                placeholder="Enter the book ISBN"
+                                maxlength="20"
+                                aria-describedby="isbn-help"
+                            >
+
+                            <small id="isbn-help">
+                                Enter the book's ISBN if available.
+                            </small>
+                        </div>
+
+
+                        <!-- Category -->
+                        <div class="form-group">
+                            <label for="book-category">
+                                Book Category
+                            </label>
+
+                            <select
+                                id="book-category"
+                                name="category_id"
+                                required
+                            >
+                                <option value="">
+                                    Select a book category
+                                </option>
+
+                                <!--
+                                    Sample category identifiers.
+                                    The actual category identifiers and
+                                    available options will be retrieved
+                                    from the database during integration.
+                                -->
+
+                                <option value="1">
+                                    Computer Science
+                                </option>
+
+                                <option value="2">
+                                    Literature
+                                </option>
+
+                                <option value="3">
+                                    Science
+                                </option>
+
+                                <option value="4">
+                                    History
+                                </option>
+
+                                <option value="5">
+                                    Business
+                                </option>
+
+                                <option value="6">
+                                    Mathematics
+                                </option>
+
+                                <option value="7">
+                                    Education
+                                </option>
+
+                            </select>
+
+                            <p class="category-management-note">
+                                Need to create a new category?
+                                <a href="categories.html">
+                                    Manage Book Categories
+                                </a>.
+                            </p>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- Publishing Information -->
+                    <fieldset class="book-publishing-information">
+
+                        <legend>Publishing Information</legend>
+
+
+                        <!-- Publisher -->
+                        <div class="form-group">
+                            <label for="book-publisher">
+                                Publisher
+                            </label>
+
+                            <input
+                                type="text"
+                                id="book-publisher"
+                                name="publisher"
+                                placeholder="Enter the publisher's name"
+                                maxlength="150"
+                            >
+                        </div>
+
+
+                        <!-- Publication Year -->
+                        <div class="form-group">
+                            <label for="publication-year">
+                                Publication Year
+                            </label>
+
+                            <input
+                                type="number"
+                                id="publication-year"
+                                name="publication_year"
+                                placeholder="Enter the publication year"
+                                min="1000"
+                                max="2100"
+                            >
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- Inventory Information -->
+                    <fieldset class="book-inventory-information">
+
+                        <legend>Inventory Information</legend>
+
+
+                        <!-- Total Quantity -->
+                        <div class="form-group">
+                            <label for="total-quantity">
+                                Total Number of Copies
+                            </label>
+
+                            <input
+                                type="number"
+                                id="total-quantity"
+                                name="total_quantity"
+                                placeholder="Enter the total number of copies"
+                                min="1"
+                                step="1"
+                                required
+                            >
+
+                            <small>
+                                Enter the total number of physical copies
+                                registered for this book.
+                            </small>
+                        </div>
+
+
+                        <!-- Availability Information -->
+                        <div class="inventory-management-note">
+
+                            <h3>About Available Copies</h3>
+
+                            <p>
+                                The number of available copies will be
+                                calculated and updated by the system
+                                when books are issued and returned.
+                            </p>
+
+                            <p>
+                                You do not need to enter the available
+                                quantity manually.
+                            </p>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- Book Description -->
+                    <fieldset class="book-description-information">
+
+                        <legend>Book Description</legend>
+
+                        <div class="form-group">
+                            <label for="book-description">
+                                Description
+                            </label>
+
+                            <textarea
+                                id="book-description"
+                                name="description"
+                                rows="7"
+                                maxlength="3000"
+                                placeholder="Enter a description of the book..."
+                                aria-describedby="description-help"
+                            ></textarea>
+
+                            <small id="description-help">
+                                Provide a short explanation of the book's
+                                content, subject, or purpose.
+                            </small>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- FORM ACTIONS -->
+                    <div class="book-form-actions">
+
+                        <button
+                            type="submit"
+                            class="save-book-button"
+                        >
+                            Save Book
+                        </button>
+
+                        <button
+                            type="reset"
+                            class="reset-book-button"
+                        >
+                            Clear Form
+                        </button>
+
+                        <a href="books.html"
+                            class="cancel-book-link">
+                            Cancel and Return to Inventory
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== BOOK MANAGEMENT GUIDELINES ==================== -->
+        <section id="book-form-guidelines"
+            class="book-form-guidelines-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Book Entry Guidelines</h2>
+                </div>
+
+                <ul class="book-guidelines-list">
+
+                    <li>
+                        Enter the complete and correct book title.
+                    </li>
+
+                    <li>
+                        Provide the author's name accurately.
+                    </li>
+
+                    <li>
+                        Select the appropriate category for the book.
+                    </li>
+
+                    <li>
+                        Enter the ISBN when it is available.
+                    </li>
+
+                    <li>
+                        Provide the total number of physical copies
+                        registered in the library.
+                    </li>
+
+                    <li>
+                        Keep book descriptions clear and relevant
+                        to the book's actual content.
+                    </li>
+
+                    <li>
+                        When editing an existing book, ensure that
+                        changes to the total quantity do not conflict
+                        with copies currently on loan.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== QUICK NAVIGATION ==================== -->
+        <section id="staff-quick-navigation"
+            class="staff-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Book Management Options</h2>
+
+                <ul class="quick-navigation-list">
+
+                    <li>
+                        <a href="books.html">
+                            Return to Book Inventory
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="categories.html">
+                            Manage Categories
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../admin/dashboard.html">
+                            Administrator Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../librarian/dashboard.html">
+                            Librarian Dashboard
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="books.html">
+                                Manage Books
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="categories.html">
+                                Manage Categories
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-staff-links">
+                    <h3>Staff Dashboards</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../admin/dashboard.html">
+                                Administrator Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../librarian/dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
