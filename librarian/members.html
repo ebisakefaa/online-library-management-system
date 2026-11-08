@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View registered library members and access information needed for borrowing, returns, reservations, and library services.">
+    <meta name="author" content="Online Library Management System">
+    <title>Library Members | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="members.html" aria-current="page">
+                            Members
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="librarian-account-navigation">
+                <span class="account-role">Librarian</span>
+
+                <a href="../php/auth/logout.php" class="logout-link">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+
+                        <li aria-current="page">Members</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Library Members</h1>
+
+                    <p>
+                        Find registered members and review their
+                        account and borrowing information to assist
+                        with everyday library operations.
+                    </p>
+                </div>
+
+                <p class="librarian-access-notice">
+                    This page is intended for authorized librarians.
+                    Member information must be accessed only for
+                    legitimate library operations. Access permissions
+                    will be enforced during PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LIBRARIAN NAVIGATION ==================== -->
+        <section id="librarian-navigation"
+            class="librarian-navigation-section">
+
+            <div class="container">
+
+                <h2>Librarian Navigation</h2>
+
+                <nav aria-label="Librarian navigation">
+                    <ul class="librarian-navigation-list">
+
+                        <li>
+                            <a href="dashboard.html">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="members.html" aria-current="page">
+                                Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="borrow-requests.html">
+                                Borrow Requests
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="loans.html">
+                                Active Loans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="returns.html">
+                                Returns
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reservations.html">
+                                Reservations
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html">
+                                Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/books.html">
+                                Book Catalogue
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== MEMBER OVERVIEW ==================== -->
+        <section id="member-overview" class="member-overview-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Member Overview</h2>
+
+                    <p>
+                        Review the overall membership information
+                        available to library staff.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE MEMBER STATISTICS
+
+                    These figures match the sample membership
+                    statistics used on admin/users.html and
+                    admin/dashboard.html.
+
+                    Actual statistics will be retrieved from MySQL
+                    during the PHP development phase.
+                -->
+
+                <div class="member-statistics-list">
+
+                    <article class="member-statistics-card"
+                        id="total-members">
+
+                        <h3>Total Registered Members</h3>
+
+                        <p class="statistics-value">128</p>
+
+                        <p>Sample member accounts</p>
+
+                    </article>
+
+
+                    <article class="member-statistics-card"
+                        id="active-members">
+
+                        <h3>Active Members</h3>
+
+                        <p class="statistics-value">122</p>
+
+                        <p>Sample active accounts</p>
+
+                    </article>
+
+
+                    <article class="member-statistics-card"
+                        id="suspended-members">
+
+                        <h3>Suspended Members</h3>
+
+                        <p class="statistics-value">6</p>
+
+                        <p>Sample suspended accounts</p>
+
+                    </article>
+
+
+                    <article class="member-statistics-card"
+                        id="members-with-active-loans">
+
+                        <h3>Members with Active Loans</h3>
+
+                        <p class="statistics-value">11</p>
+
+                        <p>Sample active loan records</p>
+
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    These values are illustrative sample statistics.
+                    They are not connected to the library database.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== MEMBER SEARCH AND FILTERS ==================== -->
+        <section id="member-search-section"
+            class="member-search-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Find a Member</h2>
+
+                    <p>
+                        Search registered members using their
+                        identification or contact information.
+                    </p>
+                </div>
+
+                <form id="member-filter-form"
+                    class="member-filter-form"
+                    action="members.html"
+                    method="get">
+
+                    <!-- Member Search -->
+                    <div class="form-group">
+                        <label for="member-search">
+                            Search by Member ID, Name, or Email
+                        </label>
+
+                        <input
+                            type="search"
+                            id="member-search"
+                            name="q"
+                            placeholder="Enter member ID, name, or email"
+                        >
+                    </div>
+
+
+                    <!-- Account Status -->
+                    <div class="form-group">
+                        <label for="member-status-filter">
+                            Account Status
+                        </label>
+
+                        <select
+                            id="member-status-filter"
+                            name="status">
+
+                            <option value="">All Account Statuses</option>
+                            <option value="active">Active</option>
+                            <option value="suspended">Suspended</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Sorting -->
+                    <div class="form-group">
+                        <label for="member-sort-filter">
+                            Sort By
+                        </label>
+
+                        <select
+                            id="member-sort-filter"
+                            name="sort">
+
+                            <option value="newest">Recently Registered</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                            <option value="member-id">Member ID</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- Search Actions -->
+                    <div class="member-filter-actions">
+
+                        <button type="submit"
+                            class="member-search-button">
+                            Search Members
+                        </button>
+
+                        <a href="members.html" class="clear-filters-link">
+                            Clear Filters
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== REGISTERED MEMBERS TABLE ==================== -->
+        <section id="registered-members"
+            class="registered-members-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Registered Members</h2>
+
+                    <p>
+                        Review member contact information,
+                        account status, and borrowing activity.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE MEMBER RECORDS
+
+                    The records below are fictional examples.
+
+                    They use the same sample member identifiers
+                    and names introduced on admin/users.html.
+
+                    Actual member information will be retrieved
+                    from the users table during PHP integration.
+
+                    Account creation, suspension, reactivation,
+                    and permanent deletion are not performed here.
+                    Those administrative operations belong to
+                    admin/users.html.
+                -->
+
+                <div class="members-table-container">
+
+                    <table class="members-table">
+
+                        <caption>
+                            Sample registered library members
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Member ID</th>
+                                <th scope="col">Member Name</th>
+                                <th scope="col">Email Address</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Account Status</th>
+                                <th scope="col">Active Loans</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Member 1 -->
+                            <tr>
+                                <td>MEM-001</td>
+
+                                <td>
+                                    <strong>Abel Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:abel001@example.com">
+                                        abel001@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 001</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>2</td>
+
+                                <td>
+                                    <div class="member-record-actions">
+
+                                        <a href="loans.html?member=1"
+                                            class="view-member-loans-link">
+                                            Loans
+                                        </a>
+
+                                        <a href="fines.html?member=1"
+                                            class="view-member-fines-link">
+                                            Fines
+                                        </a>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Member 2 -->
+                            <tr>
+                                <td>MEM-002</td>
+
+                                <td>
+                                    <strong>Hana Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:hana002@example.com">
+                                        hana002@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 002</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>1</td>
+
+                                <td>
+                                    <div class="member-record-actions">
+
+                                        <a href="loans.html?member=2"
+                                            class="view-member-loans-link">
+                                            Loans
+                                        </a>
+
+                                        <a href="fines.html?member=2"
+                                            class="view-member-fines-link">
+                                            Fines
+                                        </a>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Member 3 -->
+                            <tr>
+                                <td>MEM-003</td>
+
+                                <td>
+                                    <strong>Daniel Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:daniel003@example.com">
+                                        daniel003@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 003</td>
+
+                                <td>
+                                    <span class="account-status suspended">
+                                        Suspended
+                                    </span>
+                                </td>
+
+                                <td>0</td>
+
+                                <td>
+                                    <div class="member-record-actions">
+
+                                        <a href="loans.html?member=3"
+                                            class="view-member-loans-link">
+                                            Loans
+                                        </a>
+
+                                        <a href="fines.html?member=3"
+                                            class="view-member-fines-link">
+                                            Fines
+                                        </a>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Member 4 -->
+                            <tr>
+                                <td>MEM-004</td>
+
+                                <td>
+                                    <strong>Mimi Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:mimi004@example.com">
+                                        mimi004@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 004</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>1</td>
+
+                                <td>
+                                    <div class="member-record-actions">
+
+                                        <a href="loans.html?member=4"
+                                            class="view-member-loans-link">
+                                            Loans
+                                        </a>
+
+                                        <a href="fines.html?member=4"
+                                            class="view-member-fines-link">
+                                            Fines
+                                        </a>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Member 5 -->
+                            <tr>
+                                <td>MEM-005</td>
+
+                                <td>
+                                    <strong>Samuel Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:samuel005@example.com">
+                                        samuel005@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 005</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>0</td>
+
+                                <td>
+                                    <div class="member-record-actions">
+
+                                        <a href="loans.html?member=5"
+                                            class="view-member-loans-link">
+                                            Loans
+                                        </a>
+
+                                        <a href="fines.html?member=5"
+                                            class="view-member-fines-link">
+                                            Fines
+                                        </a>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <!-- Member 6 -->
+                            <tr>
+                                <td>MEM-006</td>
+
+                                <td>
+                                    <strong>Ruth Example</strong>
+                                </td>
+
+                                <td>
+                                    <a href="mailto:ruth006@example.com">
+                                        ruth006@example.com
+                                    </a>
+                                </td>
+
+                                <td>+251 911 000 006</td>
+
+                                <td>
+                                    <span class="account-status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>0</td>
+
+                                <td>
+                                    <div class="member-record-actions">
+
+                                        <a href="loans.html?member=6"
+                                            class="view-member-loans-link">
+                                            Loans
+                                        </a>
+
+                                        <a href="fines.html?member=6"
+                                            class="view-member-fines-link">
+                                            Fines
+                                        </a>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    The member records, contact information, and
+                    borrowing counts shown above are fictional
+                    sample data.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== MEMBER SERVICE GUIDELINES ==================== -->
+        <section id="member-service-guidelines"
+            class="member-service-guidelines-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Member Service Guidelines</h2>
+
+                    <p>
+                        Follow these guidelines when assisting
+                        library members.
+                    </p>
+                </div>
+
+                <ul class="member-service-guidelines-list">
+
+                    <li>
+                        Verify the member's identity before discussing
+                        private account or borrowing information.
+                    </li>
+
+                    <li>
+                        Check the member's account status before
+                        processing a borrowing request.
+                    </li>
+
+                    <li>
+                        Review active loans and outstanding fines
+                        when assisting with borrowing activities.
+                    </li>
+
+                    <li>
+                        Keep member contact information confidential.
+                    </li>
+
+                    <li>
+                        Do not suspend, reactivate, or permanently
+                        delete member accounts from the librarian area.
+                    </li>
+
+                    <li>
+                        Refer administrative account-status changes
+                        to an authorized administrator.
+                    </li>
+
+                    <li>
+                        Record borrowing and return activities
+                        through their dedicated operational pages.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK NAVIGATION ==================== -->
+        <section id="librarian-quick-navigation"
+            class="librarian-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Library Operations</h2>
+
+                <div class="librarian-navigation-groups">
+
+                    <div class="librarian-navigation-group">
+                        <h3>Member Services</h3>
+
+                        <ul>
+                            <li>
+                                <a href="members.html">
+                                    View Members
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="borrow-requests.html">
+                                    Borrowing Requests
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="reservations.html">
+                                    Reservations
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Borrowing Operations</h3>
+
+                        <ul>
+                            <li>
+                                <a href="loans.html">
+                                    Active Loans
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="returns.html">
+                                    Book Returns
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="fines.html">
+                                    Fine Management
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Book Catalogue</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../staff/books.html">
+                                    Manage Books
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../staff/categories.html">
+                                    Manage Categories
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../books.html">
+                                    Public Catalogue
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Dashboards</h3>
+
+                        <ul>
+                            <li>
+                                <a href="dashboard.html">
+                                    Librarian Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../admin/dashboard.html">
+                                    Administrator Dashboard
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-operations">
+                    <h3>Library Operations</h3>
+
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="members.html">
+                                Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="borrow-requests.html">
+                                Borrowing Requests
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="loans.html">
+                                Active Loans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="returns.html">
+                                Book Returns
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
