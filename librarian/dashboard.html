@@ -1,0 +1,1097 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Librarian dashboard for managing members, borrowing requests, book loans, returns, reservations, and fines.">
+    <meta name="author" content="Online Library Management System">
+    <title>Librarian Dashboard | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="../index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="../index.html">Public Home</a>
+                    </li>
+
+                    <li>
+                        <a href="../books.html">Public Catalogue</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html" aria-current="page">
+                            Librarian Dashboard
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="librarian-account-navigation">
+                <span class="account-role">Librarian</span>
+
+                <a href="../php/auth/logout.php" class="logout-link">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../index.html">Home</a>
+                        </li>
+
+                        <li aria-current="page">
+                            Librarian Dashboard
+                        </li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Librarian Dashboard</h1>
+
+                    <p>
+                        Welcome to the library operations area.
+                        Manage borrowing requests, book loans, returns,
+                        reservations, and member services.
+                    </p>
+                </div>
+
+                <p class="librarian-access-notice">
+                    This dashboard is intended for authorized librarians.
+                    Role-based access and operational permissions will
+                    be enforced during PHP development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LIBRARIAN NAVIGATION ==================== -->
+        <section id="librarian-navigation"
+            class="librarian-navigation-section">
+
+            <div class="container">
+
+                <h2>Librarian Navigation</h2>
+
+                <nav aria-label="Librarian navigation">
+                    <ul class="librarian-navigation-list">
+
+                        <li>
+                            <a href="dashboard.html" aria-current="page">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="members.html">
+                                Members
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="borrow-requests.html">
+                                Borrow Requests
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="loans.html">
+                                Active Loans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="returns.html">
+                                Returns
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reservations.html">
+                                Reservations
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="fines.html">
+                                Fines
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../staff/books.html">
+                                Book Catalogue
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LIBRARY OPERATIONS OVERVIEW ==================== -->
+        <section id="library-operations-overview"
+            class="library-operations-overview-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Library Operations Overview</h2>
+
+                    <p>
+                        Review the current workload and important
+                        library activities.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE OPERATIONAL STATISTICS
+
+                    These figures are demonstration values only.
+                    Actual figures will be retrieved from MySQL
+                    during the PHP development phase.
+
+                    The overlapping figures are kept consistent
+                    with the administrator dashboard:
+                    - Pending borrowing requests: 8
+                    - Active loans: 11
+                    - Overdue loans: 6
+                    - Registered members: 128
+                    - Outstanding fine records: 9
+                -->
+
+                <div class="operations-statistics-list">
+
+                    <!-- Pending Borrowing Requests -->
+                    <article class="operations-statistics-card"
+                        id="pending-borrow-requests">
+
+                        <h3>Pending Borrowing Requests</h3>
+
+                        <p class="statistics-value">8</p>
+
+                        <p>Sample requests awaiting librarian review</p>
+
+                        <a href="borrow-requests.html">
+                            Review Requests
+                        </a>
+
+                    </article>
+
+
+                    <!-- Active Loans -->
+                    <article class="operations-statistics-card"
+                        id="active-book-loans">
+
+                        <h3>Active Book Loans</h3>
+
+                        <p class="statistics-value">11</p>
+
+                        <p>Sample currently issued books</p>
+
+                        <a href="loans.html">
+                            View Active Loans
+                        </a>
+
+                    </article>
+
+
+                    <!-- Overdue Loans -->
+                    <article class="operations-statistics-card"
+                        id="overdue-book-loans">
+
+                        <h3>Overdue Loans</h3>
+
+                        <p class="statistics-value">6</p>
+
+                        <p>Sample loans past their due dates</p>
+
+                        <a href="returns.html">
+                            Review Overdue Books
+                        </a>
+
+                    </article>
+
+
+                    <!-- Pending Reservations -->
+                    <article class="operations-statistics-card"
+                        id="pending-reservations">
+
+                        <h3>Pending Reservations</h3>
+
+                        <p class="statistics-value">5</p>
+
+                        <p>Sample reservations awaiting attention</p>
+
+                        <a href="reservations.html">
+                            Manage Reservations
+                        </a>
+
+                    </article>
+
+
+                    <!-- Registered Members -->
+                    <article class="operations-statistics-card"
+                        id="registered-members">
+
+                        <h3>Registered Members</h3>
+
+                        <p class="statistics-value">128</p>
+
+                        <p>Sample library member accounts</p>
+
+                        <a href="members.html">
+                            View Members
+                        </a>
+
+                    </article>
+
+
+                    <!-- Outstanding Fines -->
+                    <article class="operations-statistics-card"
+                        id="outstanding-fines">
+
+                        <h3>Outstanding Fine Records</h3>
+
+                        <p class="statistics-value">9</p>
+
+                        <p>Sample unpaid or partially paid fines</p>
+
+                        <a href="fines.html">
+                            Review Fines
+                        </a>
+
+                    </article>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    All statistics displayed on this prototype dashboard
+                    are sample figures and are not connected to MySQL.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK OPERATIONAL ACTIONS ==================== -->
+        <section id="librarian-quick-actions"
+            class="librarian-quick-actions-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Quick Operational Actions</h2>
+
+                    <p>
+                        Open the main pages used for everyday
+                        library operations.
+                    </p>
+                </div>
+
+                <div class="librarian-actions-list">
+
+                    <article class="librarian-action-card">
+                        <h3>Review Borrowing Requests</h3>
+
+                        <p>
+                            Review member requests and approve or reject
+                            them according to book availability
+                            and library rules.
+                        </p>
+
+                        <a href="borrow-requests.html">
+                            Open Borrow Requests
+                        </a>
+                    </article>
+
+
+                    <article class="librarian-action-card">
+                        <h3>Manage Active Loans</h3>
+
+                        <p>
+                            Review issued books, member loan records,
+                            and book due dates.
+                        </p>
+
+                        <a href="loans.html">
+                            Open Active Loans
+                        </a>
+                    </article>
+
+
+                    <article class="librarian-action-card">
+                        <h3>Process Book Returns</h3>
+
+                        <p>
+                            Record returned books, update loan records,
+                            and review overdue returns.
+                        </p>
+
+                        <a href="returns.html">
+                            Open Book Returns
+                        </a>
+                    </article>
+
+
+                    <article class="librarian-action-card">
+                        <h3>Manage Reservations</h3>
+
+                        <p>
+                            Review member reservations and manage
+                            their reservation status.
+                        </p>
+
+                        <a href="reservations.html">
+                            Open Reservations
+                        </a>
+                    </article>
+
+
+                    <article class="librarian-action-card">
+                        <h3>Manage Members</h3>
+
+                        <p>
+                            Review member information and check
+                            their library account details.
+                        </p>
+
+                        <a href="members.html">
+                            Open Member Management
+                        </a>
+                    </article>
+
+
+                    <article class="librarian-action-card">
+                        <h3>Review Fines</h3>
+
+                        <p>
+                            Review fines associated with borrowing
+                            records and record eligible manual payments.
+                        </p>
+
+                        <a href="fines.html">
+                            Open Fine Management
+                        </a>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== PENDING BORROWING REQUESTS ==================== -->
+        <section id="dashboard-pending-requests"
+            class="dashboard-pending-requests-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Recent Borrowing Requests</h2>
+
+                    <p>
+                        Review examples of member requests awaiting
+                        a librarian decision.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE BORROWING REQUESTS
+
+                    These are fictional demonstration records.
+                    A librarian will review the actual requests
+                    through borrow-requests.html.
+
+                    Approval and rejection actions are deliberately
+                    not placed on this dashboard.
+                -->
+
+                <div class="pending-requests-table-container">
+
+                    <table class="pending-requests-table">
+
+                        <caption>
+                            Sample borrowing requests awaiting review
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Request ID</th>
+                                <th scope="col">Member</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Request Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>BR-001</td>
+
+                                <td>Abel Example</td>
+
+                                <td>Introduction to Algorithms</td>
+
+                                <td>2026-11-05</td>
+
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="borrow-requests.html">
+                                        Review Request
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>BR-002</td>
+
+                                <td>Hana Example</td>
+
+                                <td>Things Fall Apart</td>
+
+                                <td>2026-11-05</td>
+
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="borrow-requests.html">
+                                        Review Request
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>BR-003</td>
+
+                                <td>Daniel Example</td>
+
+                                <td>The Lean Startup</td>
+
+                                <td>2026-11-06</td>
+
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="borrow-requests.html">
+                                        Review Request
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>BR-004</td>
+
+                                <td>Mimi Example</td>
+
+                                <td>Calculus</td>
+
+                                <td>2026-11-07</td>
+
+                                <td>
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="borrow-requests.html">
+                                        Review Request
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="section-footer">
+                    <a href="borrow-requests.html">
+                        View All Borrowing Requests
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== OVERDUE BOOKS ==================== -->
+        <section id="dashboard-overdue-books"
+            class="dashboard-overdue-books-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Overdue Books</h2>
+
+                    <p>
+                        Examples of loan records that require
+                        attention because their due dates have passed.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE OVERDUE LOAN RECORDS
+
+                    These records are illustrative examples.
+                    The dates are sample dates and do not represent
+                    actual member borrowing activities.
+
+                    Six overdue records are represented in the
+                    sample dashboard statistics; this table shows
+                    only three example records.
+                -->
+
+                <div class="overdue-loans-table-container">
+
+                    <table class="overdue-loans-table">
+
+                        <caption>
+                            Sample overdue book records
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Loan ID</th>
+                                <th scope="col">Member</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">Return Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>LOAN-004</td>
+
+                                <td>Abel Example</td>
+
+                                <td>Introduction to Algorithms</td>
+
+                                <td>2026-10-20</td>
+
+                                <td>
+                                    <span class="loan-status overdue">
+                                        Overdue
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="returns.html">
+                                        Process Return
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>LOAN-007</td>
+
+                                <td>Hana Example</td>
+
+                                <td>Things Fall Apart</td>
+
+                                <td>2026-10-25</td>
+
+                                <td>
+                                    <span class="loan-status overdue">
+                                        Overdue
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="returns.html">
+                                        Process Return
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>LOAN-009</td>
+
+                                <td>Daniel Example</td>
+
+                                <td>A Brief History of Time</td>
+
+                                <td>2026-10-30</td>
+
+                                <td>
+                                    <span class="loan-status overdue">
+                                        Overdue
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a href="returns.html">
+                                        Process Return
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="section-footer">
+                    <a href="returns.html">
+                        View All Book Returns
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== RECENT LIBRARY ACTIVITY ==================== -->
+        <section id="recent-library-activity"
+            class="recent-library-activity-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Recent Library Activity</h2>
+
+                    <p>
+                        Review examples of recent borrowing and
+                        member-related activities.
+                    </p>
+                </div>
+
+                <!--
+                    SAMPLE ACTIVITY RECORDS
+
+                    These records are fictional examples.
+                    Actual activity information will come from
+                    borrowing, reservation, payment, and notification
+                    records during PHP development.
+                -->
+
+                <div class="recent-activity-table-container">
+
+                    <table class="recent-activity-table">
+
+                        <caption>
+                            Sample recent library operations
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Activity ID</th>
+                                <th scope="col">Activity</th>
+                                <th scope="col">Member</th>
+                                <th scope="col">Related Book</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>ACT-101</td>
+
+                                <td>Borrowing Request Submitted</td>
+
+                                <td>Abel Example</td>
+
+                                <td>Introduction to Algorithms</td>
+
+                                <td>2026-11-05</td>
+
+                                <td>Pending Review</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>ACT-102</td>
+
+                                <td>Book Returned</td>
+
+                                <td>Hana Example</td>
+
+                                <td>Things Fall Apart</td>
+
+                                <td>2026-11-06</td>
+
+                                <td>Completed</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>ACT-103</td>
+
+                                <td>Reservation Submitted</td>
+
+                                <td>Daniel Example</td>
+
+                                <td>A Brief History of Time</td>
+
+                                <td>2026-11-06</td>
+
+                                <td>Pending</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>ACT-104</td>
+
+                                <td>Manual Fine Payment Recorded</td>
+
+                                <td>Mimi Example</td>
+
+                                <td>The Lean Startup</td>
+
+                                <td>2026-11-07</td>
+
+                                <td>Completed</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="sample-data-notice">
+                    All recent activity entries are fictional sample
+                    records, not actual member transactions.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== LIBRARIAN RESPONSIBILITIES ==================== -->
+        <section id="librarian-responsibilities"
+            class="librarian-responsibilities-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Librarian Responsibilities</h2>
+
+                    <p>
+                        Librarians support the daily activities
+                        and services of the library.
+                    </p>
+                </div>
+
+                <ul class="librarian-responsibilities-list">
+
+                    <li>
+                        Review member borrowing requests and approve
+                        or reject them according to library rules.
+                    </li>
+
+                    <li>
+                        Issue approved books and maintain accurate
+                        loan records.
+                    </li>
+
+                    <li>
+                        Process returned books and update their
+                        availability.
+                    </li>
+
+                    <li>
+                        Monitor overdue loans and apply the
+                        appropriate fine rules.
+                    </li>
+
+                    <li>
+                        Manage book reservations and their statuses.
+                    </li>
+
+                    <li>
+                        Assist members with account and borrowing
+                        information.
+                    </li>
+
+                    <li>
+                        Record eligible manual fine payments
+                        and review payment information.
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== QUICK NAVIGATION ==================== -->
+        <section id="librarian-quick-navigation"
+            class="librarian-quick-navigation-section">
+
+            <div class="container">
+
+                <h2>More Library Operations</h2>
+
+                <div class="librarian-navigation-groups">
+
+                    <div class="librarian-navigation-group">
+                        <h3>Member Services</h3>
+
+                        <ul>
+                            <li>
+                                <a href="members.html">
+                                    Manage Members
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../member/dashboard.html">
+                                    Member Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../member/notifications.html">
+                                    Member Notifications
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Borrowing Operations</h3>
+
+                        <ul>
+                            <li>
+                                <a href="borrow-requests.html">
+                                    Borrowing Requests
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="loans.html">
+                                    Active Loans
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="returns.html">
+                                    Book Returns
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="reservations.html">
+                                    Reservations
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Financial Operations</h3>
+
+                        <ul>
+                            <li>
+                                <a href="fines.html">
+                                    Manage Fines
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../admin/fines.html">
+                                    Administrator Fine Overview
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="librarian-navigation-group">
+                        <h3>Book Catalogue</h3>
+
+                        <ul>
+                            <li>
+                                <a href="../staff/books.html">
+                                    Manage Books
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../staff/categories.html">
+                                    Manage Categories
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../books.html">
+                                    Public Book Catalogue
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Public Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../books.html">
+                                Public Catalogue
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../about.html">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../contact.html">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-operations">
+                    <h3>Library Operations</h3>
+
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                Librarian Dashboard
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="borrow-requests.html">
+                                Borrowing Requests
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="loans.html">
+                                Active Loans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="returns.html">
+                                Book Returns
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reservations.html">
+                                Reservations
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>Email: library@example.com</p>
+                        <p>Phone: +251 900 000 000</p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
