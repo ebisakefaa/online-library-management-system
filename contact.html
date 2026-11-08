@@ -1,0 +1,528 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact the Online Library Management System for assistance with books, membership, borrowing, reservations, and other library services.">
+    <meta name="author" content="Online Library Management System">
+    <title>Contact Us | Online Library Management System</title>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="site-header">
+        <div class="container">
+
+            <div class="site-branding">
+                <a href="index.html" class="site-logo">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+                <ul class="navigation-list">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="books.html">Browse Books</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="contact.html" aria-current="page">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-authentication">
+                <a href="login.html" class="login-link">Login</a>
+                <a href="register.html" class="register-link">Register</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ==================== PAGE INTRODUCTION ==================== -->
+        <section id="page-introduction" class="page-introduction">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li aria-current="page">Contact Us</li>
+                    </ol>
+                </nav>
+
+                <div class="page-heading">
+                    <h1>Contact Our Library</h1>
+                    <p>
+                        Have a question or need assistance?
+                        We welcome your inquiries about our library
+                        resources and services.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CONTACT INTRODUCTION ==================== -->
+        <section id="contact-introduction" class="contact-introduction">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>How Can We Help You?</h2>
+                    <p>
+                        Whether you need help finding a book, understanding
+                        the borrowing process, or accessing your member
+                        account, use the contact information below.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CONTACT INFORMATION ==================== -->
+        <section id="contact-information" class="contact-information-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Our Contact Information</h2>
+                    <p>
+                        Use one of the following contact channels
+                        to get in touch with the library.
+                    </p>
+                </div>
+
+                <div class="contact-information-list">
+
+                    <!-- Email -->
+                    <article class="contact-information-card" id="email-contact">
+
+                        <h3>Email Address</h3>
+
+                        <p>
+                            Send an email for general questions and
+                            library-related inquiries.
+                        </p>
+
+                        <address>
+                            <a href="mailto:library@example.com">
+                                library@example.com
+                            </a>
+                        </address>
+
+                    </article>
+
+
+                    <!-- Telephone -->
+                    <article class="contact-information-card" id="phone-contact">
+
+                        <h3>Telephone</h3>
+
+                        <p>
+                            Contact the library by telephone for assistance
+                            with its services.
+                        </p>
+
+                        <address>
+                            <a href="tel:+251900000000">
+                                +251 900 000 000
+                            </a>
+                        </address>
+
+                    </article>
+
+
+                    <!-- Library Services -->
+                    <article class="contact-information-card" id="library-support">
+
+                        <h3>Library Support</h3>
+
+                        <p>
+                            For assistance with book searches, borrowing
+                            requests, reservations, member accounts,
+                            and fines, contact the library.
+                        </p>
+
+                        <a href="books.html">
+                            Explore the Book Catalogue
+                        </a>
+
+                    </article>
+
+                </div>
+
+                <p class="contact-details-note">
+                    Note: The email address and telephone number above are
+                    sample placeholders. They must be replaced with the
+                    library's actual contact details before deployment.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== CONTACT FORM ==================== -->
+        <section id="contact-form-section" class="contact-form-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Send Us a Message</h2>
+                    <p>
+                        Complete the form below to describe your inquiry.
+                        All fields are required.
+                    </p>
+                </div>
+
+                <!--
+                    FRONT-END CONTACT FORM
+
+                    This form is currently an HTML prototype.
+                    It does not deliver messages.
+
+                    A working submission process would require an
+                    approved server-side contact handler in the PHP phase.
+                -->
+
+                <form id="contact-form" class="contact-form"
+                    action="#" method="post">
+
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="contact-name">Full Name</label>
+
+                        <input
+                            type="text"
+                            id="contact-name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Email Address -->
+                    <div class="form-group">
+                        <label for="contact-email">Email Address</label>
+
+                        <input
+                            type="email"
+                            id="contact-email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            autocomplete="email"
+                            maxlength="150"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Inquiry Category -->
+                    <div class="form-group">
+                        <label for="contact-subject">Inquiry Category</label>
+
+                        <select
+                            id="contact-subject"
+                            name="subject"
+                            required
+                        >
+                            <option value="">Select an inquiry category</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="books">Books and Catalogue</option>
+                            <option value="membership">Membership and Accounts</option>
+                            <option value="borrowing">Borrowing and Returns</option>
+                            <option value="reservations">Book Reservations</option>
+                            <option value="fines">Fines and Payments</option>
+                            <option value="technical-support">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Message Subject -->
+                    <div class="form-group">
+                        <label for="contact-message-subject">
+                            Message Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="contact-message-subject"
+                            name="message_subject"
+                            placeholder="Enter a subject for your message"
+                            maxlength="150"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Message -->
+                    <div class="form-group">
+                        <label for="contact-message">Your Message</label>
+
+                        <textarea
+                            id="contact-message"
+                            name="message"
+                            rows="7"
+                            placeholder="Write your message here..."
+                            maxlength="3000"
+                            required
+                        ></textarea>
+                    </div>
+
+
+                    <!-- Form Submission -->
+                    <div class="form-actions">
+
+                        <button type="submit" class="contact-submit-button">
+                            Send Message
+                        </button>
+
+                        <button type="reset" class="contact-reset-button">
+                            Clear Form
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== FREQUENTLY ASKED QUESTIONS ==================== -->
+        <section id="contact-faq" class="contact-faq-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>
+                        Here are some common questions about using
+                        our library system.
+                    </p>
+                </div>
+
+                <div class="faq-list">
+
+                    <!-- Question 1 -->
+                    <article class="faq-item">
+
+                        <h3>How can I find a book?</h3>
+
+                        <p>
+                            Visit the book catalogue to browse available
+                            books or search using a book title, author,
+                            or category.
+                        </p>
+
+                        <a href="books.html">
+                            Browse Books
+                        </a>
+
+                    </article>
+
+
+                    <!-- Question 2 -->
+                    <article class="faq-item">
+
+                        <h3>How can I become a library member?</h3>
+
+                        <p>
+                            You can create a member account through
+                            the public registration page.
+                        </p>
+
+                        <a href="register.html">
+                            Register as a Member
+                        </a>
+
+                    </article>
+
+
+                    <!-- Question 3 -->
+                    <article class="faq-item">
+
+                        <h3>How do I request a book?</h3>
+
+                        <p>
+                            Log in to your member account, find an available
+                            book, and submit a borrowing request.
+                            A librarian must approve the request.
+                        </p>
+
+                        <a href="login.html">
+                            Member Login
+                        </a>
+
+                    </article>
+
+
+                    <!-- Question 4 -->
+                    <article class="faq-item">
+
+                        <h3>How can I check my outstanding fines?</h3>
+
+                        <p>
+                            Members can log in to their accounts to
+                            view their fines and payment information.
+                        </p>
+
+                        <a href="login.html">
+                            Access Your Account
+                        </a>
+
+                    </article>
+
+
+                    <!-- Question 5 -->
+                    <article class="faq-item">
+
+                        <h3>What should I do if I cannot access my account?</h3>
+
+                        <p>
+                            Contact the library through the available
+                            contact channels for assistance with
+                            your account.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== FINAL CALL TO ACTION ==================== -->
+        <section id="contact-call-to-action"
+            class="contact-call-to-action">
+
+            <div class="container">
+
+                <h2>Explore Our Library</h2>
+
+                <p>
+                    Discover our book collection and learn more
+                    about the services available to members.
+                </p>
+
+                <div class="contact-page-actions">
+
+                    <a href="books.html" class="browse-books-link">
+                        Browse Books
+                    </a>
+
+                    <a href="about.html" class="about-library-link">
+                        Learn About Us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="site-footer">
+        <div class="container">
+
+            <div class="footer-information">
+
+                <div class="footer-branding">
+                    <h2>Online Library</h2>
+                    <p>
+                        Making knowledge and learning accessible
+                        through our online library.
+                    </p>
+                </div>
+
+
+                <div class="footer-navigation">
+                    <h3>Quick Links</h3>
+
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="books.html">Browse Books</a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">About Us</a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-account-links">
+                    <h3>Account</h3>
+
+                    <ul>
+                        <li>
+                            <a href="login.html">Login</a>
+                        </li>
+
+                        <li>
+                            <a href="register.html">Register</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+
+                    <address>
+                        <p>
+                            Email:
+                            <a href="mailto:library@example.com">
+                                library@example.com
+                            </a>
+                        </p>
+
+                        <p>
+                            Phone:
+                            <a href="tel:+251900000000">
+                                +251 900 000 000
+                            </a>
+                        </p>
+                    </address>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Online Library Management System.
+                    All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
