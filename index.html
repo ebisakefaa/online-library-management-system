@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Welcome to the Online Library Management System. Explore books, discover new knowledge, and access library services online.">
+
+    <meta name="author" content="Online Library Management System">
+
+    <title>Home | Online Library Management System</title>
+</head>
+
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="main-header" class="site-header">
+
+        <div class="header-container">
+
+            <!-- Library Logo and Name -->
+            <div class="site-branding">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">Online Library</span>
+                </a>
+            </div>
+
+            <!-- Main Navigation -->
+            <nav id="main-navigation" class="main-navigation" aria-label="Main navigation">
+
+                <ul class="navigation-list">
+
+                    <li>
+                        <a href="index.html" aria-current="page">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="books.html">Books</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <!-- Account Navigation -->
+            <div class="account-navigation">
+
+                <a href="login.html" class="login-link">Login</a>
+
+                <a href="register.html" class="register-link">Register</a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+
+        <!-- ==================== HERO SECTION ==================== -->
+        <section id="hero-section" class="hero-section">
+
+            <div class="hero-content">
+
+                <h1>Discover a World of Knowledge</h1>
+
+                <p>
+                    Explore our library, discover interesting books,
+                    and make learning part of your everyday life.
+                </p>
+
+                <a href="books.html" class="primary-link">
+                    Explore Books
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== BOOK SEARCH SECTION ==================== -->
+        <section id="book-search-section" class="book-search-section">
+
+            <div class="section-container">
+
+                <h2>Find Your Next Favorite Book</h2>
+
+                <p>
+                    Search our library catalog to discover books
+                    that match your interests.
+                </p>
+
+                <form id="book-search-form" action="books.html" method="get">
+
+                    <div class="form-group">
+
+                        <label for="book-search">
+                            Search by book title, author, or ISBN
+                        </label>
+
+                        <input
+                            type="search"
+                            id="book-search"
+                            name="q"
+                            placeholder="Enter a book title, author, or ISBN"
+                        >
+
+                    </div>
+
+                    <button type="submit" class="search-button">
+                        Search Books
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== FEATURED BOOKS SECTION ==================== -->
+        <section id="featured-books-section" class="featured-books-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <h2>Featured Books</h2>
+
+                    <p>
+                        Discover some of the books available
+                        in our library.
+                    </p>
+
+                </div>
+
+                <div class="book-list">
+
+                    <article class="book-card">
+
+                        <div class="book-information">
+
+                            <h3>Introduction to Programming</h3>
+
+                            <p class="book-author">
+                                Author: John Smith
+                            </p>
+
+                            <p class="book-category">
+                                Category: Computer Science
+                            </p>
+
+                            <a href="book-details.html" class="book-details-link">
+                                View Details
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="book-card">
+
+                        <div class="book-information">
+
+                            <h3>Fundamentals of Mathematics</h3>
+
+                            <p class="book-author">
+                                Author: Robert Brown
+                            </p>
+
+                            <p class="book-category">
+                                Category: Mathematics
+                            </p>
+
+                            <a href="book-details.html" class="book-details-link">
+                                View Details
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="book-card">
+
+                        <div class="book-information">
+
+                            <h3>Database Management Systems</h3>
+
+                            <p class="book-author">
+                                Author: Thomas Connolly
+                            </p>
+
+                            <p class="book-category">
+                                Category: Computer Science
+                            </p>
+
+                            <a href="book-details.html" class="book-details-link">
+                                View Details
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+                <div class="section-action">
+
+                    <a href="books.html" class="view-all-books-link">
+                        View All Books
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== CATEGORIES SECTION ==================== -->
+        <section id="categories-section" class="categories-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <h2>Explore Book Categories</h2>
+
+                    <p>
+                        Browse books from different fields
+                        of knowledge.
+                    </p>
+
+                </div>
+
+                <div class="category-list">
+
+                    <article class="category-card">
+
+                        <h3>Computer Science</h3>
+
+                        <a href="books.html?category=computer-science">
+                            Explore Books
+                        </a>
+
+                    </article>
+
+
+                    <article class="category-card">
+
+                        <h3>Science</h3>
+
+                        <a href="books.html?category=science">
+                            Explore Books
+                        </a>
+
+                    </article>
+
+
+                    <article class="category-card">
+
+                        <h3>Mathematics</h3>
+
+                        <a href="books.html?category=mathematics">
+                            Explore Books
+                        </a>
+
+                    </article>
+
+
+                    <article class="category-card">
+
+                        <h3>Literature</h3>
+
+                        <a href="books.html?category=literature">
+                            Explore Books
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== RECENTLY ADDED BOOKS ==================== -->
+        <section id="recent-books-section" class="recent-books-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <h2>Recently Added Books</h2>
+
+                    <p>
+                        Take a look at some of the latest additions
+                        to our library collection.
+                    </p>
+
+                </div>
+
+                <div class="book-list">
+
+                    <article class="book-card">
+
+                        <div class="book-information">
+
+                            <h3>Web Development Fundamentals</h3>
+
+                            <p class="book-author">
+                                Author: David Miller
+                            </p>
+
+                            <a href="book-details.html" class="book-details-link">
+                                View Details
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="book-card">
+
+                        <div class="book-information">
+
+                            <h3>Introduction to Artificial Intelligence</h3>
+
+                            <p class="book-author">
+                                Author: Michael Anderson
+                            </p>
+
+                            <a href="book-details.html" class="book-details-link">
+                                View Details
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="book-card">
+
+                        <div class="book-information">
+
+                            <h3>Principles of Economics</h3>
+
+                            <p class="book-author">
+                                Author: James Wilson
+                            </p>
+
+                            <a href="book-details.html" class="book-details-link">
+                                View Details
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== HOW IT WORKS SECTION ==================== -->
+        <section id="how-it-works-section" class="how-it-works-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <h2>How Our Library Works</h2>
+
+                    <p>
+                        Access library services through a few
+                        simple steps.
+                    </p>
+
+                </div>
+
+                <div class="steps-list">
+
+                    <article class="step-card">
+
+                        <h3>Step 1: Create an Account</h3>
+
+                        <p>
+                            Register for a library member account
+                            to access borrowing services.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step-card">
+
+                        <h3>Step 2: Explore Books</h3>
+
+                        <p>
+                            Browse the library catalog and find
+                            books that interest you.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step-card">
+
+                        <h3>Step 3: Request a Book</h3>
+
+                        <p>
+                            Submit a borrowing request and wait
+                            for librarian approval.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step-card">
+
+                        <h3>Step 4: Enjoy Reading</h3>
+
+                        <p>
+                            Collect your approved book and return
+                            it within the specified borrowing period.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== ABOUT LIBRARY SECTION ==================== -->
+        <section id="library-information-section" class="library-information-section">
+
+            <div class="section-container">
+
+                <h2>About Our Library</h2>
+
+                <p>
+                    Our library provides access to educational
+                    resources and learning materials for students,
+                    researchers, and other readers.
+                </p>
+
+                <p>
+                    Through our Online Library Management System,
+                    members can explore books, request borrowing,
+                    and manage their library activities online.
+                </p>
+
+                <a href="about.html" class="about-link">
+                    Learn More About Us
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== CALL TO ACTION SECTION ==================== -->
+        <section id="membership-section" class="membership-section">
+
+            <div class="section-container">
+
+                <h2>Become a Library Member</h2>
+
+                <p>
+                    Create your account and start exploring
+                    the books available in our library.
+                </p>
+
+                <a href="register.html" class="membership-link">
+                    Join Our Library
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="main-footer" class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-about">
+
+                <h2>Online Library Management System</h2>
+
+                <p>
+                    Connecting readers with knowledge through
+                    accessible library services.
+                </p>
+
+            </div>
+
+
+            <div class="footer-navigation">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="books.html">Books</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-account">
+
+                <h3>Account</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="login.html">Login</a>
+                    </li>
+
+                    <li>
+                        <a href="register.html">Register</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <h3>Contact Information</h3>
+
+                <p>Email: library@example.com</p>
+
+                <p>Phone: +000 000 000 000</p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2026 Online Library Management System.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
