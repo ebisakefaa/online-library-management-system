@@ -1,0 +1,1119 @@
+
+/* =========================================================
+   ONLINE LIBRARY MANAGEMENT SYSTEM
+   File: css/pages.css
+   Purpose: Public, Staff, Admin, Librarian and Member pages
+   ========================================================= */
+
+
+/* =========================================================
+   1. SHARED CONTENT SECTIONS
+   ========================================================= */
+
+.page-introduction {
+    margin-bottom: 30px;
+}
+
+.page-introduction p {
+    max-width: 850px;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.section-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.section-heading h2,
+.section-heading h3 {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.information-section,
+.content-section {
+    margin-bottom: 35px;
+}
+
+.information-section p,
+.content-section p {
+    color: #475569;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   2. PUBLIC HOMEPAGE
+   ========================================================= */
+
+.hero-section {
+    padding: 65px 25px;
+    background-color: #eff6ff;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-section h1 {
+    margin-bottom: 18px;
+    color: #1e293b;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+}
+
+.hero-section p {
+    margin-bottom: 25px;
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.hero-actions a {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 7px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.featured-books-section,
+.library-features-section {
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+
+.library-features-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.library-features-list li {
+    padding: 22px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.library-features-list h3 {
+    margin-bottom: 10px;
+    color: #2457a6;
+}
+
+.library-features-list p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   3. BOOK SEARCH AND FILTERS
+   ========================================================= */
+
+.book-search-section {
+    margin-bottom: 30px;
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+#book-filter-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+#book-filter-form .form-group {
+    margin-bottom: 0;
+}
+
+.search-group {
+    grid-column: 1 / -1;
+}
+
+.category-filter,
+.availability-filter,
+.sort-filter {
+    min-width: 0;
+}
+
+.filter-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    grid-column: 1 / -1;
+    margin-top: 8px;
+}
+
+.search-submit-button {
+    padding: 11px 20px;
+    color: #ffffff;
+    background-color: #2457a6;
+    border: 1px solid #2457a6;
+    border-radius: 7px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.search-submit-button:hover {
+    background-color: #1d4788;
+}
+
+.clear-filters-link {
+    color: #475569;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.clear-filters-link:hover {
+    color: #2457a6;
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   4. BOOK CATEGORIES
+   ========================================================= */
+
+#book-categories {
+    margin-bottom: 30px;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.category-list a {
+    display: inline-block;
+    padding: 9px 15px;
+    color: #334155;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.category-list a:hover {
+    color: #ffffff;
+    background-color: #2457a6;
+    border-color: #2457a6;
+}
+
+
+/* =========================================================
+   5. BOOK CATALOGUE
+   ========================================================= */
+
+#book-catalogue {
+    margin-bottom: 35px;
+}
+
+.catalogue-heading {
+    margin-bottom: 20px;
+}
+
+.catalogue-result-count {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.book-information {
+    flex: 1;
+}
+
+.book-category {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    color: #1e40af;
+    background-color: #eff6ff;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.book-title {
+    margin-bottom: 8px;
+    color: #1e293b;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.book-author,
+.book-publisher,
+.book-isbn {
+    margin-bottom: 7px;
+    color: #64748b;
+    font-size: 0.88rem;
+}
+
+.book-description {
+    margin: 12px 0;
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.book-availability {
+    margin-top: 12px;
+    margin-bottom: 15px;
+}
+
+.availability-label {
+    margin-right: 5px;
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.availability-status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.availability-status.available {
+    color: #166534;
+    background-color: #dcfce7;
+}
+
+.availability-status.unavailable {
+    color: #991b1b;
+    background-color: #fee2e2;
+}
+
+.book-details-link {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 12px;
+    color: #2457a6;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.book-details-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   6. CATALOGUE PAGINATION
+   ========================================================= */
+
+#catalogue-pagination {
+    margin-top: 35px;
+}
+
+.pagination-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagination-list a,
+.pagination-list span {
+    display: inline-block;
+    min-width: 38px;
+    padding: 9px 12px;
+    color: #334155;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.pagination-list a:hover {
+    color: #ffffff;
+    background-color: #2457a6;
+    border-color: #2457a6;
+}
+
+
+/* =========================================================
+   7. BOOK DETAILS PAGE
+   ========================================================= */
+
+#book-details {
+    margin-bottom: 35px;
+}
+
+.book-details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 30px;
+    padding: 28px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.book-metadata {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.book-metadata p {
+    padding: 12px;
+    background-color: #f8fafc;
+    border-radius: 7px;
+    color: #475569;
+    line-height: 1.5;
+}
+
+.book-description-section,
+.borrowing-information {
+    margin-top: 25px;
+    padding: 22px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.book-description-section h2,
+.borrowing-information h2 {
+    margin-bottom: 12px;
+    color: #1e293b;
+}
+
+.related-book-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.related-book-card {
+    padding: 18px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   8. ABOUT PAGE
+   ========================================================= */
+
+#about {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#about section {
+    margin-bottom: 35px;
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+#about section h2 {
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+#about section p {
+    color: #475569;
+    line-height: 1.8;
+}
+
+#about section ul {
+    padding-left: 22px;
+    color: #475569;
+}
+
+#about section li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   9. CONTACT PAGE
+   ========================================================= */
+
+#contact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+#contact section {
+    min-width: 0;
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+#contact section h2 {
+    margin-bottom: 18px;
+    color: #1e293b;
+}
+
+#contact section p {
+    margin-bottom: 12px;
+    color: #475569;
+    line-height: 1.7;
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.contact-form .form-group {
+    margin-bottom: 18px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font: inherit;
+}
+
+.contact-form textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #2457a6;
+    box-shadow: 0 0 0 3px rgba(36, 87, 166, 0.13);
+}
+
+
+/* =========================================================
+   10. FREQUENTLY ASKED QUESTIONS
+   ========================================================= */
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.faq-item {
+    padding: 18px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.faq-item h3 {
+    margin-bottom: 10px;
+    color: #1e293b;
+    font-size: 1rem;
+}
+
+.faq-item p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   11. STAFF NAVIGATION
+   ========================================================= */
+
+#staff-navigation {
+    margin-bottom: 28px;
+    padding: 18px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.staff-navigation-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.staff-navigation-list a {
+    display: inline-block;
+    padding: 9px 14px;
+    color: #334155;
+    background-color: #f1f5f9;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.staff-navigation-list a:hover {
+    color: #ffffff;
+    background-color: #2457a6;
+}
+
+
+/* =========================================================
+   12. STAFF INVENTORY TABLES
+   ========================================================= */
+
+.book-inventory-table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.book-inventory-table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    text-align: left;
+}
+
+.book-inventory-table th {
+    padding: 14px;
+    color: #334155;
+    background-color: #f1f5f9;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.book-inventory-table td {
+    padding: 13px 14px;
+    color: #475569;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.book-inventory-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.book-record-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.book-record-actions a {
+    color: #2457a6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.book-record-actions a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   13. STAFF MANAGEMENT ACTIONS
+   ========================================================= */
+
+.management-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.staff-quick-navigation-section {
+    margin-top: 30px;
+    padding: 22px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+
+/* =========================================================
+   14. BOOK MANAGEMENT FORMS
+   ========================================================= */
+
+.book-form {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.book-basic-information,
+.book-publishing-information,
+.book-inventory-information,
+.book-description-information {
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.book-basic-information legend,
+.book-publishing-information legend,
+.book-inventory-information legend,
+.book-description-information legend {
+    padding: 0 8px;
+    color: #334155;
+    font-weight: 700;
+}
+
+.book-form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   15. CATEGORY MANAGEMENT
+   ========================================================= */
+
+.category-overview-section,
+.category-management-section {
+    margin-bottom: 30px;
+}
+
+.category-overview-section,
+.category-management-section {
+    padding: 22px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.category-management-section form {
+    max-width: 650px;
+}
+
+.category-management-section .form-group {
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   16. MEMBER PROFILE
+   ========================================================= */
+
+.profile-information,
+.profile-details,
+.profile-section {
+    margin-bottom: 25px;
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.profile-information h2,
+.profile-details h2,
+.profile-section h2 {
+    margin-bottom: 18px;
+    color: #1e293b;
+}
+
+.profile-information dl,
+.profile-details dl {
+    display: grid;
+    grid-template-columns: minmax(130px, 1fr) minmax(0, 2fr);
+    gap: 12px 20px;
+}
+
+.profile-information dt,
+.profile-details dt {
+    color: #64748b;
+    font-weight: 600;
+}
+
+.profile-information dd,
+.profile-details dd {
+    margin: 0;
+    color: #334155;
+}
+
+
+/* =========================================================
+   17. MEMBER LOANS AND BORROWING INFORMATION
+   ========================================================= */
+
+.loan-information,
+.borrowing-details,
+.loan-history-section {
+    margin-bottom: 28px;
+}
+
+.loan-information h2,
+.borrowing-details h2,
+.loan-history-section h2 {
+    margin-bottom: 16px;
+    color: #1e293b;
+}
+
+.loan-actions,
+.borrowing-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+
+/* =========================================================
+   18. RESERVATIONS
+   ========================================================= */
+
+.reservation-information,
+.reservation-details,
+.reservation-section {
+    margin-bottom: 25px;
+    padding: 22px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.reservation-information h2,
+.reservation-details h2,
+.reservation-section h2 {
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+
+/* =========================================================
+   19. FINES AND PAYMENT INFORMATION
+   ========================================================= */
+
+.fine-information,
+.fine-summary,
+.payment-information,
+.payment-history-section {
+    margin-bottom: 25px;
+    padding: 22px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.fine-information h2,
+.fine-summary h2,
+.payment-information h2,
+.payment-history-section h2 {
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+.fine-total,
+.outstanding-balance,
+.payment-total {
+    color: #1e293b;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.payment-form {
+    max-width: 650px;
+    margin-top: 20px;
+}
+
+.payment-form .form-group {
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   20. MEMBER NOTIFICATIONS
+   ========================================================= */
+
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.notification-item {
+    padding: 18px 20px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.notification-item h2,
+.notification-item h3 {
+    margin-bottom: 8px;
+    color: #1e293b;
+    font-size: 1rem;
+}
+
+.notification-item p {
+    color: #475569;
+    line-height: 1.6;
+}
+
+.notification-item time {
+    display: block;
+    margin-top: 10px;
+    color: #64748b;
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   21. REPORTS AND SUMMARY CONTENT
+   ========================================================= */
+
+.report-section,
+.report-summary,
+.report-information {
+    margin-bottom: 30px;
+    padding: 22px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.report-section h2,
+.report-summary h2,
+.report-information h2 {
+    margin-bottom: 18px;
+    color: #1e293b;
+}
+
+.report-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   22. MEMBER REGISTRATION CALL TO ACTION
+   ========================================================= */
+
+#membership-call-to-action {
+    margin-top: 40px;
+    padding: 28px;
+    background-color: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#membership-call-to-action h2 {
+    margin-bottom: 12px;
+    color: #1e3a8a;
+}
+
+#membership-call-to-action p {
+    margin-bottom: 18px;
+    color: #475569;
+    line-height: 1.7;
+}
+
+.membership-register-link {
+    display: inline-block;
+    padding: 11px 20px;
+    color: #ffffff;
+    background-color: #2457a6;
+    border-radius: 7px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.membership-register-link:hover {
+    background-color: #1d4788;
+}
+
+
+/* =========================================================
+   23. RESPONSIVE DESIGN - TABLETS
+   ========================================================= */
+
+@media (max-width: 1024px) {
+    .book-list,
+    .related-book-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .library-features-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #contact {
+        grid-template-columns: 1fr;
+    }
+
+    .book-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   24. RESPONSIVE DESIGN - MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+    .hero-section {
+        padding: 40px 18px;
+    }
+
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions a {
+        width: 100%;
+    }
+
+    #book-filter-form {
+        grid-template-columns: 1fr;
+    }
+
+    .search-group,
+    .filter-actions {
+        grid-column: auto;
+    }
+
+    .book-list,
+    .related-book-list,
+    .library-features-list {
+        grid-template-columns: 1fr;
+    }
+
+    .book-card {
+        padding: 17px;
+    }
+
+    .book-metadata {
+        grid-template-columns: 1fr;
+    }
+
+    .book-details,
+    .book-form {
+        padding: 18px;
+    }
+
+    #about section,
+    #contact section {
+        padding: 18px;
+    }
+
+    .profile-information dl,
+    .profile-details dl {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .profile-information dd,
+    .profile-details dd {
+        margin-bottom: 12px;
+    }
+
+    .staff-navigation-list {
+        flex-direction: column;
+    }
+
+    .staff-navigation-list a {
+        display: block;
+    }
+
+    .book-form-actions,
+    .management-actions,
+    .report-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+
+/* =========================================================
+   END OF PAGES STYLESHEET
+   ========================================================= */
