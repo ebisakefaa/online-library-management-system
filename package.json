@@ -1,0 +1,13 @@
+
+{
+  "name": "online-library-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Online Library Management System - University Project",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1"
+  },
+  "devDependencies": {
+    "vite": "latest"
+  }
+}
