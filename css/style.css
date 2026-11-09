@@ -1,0 +1,973 @@
+
+/* =========================================================
+   ONLINE LIBRARY MANAGEMENT SYSTEM
+   GLOBAL STYLESHEET
+   File: css/style.css
+   ========================================================= */
+
+
+/* =========================================================
+   1. GOOGLE-FREE FONT AND DESIGN VARIABLES
+   ========================================================= */
+
+:root {
+    /* Brand colors */
+    --primary-color: #2457a6;
+    --primary-dark: #19427f;
+    --primary-light: #eaf1fc;
+
+    --secondary-color: #0f766e;
+    --secondary-dark: #0b5d57;
+    --secondary-light: #e6f5f2;
+
+    /* General colors */
+    --white: #ffffff;
+    --black: #111827;
+
+    --background-color: #f5f7fb;
+    --surface-color: #ffffff;
+
+    --text-primary: #1f2937;
+    --text-secondary: #64748b;
+    --text-light: #94a3b8;
+
+    --border-color: #e2e8f0;
+
+    /* Status colors */
+    --success-color: #15803d;
+    --success-background: #dcfce7;
+
+    --warning-color: #b45309;
+    --warning-background: #fef3c7;
+
+    --danger-color: #dc2626;
+    --danger-background: #fee2e2;
+
+    --info-color: #0369a1;
+    --info-background: #e0f2fe;
+
+    /* Typography */
+    --font-family: Arial, Helvetica, sans-serif;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+
+    /* Layout */
+    --container-width: 1200px;
+
+    /* Borders and shadows */
+    --border-radius-sm: 5px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+    --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.12);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+}
+
+
+/* =========================================================
+   2. CSS RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+ul,
+ol {
+    padding-left: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+h2 {
+    font-size: var(--font-size-2xl);
+}
+
+h3 {
+    font-size: var(--font-size-lg);
+}
+
+p {
+    margin-top: 0;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: var(--spacing-lg) 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================================
+   3. ACCESSIBILITY
+   ========================================================= */
+
+:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 1000;
+    padding: 0.75rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: var(--border-radius-md);
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+
+/* =========================================================
+   4. SHARED LAYOUT CONTAINERS
+   ========================================================= */
+
+.header-container,
+.footer-container,
+.dashboard-container,
+.container {
+    width: min(100% - 2rem, var(--container-width));
+    margin-inline: auto;
+}
+
+main {
+    min-height: 65vh;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-2xl);
+}
+
+section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-heading {
+    margin-bottom: var(--spacing-lg);
+}
+
+.section-heading p {
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   5. WEBSITE HEADER
+   ========================================================= */
+
+.site-header {
+    position: relative;
+    z-index: 10;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+}
+
+.site-logo {
+    color: var(--primary-color);
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    white-space: nowrap;
+    letter-spacing: -0.5px;
+}
+
+.site-logo:hover {
+    color: var(--primary-dark);
+}
+
+
+/* =========================================================
+   6. MAIN NAVIGATION
+   ========================================================= */
+
+.main-navigation ul,
+.site-footer nav ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-navigation a {
+    display: inline-block;
+    padding: 0.5rem 0;
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.main-navigation a:hover,
+.main-navigation a[aria-current="page"] {
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   7. HEADER ACCOUNT AREA
+   ========================================================= */
+
+.header-account {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.account-role {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.header-account form {
+    margin: 0;
+}
+
+
+/* =========================================================
+   8. MEMBER AND SHARED ACCOUNT NAVIGATION
+   ========================================================= */
+
+.member-navigation {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md);
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+}
+
+.member-navigation h2 {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+}
+
+.member-navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.member-navigation a {
+    display: block;
+    padding: 0.55rem 0.85rem;
+    color: var(--text-secondary);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.member-navigation a:hover,
+.member-navigation a[aria-current="page"] {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   9. PAGE HEADINGS AND BREADCRUMBS
+   ========================================================= */
+
+.page-heading {
+    margin-bottom: var(--spacing-xl);
+}
+
+.page-heading h1 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.page-heading > p {
+    color: var(--text-secondary);
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+}
+
+.breadcrumb span:last-child {
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   10. SHARED CARDS AND SUMMARY COMPONENTS
+   ========================================================= */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.summary-card {
+    min-width: 0;
+    padding: var(--spacing-lg);
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.summary-card h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.summary-card p:last-child {
+    margin-bottom: 0;
+}
+
+.summary-number {
+    margin-bottom: var(--spacing-xs);
+    color: var(--primary-color);
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.card {
+    padding: var(--spacing-lg);
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   11. BUTTONS
+   ========================================================= */
+
+.primary-button,
+.secondary-button,
+.logout-button,
+.danger-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    min-height: 42px;
+    padding: 0.65rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-align: center;
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.primary-button:hover {
+    background-color: var(--primary-dark);
+    color: var(--white);
+}
+
+.secondary-button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.secondary-button:hover {
+    background-color: var(--secondary-dark);
+    color: var(--white);
+}
+
+.logout-button {
+    min-height: 38px;
+    padding: 0.5rem 0.85rem;
+    background-color: var(--danger-background);
+    color: var(--danger-color);
+}
+
+.logout-button:hover {
+    background-color: var(--danger-color);
+    color: var(--white);
+}
+
+.danger-button {
+    background-color: var(--danger-color);
+    color: var(--white);
+}
+
+.danger-button:hover {
+    background-color: #b91c1c;
+    color: var(--white);
+}
+
+.primary-button:disabled,
+.secondary-button:disabled,
+.logout-button:disabled,
+.danger-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.text-button {
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.text-button:hover {
+    color: var(--primary-dark);
+}
+
+
+/* =========================================================
+   12. SHARED FORMS
+   ========================================================= */
+
+form {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+label,
+legend {
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.7rem 0.85rem;
+    background-color: var(--white);
+    border: 1px solid #cbd5e1;
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-light);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(36, 87, 166, 0.12);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+    background-color: #f1f5f9;
+    color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0 0 var(--spacing-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+}
+
+legend {
+    padding: 0 0.5rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+    min-height: auto;
+    accent-color: var(--primary-color);
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    display: inline;
+    margin-left: 0.4rem;
+}
+
+input[type="file"] {
+    padding: 0.55rem;
+}
+
+
+/* =========================================================
+   13. FILTER FORMS
+   ========================================================= */
+
+.notification-filters,
+.search-filters {
+    padding: var(--spacing-lg);
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+}
+
+.notification-filters form,
+.search-filters form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--spacing-md);
+    margin-bottom: 0;
+}
+
+.notification-filters .form-group,
+.search-filters .form-group {
+    flex: 1 1 180px;
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   14. TABLES
+   ========================================================= */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--font-size-sm);
+}
+
+caption {
+    padding: var(--spacing-md);
+    color: var(--text-secondary);
+    text-align: left;
+    caption-side: top;
+}
+
+thead {
+    background-color: #f1f5f9;
+}
+
+th,
+td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+th {
+    color: var(--text-primary);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+td {
+    color: var(--text-secondary);
+}
+
+tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+tfoot {
+    background-color: #f8fafc;
+    font-weight: 700;
+}
+
+tfoot th,
+tfoot td {
+    color: var(--text-primary);
+}
+
+.table-note {
+    margin-top: var(--spacing-sm);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+
+/* =========================================================
+   15. STATUS LABELS
+   ========================================================= */
+
+.status,
+.fine-status,
+.payment-status,
+.notification-status {
+    display: inline-block;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.success,
+.completed,
+.paid {
+    background-color: var(--success-background);
+    color: var(--success-color);
+}
+
+.warning,
+.pending,
+.partial,
+.unread-status {
+    background-color: var(--warning-background);
+    color: var(--warning-color);
+}
+
+.danger,
+.overdue,
+.unpaid {
+    background-color: var(--danger-background);
+    color: var(--danger-color);
+}
+
+.info,
+.approved {
+    background-color: var(--info-background);
+    color: var(--info-color);
+}
+
+.read-status {
+    background-color: #f1f5f9;
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   16. NOTICES AND INFORMATION PANELS
+   ========================================================= */
+
+.notice,
+.payment-notice,
+.information-panel {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-lg);
+    background-color: var(--info-background);
+    border-left: 4px solid var(--info-color);
+    border-radius: var(--border-radius-md);
+}
+
+.notice h3,
+.payment-notice h3,
+.information-panel h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.notice p:last-child,
+.payment-notice p:last-child,
+.information-panel p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   17. FOOTER
+   ========================================================= */
+
+.site-footer {
+    margin-top: auto;
+    padding: var(--spacing-xl) 0;
+    background-color: #172b4d;
+    color: #e2e8f0;
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+}
+
+.site-footer nav a {
+    color: #e2e8f0;
+    font-size: var(--font-size-sm);
+}
+
+.site-footer nav a:hover {
+    color: var(--white);
+}
+
+
+/* =========================================================
+   18. EMPTY STATES
+   ========================================================= */
+
+.empty-state,
+.empty-notifications {
+    padding: var(--spacing-2xl);
+    background-color: var(--white);
+    border: 1px dashed #cbd5e1;
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+}
+
+.empty-state p,
+.empty-notifications p {
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   19. RESPONSIVE DESIGN — TABLETS
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .header-container {
+        flex-wrap: wrap;
+        padding-top: var(--spacing-md);
+        padding-bottom: var(--spacing-md);
+    }
+
+    .main-navigation {
+        order: 3;
+        width: 100%;
+    }
+
+    .main-navigation ul {
+        justify-content: center;
+    }
+
+}
+
+
+/* =========================================================
+   20. RESPONSIVE DESIGN — MOBILE DEVICES
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    :root {
+        --spacing-xl: 1.5rem;
+        --spacing-2xl: 2rem;
+    }
+
+    body {
+        font-size: var(--font-size-sm);
+    }
+
+    .header-container,
+    .footer-container,
+    .dashboard-container,
+    .container {
+        width: min(100% - 1.25rem, var(--container-width));
+    }
+
+    .header-container {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .main-navigation ul {
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .header-account {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    main {
+        padding-top: var(--spacing-lg);
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-card {
+        padding: var(--spacing-md);
+    }
+
+    .member-navigation ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .member-navigation a {
+        padding: 0.65rem;
+    }
+
+    .notification-filters form,
+    .search-filters form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .notification-filters .form-group,
+    .search-filters .form-group {
+        width: 100%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .site-footer nav ul {
+        justify-content: center;
+    }
+
+    .primary-button,
+    .secondary-button {
+        max-width: 100%;
+    }
+
+}
