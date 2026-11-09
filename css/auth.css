@@ -1,0 +1,450 @@
+
+/* =========================================================
+   ONLINE LIBRARY MANAGEMENT SYSTEM
+   File: css/auth.css
+   Purpose: Login and member registration page styling
+   ========================================================= */
+
+
+/* =========================================================
+   1. AUTHENTICATION PAGE LAYOUT
+   ========================================================= */
+
+.login-section,
+.registration-section {
+    width: 100%;
+    padding: 35px 20px 55px;
+}
+
+.login-content,
+.registration-content {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 35px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================================
+   2. AUTHENTICATION HEADINGS
+   ========================================================= */
+
+.login-heading,
+.registration-heading {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.login-heading h2,
+.registration-heading h2 {
+    margin-bottom: 10px;
+    color: #1e293b;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.login-heading p,
+.registration-heading p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   3. LOGIN FORM
+   ========================================================= */
+
+.login-form {
+    width: 100%;
+}
+
+.login-form .form-group {
+    margin-bottom: 22px;
+}
+
+.login-form label,
+.registration-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.login-form input,
+.registration-form input {
+    width: 100%;
+    min-height: 46px;
+    padding: 11px 13px;
+    color: #1e293b;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-form input:focus,
+.registration-form input:focus {
+    outline: none;
+    border-color: #2457a6;
+    box-shadow: 0 0 0 3px rgba(36, 87, 166, 0.13);
+}
+
+.login-form input::placeholder,
+.registration-form input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   4. LOGIN ACTIONS
+   ========================================================= */
+
+.login-actions {
+    margin-top: 28px;
+}
+
+.login-submit-button {
+    display: block;
+    width: 100%;
+    min-height: 47px;
+    padding: 12px 20px;
+    color: #ffffff;
+    background-color: #2457a6;
+    border: 1px solid #2457a6;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.login-submit-button:hover {
+    background-color: #1d4788;
+    border-color: #1d4788;
+}
+
+.login-submit-button:focus-visible {
+    outline: 3px solid rgba(36, 87, 166, 0.3);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   5. LOGIN SUPPORTING CONTENT
+   ========================================================= */
+
+.login-registration,
+.login-help {
+    margin-top: 22px;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.93rem;
+    line-height: 1.7;
+}
+
+.login-registration a,
+.login-help a {
+    color: #2457a6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-registration a:hover,
+.login-help a:hover {
+    color: #1d4788;
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   6. REGISTRATION FORM
+   ========================================================= */
+
+.registration-form {
+    width: 100%;
+}
+
+.registration-form .form-group {
+    margin-bottom: 19px;
+}
+
+.registration-account-information {
+    margin-bottom: 25px;
+}
+
+.registration-account-information legend {
+    margin-bottom: 18px;
+    padding: 0 8px;
+    color: #334155;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.registration-account-information {
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.registration-form input[type="checkbox"] {
+    width: auto;
+    min-height: auto;
+    margin-right: 8px;
+    accent-color: #2457a6;
+}
+
+
+/* =========================================================
+   7. REGISTRATION ACTIONS
+   ========================================================= */
+
+.registration-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.registration-submit-button,
+.registration-reset-button {
+    flex: 1 1 180px;
+    min-height: 46px;
+    padding: 11px 18px;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.registration-submit-button {
+    color: #ffffff;
+    background-color: #2457a6;
+    border: 1px solid #2457a6;
+}
+
+.registration-submit-button:hover {
+    background-color: #1d4788;
+    border-color: #1d4788;
+}
+
+.registration-reset-button {
+    color: #475569;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+}
+
+.registration-reset-button:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.registration-submit-button:focus-visible,
+.registration-reset-button:focus-visible {
+    outline: 3px solid rgba(36, 87, 166, 0.25);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   8. REGISTRATION SUPPORTING CONTENT
+   ========================================================= */
+
+.registration-login,
+.registration-help {
+    margin-top: 22px;
+    color: #64748b;
+    font-size: 0.93rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.registration-login a,
+.registration-help a {
+    color: #2457a6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.registration-login a:hover,
+.registration-help a:hover {
+    color: #1d4788;
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   9. MEMBERSHIP BENEFITS
+   ========================================================= */
+
+.membership-benefits {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto 30px;
+    padding: 25px;
+    background-color: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+}
+
+.membership-benefits h2,
+.membership-benefits h3 {
+    margin-bottom: 15px;
+    color: #1e3a8a;
+}
+
+.membership-benefits p {
+    color: #475569;
+    line-height: 1.7;
+}
+
+.membership-benefits ul {
+    padding-left: 22px;
+    color: #475569;
+}
+
+.membership-benefits li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   10. PUBLIC CATALOGUE ACCESS
+   ========================================================= */
+
+.public-catalogue-access {
+    width: 100%;
+    max-width: 850px;
+    margin: 25px auto 0;
+    padding: 20px;
+    text-align: center;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+}
+
+.public-catalogue-access h2,
+.public-catalogue-access h3 {
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.public-catalogue-access p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.public-catalogue-access a {
+    color: #2457a6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.public-catalogue-access a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   11. MEMBERSHIP CALL TO ACTION
+   ========================================================= */
+
+.membership-call-to-action {
+    width: 100%;
+    max-width: 850px;
+    margin: 25px auto 0;
+    padding: 25px;
+    text-align: center;
+    background-color: #f0fdfa;
+    border: 1px solid #ccfbf1;
+    border-radius: 10px;
+}
+
+.membership-call-to-action h2,
+.membership-call-to-action h3 {
+    margin-bottom: 10px;
+    color: #115e59;
+}
+
+.membership-call-to-action p {
+    color: #475569;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   12. RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .login-section,
+    .registration-section {
+        padding: 25px 15px 40px;
+    }
+
+    .login-content,
+    .registration-content {
+        padding: 25px 20px;
+    }
+
+    .login-heading h2,
+    .registration-heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .membership-benefits,
+    .membership-call-to-action {
+        padding: 20px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .login-section,
+    .registration-section {
+        padding: 20px 12px 30px;
+    }
+
+    .login-content,
+    .registration-content {
+        padding: 22px 16px;
+        border-radius: 9px;
+    }
+
+    .login-heading h2,
+    .registration-heading h2 {
+        font-size: 1.35rem;
+    }
+
+    .registration-account-information {
+        padding: 15px;
+    }
+
+    .registration-actions {
+        flex-direction: column;
+    }
+
+    .registration-submit-button,
+    .registration-reset-button {
+        width: 100%;
+        flex-basis: auto;
+    }
+}
+
+
+/* =========================================================
+   END OF AUTHENTICATION STYLESHEET
+   ========================================================= */
+
+   
